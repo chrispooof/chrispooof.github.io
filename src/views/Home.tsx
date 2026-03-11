@@ -8,26 +8,18 @@ export default function Home() {
       <img src={finnJake} width={250} height={200} alt="Finn and Jake Adventure Time" className="mx-auto my-4" />
       <div className="inline-block">
         <p className="text-justify text-black inline-block px-[20vw] my-4 text-lg">
-          Hello! My name is Christian Bjerre-Fernandes. I am a recent graduate from the{' '}
+          Hello! My name is Christian Bjerre-Fernandes. I studied Computer Science at the{' '}
           <a href="https://www.uchicago.edu/" className="no-underline text-cyan-600">University of Chicago</a>{' '}
-          who studied computer science. In addition to computer science, I love to study languages and learn about
-          other cultures. I took Japanese and Norwegian during college and continue to study Japanese even now.
+          and graduated in 2021. I love to study languages and learn about other cultures. 
+          I took Japanese and Norwegian during college and continue to study Japanese even now.
           <br /><br />
-          During college, I was a part of{' '}
-          <a href="https://equalopportunityprograms.uchicago.edu/title-ix/rsvp-programming-center/" className="no-underline text-cyan-600">
-            Resources for Sexual Violence Prevention (RSVP)
-          </a>
-          ,{' '}
-          <a href="https://www.facebook.com/UChicagoTheMark/" className="no-underline text-cyan-600">The Mark</a>
-          , and{' '}
-          <a href="https://uncommonhacks.com/" className="no-underline text-cyan-600">Uncommon Hacks</a>.
-          I also loved to participate in intramural sports with my house (Ultimate Frisbee, Foosball,
-          Inner Tube Waterpolo, etc) and explore and eat food around Chicago as well as its suburbs.
+          I am currently a Senior Associate Software Engineer at Capital One with an AWS Solutions Architect certification. 
+          I work as a full-stack developer and data engineer on Capital One's{' '}
+          <a href="https://www.capitalone.com/software/products/slingshot/" className="no-underline text-cyan-600">Slingshot</a> 
+          {' '}SaaS product. 
           <br /><br />
-          Now I am a software engineer at Capital One in their Technology Development Program in my second year
-          of the program. I rotated from a team mainly doing devops work for a machine learning space to a team
-          doing fullstack machine learning work on an internal application. Outside of work, I love to play Apex
-          Legends (I main Horizon), watch movies (The Prestige, Lincoln Lawyer, etc. to name a few) and shows of
+          Outside of work, I love to play RPGs like Elden Ring and other souls-like games in addition to battle royale's like Apex Legends (I main Horizon).
+          I love watching movies (The Prestige, Lincoln Lawyer, etc. to name a few) and shows of
           all kind (Bojack Horseman, Love is Blind, etc.), photography, reading all sorts of things (manga, comics,
           fiction, etc.), and pickleball/biking.
           <br /><br />
