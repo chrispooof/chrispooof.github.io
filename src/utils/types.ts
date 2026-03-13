@@ -1,5 +1,10 @@
-export type Coordinates = {
-  x: number
-  y?: number
-  z: number
+import * as THREE from 'three'
+
+export class BaseFeature {
+  protected scene: THREE.Scene
+  
+  constructor(scene: THREE.Scene) {
+    this.scene = scene
+  }
 }
+
