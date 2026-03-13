@@ -1,17 +1,24 @@
 import * as THREE from 'three'
-import { Character, animateCharacter } from './characters/player'
+import PlayerInstance from './characters/player'
+import './controls/camera'
 import { getMovement } from './controls/user'
 import './hud/controls'
 import {
   CAMERA_DIST,
   CAMERA_HEIGHT,
+  CAMERA_LERP,
+  CAMERA_LOOK_OFFSET,
   CAMERA_PITCH,
   CAMERA_YAW,
   MOVE_SPEED,
+  PLAYER_RADIUS,
+  TURN_LERP_FACTOR,
   TURN_SPEED,
+  WALK_SPEED_FACTOR,
 } from './utils/constants'
-import { addScenery } from './world/scenery'
-import { Boundaries, Terrain, getHeight } from './world/terrain'
+import { checkCollision } from './world/colliders'
+import { Boundaries, Terrain } from './world/terrain'
+import { getHeight, addScenery } from './utils/utils'
 
 /**
  * Main game class that manages the Three.js scene, camera, and game loop.
@@ -35,6 +42,11 @@ export class Game {
   private scene: THREE.Scene
   private camera: THREE.PerspectiveCamera
   private readonly cameraTarget = new THREE.Vector3()
+  private readonly cameraDesired = new THREE.Vector3()
+  private readonly cameraForward = new THREE.Vector3()
+  private readonly cameraSide = new THREE.Vector3()
+  private readonly moveVec = new THREE.Vector3()
+  private readonly nextPos = new THREE.Vector3()
   private lastTime = performance.now()
 
   // Character state
@@ -84,7 +96,7 @@ export class Game {
     addScenery(this.scene)
 
     // Add character
-    this.scene.add(Character)
+    this.scene.add(PlayerInstance.character)
 
     // Add windowresize listener
     addEventListener('resize', () => {
@@ -96,6 +108,10 @@ export class Game {
     this.renderer.setAnimationLoop(() => this.update())
   }
 
+  /**
+   * @description
+   * Updates the game state and renders the scene
+   */
   private update() {
     const now = performance.now()
     const deltaTime = Math.min((now - this.lastTime) / 1000, 0.05)
@@ -103,33 +119,31 @@ export class Game {
 
     const { moveX, moveZ } = getMovement()
 
-    const cameraForwardBack = new THREE.Vector3(
-      Math.sin(CAMERA_YAW.value),
-      0,
-      Math.cos(CAMERA_YAW.value),
-    )
-    const cameraLeftRight = new THREE.Vector3(
-      Math.cos(CAMERA_YAW.value),
-      0,
-      -Math.sin(CAMERA_YAW.value),
-    )
+    const yaw = CAMERA_YAW.value
+    this.cameraForward.set(Math.sin(yaw), 0, Math.cos(yaw))
+    this.cameraSide.set(Math.cos(yaw), 0, -Math.sin(yaw))
 
     const isMoving = moveX !== 0 || moveZ !== 0
 
     if (isMoving) {
       // Move character based on input
-      const move = new THREE.Vector3()
-        .addScaledVector(cameraForwardBack, -moveZ)
-        .addScaledVector(cameraLeftRight, moveX)
+      this.moveVec
+        .set(0, 0, 0)
+        .addScaledVector(this.cameraForward, -moveZ)
+        .addScaledVector(this.cameraSide, moveX)
         .normalize()
         .multiplyScalar(MOVE_SPEED * deltaTime)
 
-      if (Boundaries.containsPoint(Character.position.clone().add(move))) {
-        Character.position.add(move)
+      this.nextPos.copy(PlayerInstance.character.position).add(this.moveVec)
+      if (
+        Boundaries.containsPoint(this.nextPos) &&
+        !checkCollision(this.nextPos.x, this.nextPos.z, PLAYER_RADIUS)
+      ) {
+        PlayerInstance.character.position.add(this.moveVec)
       }
 
       // Calculate the angle the character should face based on the movement direction
-      const targetYaw = Math.atan2(move.x, move.z)
+      const targetYaw = Math.atan2(this.moveVec.x, this.moveVec.z)
 
       // Finds the difference between where the character wants to face and where it's currently facing
       let diff = targetYaw - this.characterYaw
@@ -139,25 +153,30 @@ export class Game {
       while (diff < -Math.PI) diff += Math.PI * 2
 
       // Character smoothly turns to face the direction it's moving, rather than instantly snapping to the new direction
-      this.characterYaw += diff * Math.min(1, TURN_SPEED * deltaTime * 8)
-      Character.rotation.y = this.characterYaw
+      this.characterYaw += diff * Math.min(1, TURN_SPEED * deltaTime * TURN_LERP_FACTOR)
+      PlayerInstance.character.rotation.y = this.characterYaw
 
       // Update walk animation
-      this.walkPhase += deltaTime * 9
+      this.walkPhase += deltaTime * WALK_SPEED_FACTOR
     }
 
-    animateCharacter(deltaTime, isMoving, this.walkPhase)
+    PlayerInstance.animateCharacter(deltaTime, isMoving, this.walkPhase)
 
-    Character.position.y = getHeight(Character.position.x, Character.position.z)
+    PlayerInstance.character.position.y = getHeight(PlayerInstance.character.position)
 
     // Calculate camera position based on character position and camera settings so it's following the character
-    const camX =
-      Character.position.x + Math.sin(CAMERA_YAW.value) * CAMERA_DIST * Math.cos(CAMERA_PITCH.value)
-    const camY = Character.position.y + CAMERA_HEIGHT + Math.sin(CAMERA_PITCH.value) * CAMERA_DIST
-    const camZ =
-      Character.position.z + Math.cos(CAMERA_YAW.value) * CAMERA_DIST * Math.cos(CAMERA_PITCH.value)
-    this.camera.position.lerp(new THREE.Vector3(camX, camY, camZ), 10 * deltaTime)
-    this.cameraTarget.set(Character.position.x, Character.position.y + 1.2, Character.position.z)
+    const pitch = CAMERA_PITCH.value
+    const cosPitch = Math.cos(pitch)
+    const camX = PlayerInstance.character.position.x + Math.sin(yaw) * CAMERA_DIST * cosPitch
+    const camY = PlayerInstance.character.position.y + CAMERA_HEIGHT + Math.sin(pitch) * CAMERA_DIST
+    const camZ = PlayerInstance.character.position.z + Math.cos(yaw) * CAMERA_DIST * cosPitch
+    this.cameraDesired.set(camX, camY, camZ)
+    this.camera.position.lerp(this.cameraDesired, CAMERA_LERP * deltaTime)
+    this.cameraTarget.set(
+      PlayerInstance.character.position.x,
+      PlayerInstance.character.position.y + CAMERA_LOOK_OFFSET,
+      PlayerInstance.character.position.z,
+    )
     this.camera.lookAt(this.cameraTarget)
 
     this.renderer.render(this.scene, this.camera)

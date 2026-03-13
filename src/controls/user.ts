@@ -1,4 +1,4 @@
-const keys = new Set<string>()
+const keys = new Set<KeyboardEvent['code']>()
 
 addEventListener('keydown', (e: KeyboardEvent) => keys.add(e.code))
 addEventListener('keyup', (e: KeyboardEvent) => keys.delete(e.code))
