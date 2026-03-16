@@ -1,3 +1,5 @@
+import { isTouchDevice } from '../utils/device'
+
 /**
  * Dark Souls-style intro screen.
  * A radial vignette reveals the 3D scene through a circular window in the centre.
@@ -12,6 +14,10 @@ class StartScreen {
     document.body.appendChild(this.overlay)
   }
 
+  /**
+   * Builds the DOM for the start screen.
+   * @returns The start screen DOM element.
+   */
   private buildDOM(): HTMLElement {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 z-30 font-serif cursor-pointer select-none'
@@ -40,7 +46,7 @@ class StartScreen {
     const prompt = document.createElement('div')
     prompt.className =
       'absolute bottom-[10%] left-0 right-0 text-center text-[#6a5030] text-[12px] tracking-[3px] animate-pulse'
-    prompt.textContent = '[ Press any key to begin ]'
+    prompt.textContent = isTouchDevice ? '[ Tap to begin ]' : '[ Press any key to begin ]'
     overlay.appendChild(prompt)
 
     return overlay
@@ -66,7 +72,9 @@ class StartScreen {
     this.overlay.addEventListener('click', trigger, { once: true })
   }
 
-  /** Hides the start screen. */
+  /**
+   * Hides the start screen.
+   */
   hide(): void {
     this.overlay.classList.add('hidden')
   }
