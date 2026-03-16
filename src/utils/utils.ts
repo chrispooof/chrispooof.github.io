@@ -1,8 +1,7 @@
 import * as THREE from 'three'
 import { Terrain } from '../world/terrain'
-import { pillarLocations, rockLocations } from '../world/features/locations'
+import { pillarLocations } from '../world/features/locations'
 import { Pillar } from '../world/features/pillar'
-import { Rock } from '../world/features/rock'
 
 const _raycaster = new THREE.Raycaster()
 const _downDir = new THREE.Vector3(0, -1, 0)
@@ -30,5 +29,4 @@ export const getHeight = (coordinates: THREE.Vector3): number => {
  */
 export const addScenery = (scene: THREE.Scene): void => {
   pillarLocations.forEach((coordinates) => new Pillar(scene).place(coordinates))
-  rockLocations.forEach((coordinates) => new Rock(scene).place(coordinates))
 }

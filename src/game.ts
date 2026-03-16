@@ -1,8 +1,12 @@
 import * as THREE from 'three'
 import PlayerInstance from './characters/player'
 import './controls/camera'
-import { getMovement } from './controls/user'
+import { getMovement, getInteractPressed, isInputBlocked } from './controls/user'
 import './hud/controls'
+import { showPrompt, hidePrompt } from './hud/prompt'
+import { registerInteractable, updateNearby, getNearby } from './interactions/interactables'
+import { openBonfireMenu } from './interactions/bonfireMenu'
+import { openPhotoViewer } from './interactions/photoViewer'
 import {
   CAMERA_DIST,
   CAMERA_HEIGHT,
@@ -20,6 +24,7 @@ import { checkCollision } from './world/colliders'
 import { cameraBlockers } from './world/cameraBlockers'
 import { addCorridor, updateTorches } from './world/corridor'
 import BonfireInstance from './world/features/bonfire'
+import { Painting } from './world/features/painting'
 import { Boundaries, Terrain } from './world/terrain'
 import { getHeight, addScenery } from './utils/utils'
 
@@ -53,6 +58,7 @@ export class Game {
   private readonly camRaycaster = new THREE.Raycaster()
   private readonly camRayOrigin = new THREE.Vector3()
   private readonly camRayDir = new THREE.Vector3()
+  private readonly promptWorldPos = new THREE.Vector3()
   private lastTime = performance.now()
 
   // Character state
@@ -103,6 +109,17 @@ export class Game {
     addCorridor(this.scene)
     addScenery(this.scene)
     BonfireInstance.place(this.scene, new THREE.Vector3(0, 0, -1))
+
+    // Mount paintings centered between each pair of pillars (pillars at z=-2,-5,-8; midpoints below)
+    new Painting(this.scene, 0x1a1040).place(new THREE.Vector3(2.7, 1.8, 0))     // eclipse    — midpoint: pillar z=+2 → pillar z=-2
+    new Painting(this.scene, 0x3a1020).place(new THREE.Vector3(2.7, 1.8, -3.5))  // japan      — midpoint: pillar z=-2 → pillar z=-5
+    new Painting(this.scene, 0x0a2a20).place(new THREE.Vector3(2.7, 1.8, -6.5))  // costa-rica — midpoint: pillar z=-5 → pillar z=-8
+
+    // Register interactables
+    registerInteractable({ x: 0, y: 1.8, z: -1, radius: 2, label: 'interact with bonfire', onInteract: openBonfireMenu })
+    registerInteractable({ x: 2.7, y: 2.6, z: 0, radius: 1.8, label: 'view eclipse photos', onInteract: () => openPhotoViewer('eclipse', 'Eclipse') })
+    registerInteractable({ x: 2.7, y: 2.6, z: -3.5, radius: 1.8, label: 'view japan photos', onInteract: () => openPhotoViewer('japan', 'Japan') })
+    registerInteractable({ x: 2.7, y: 2.6, z: -6.5, radius: 1.8, label: 'view costa rica photos', onInteract: () => openPhotoViewer('costa-rica', 'Costa Rica') })
 
     // Add character
     this.scene.add(PlayerInstance.character)
@@ -173,6 +190,20 @@ export class Game {
 
     PlayerInstance.character.rotation.y = this.characterYaw
     PlayerInstance.animateCharacter(deltaTime, isMoving, this.walkPhase)
+
+    // Interaction proximity check
+    updateNearby(PlayerInstance.character.position.x, PlayerInstance.character.position.z)
+    const nearby = getNearby()
+    if (nearby !== null) {
+      this.promptWorldPos.set(nearby.x, nearby.y, nearby.z)
+      this.promptWorldPos.project(this.camera)
+      const screenX = (this.promptWorldPos.x + 1) / 2 * innerWidth
+      const screenY = (-this.promptWorldPos.y + 1) / 2 * innerHeight
+      showPrompt(nearby.label, screenX, screenY)
+      if (!isInputBlocked() && getInteractPressed()) nearby.onInteract()
+    } else {
+      hidePrompt()
+    }
 
     PlayerInstance.character.position.y = getHeight(PlayerInstance.character.position)
 
