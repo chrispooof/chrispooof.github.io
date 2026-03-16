@@ -5,7 +5,9 @@ import { Menu, type MenuItem } from './menu'
 const items: MenuItem[] = [
   {
     label: 'Open Resume',
-    action: (): void => { window.open(resumePdf, '_blank') },
+    action: (): void => {
+      window.open(resumePdf, '_blank')
+    },
   },
   {
     label: 'Rest',
@@ -15,7 +17,9 @@ const items: MenuItem[] = [
   },
   {
     label: 'Leave',
-    action: (): void => { menu.close() },
+    action: (): void => {
+      menu.close()
+    },
   },
 ]
 

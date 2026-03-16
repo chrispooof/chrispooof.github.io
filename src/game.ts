@@ -1,11 +1,11 @@
 import * as THREE from 'three'
 import PlayerInstance from './characters/player'
 import './controls/camera'
-import { getMovement, getInteractPressed, isInputBlocked } from './controls/user'
+import { getInteractPressed, getMovement, isInputBlocked } from './controls/user'
 import './hud/controls'
-import { showPrompt, hidePrompt } from './hud/prompt'
-import { registerInteractable, updateNearby, getNearby } from './interactions/interactables'
+import { hidePrompt, showPrompt } from './hud/prompt'
 import { openBonfireMenu } from './interactions/bonfireMenu'
+import { getNearby, registerInteractable, updateNearby } from './interactions/interactables'
 import { openPhotoViewer } from './interactions/photoViewer'
 import {
   CAMERA_DIST,
@@ -20,13 +20,13 @@ import {
   TURN_SPEED,
   WALK_SPEED_FACTOR,
 } from './utils/constants'
-import { checkCollision } from './world/colliders'
+import { addScenery, getHeight } from './utils/utils'
 import { cameraBlockers } from './world/cameraBlockers'
+import { checkCollision } from './world/colliders'
 import { addCorridor, updateTorches } from './world/corridor'
 import BonfireInstance from './world/features/bonfire'
 import { Painting } from './world/features/painting'
 import { Boundaries, Terrain } from './world/terrain'
-import { getHeight, addScenery } from './utils/utils'
 
 /**
  * Main game class that manages the Three.js scene, camera, and game loop.
@@ -111,15 +111,43 @@ export class Game {
     BonfireInstance.place(this.scene, new THREE.Vector3(0, 0, -1))
 
     // Mount paintings centered between each pair of pillars (pillars at z=-2,-5,-8; midpoints below)
-    new Painting(this.scene, 0x1a1040).place(new THREE.Vector3(2.7, 1.8, 0))     // eclipse    — midpoint: pillar z=+2 → pillar z=-2
-    new Painting(this.scene, 0x3a1020).place(new THREE.Vector3(2.7, 1.8, -3.5))  // japan      — midpoint: pillar z=-2 → pillar z=-5
-    new Painting(this.scene, 0x0a2a20).place(new THREE.Vector3(2.7, 1.8, -6.5))  // costa-rica — midpoint: pillar z=-5 → pillar z=-8
+    new Painting(this.scene, 0x1a1040).place(new THREE.Vector3(2.7, 1.8, 0)) // eclipse    — midpoint: pillar z=+2 → pillar z=-2
+    new Painting(this.scene, 0x3a1020).place(new THREE.Vector3(2.7, 1.8, -3.5)) // japan      — midpoint: pillar z=-2 → pillar z=-5
+    new Painting(this.scene, 0x0a2a20).place(new THREE.Vector3(2.7, 1.8, -6.5)) // costa-rica — midpoint: pillar z=-5 → pillar z=-8
 
     // Register interactables
-    registerInteractable({ x: 0, y: 1.8, z: -1, radius: 2, label: 'interact with bonfire', onInteract: openBonfireMenu })
-    registerInteractable({ x: 2.7, y: 2.6, z: 0, radius: 1.8, label: 'view eclipse photos', onInteract: () => openPhotoViewer('eclipse', 'Eclipse') })
-    registerInteractable({ x: 2.7, y: 2.6, z: -3.5, radius: 1.8, label: 'view japan photos', onInteract: () => openPhotoViewer('japan', 'Japan') })
-    registerInteractable({ x: 2.7, y: 2.6, z: -6.5, radius: 1.8, label: 'view costa rica photos', onInteract: () => openPhotoViewer('costa-rica', 'Costa Rica') })
+    registerInteractable({
+      x: 0,
+      y: 1.8,
+      z: -1,
+      radius: 2,
+      label: 'interact with bonfire',
+      onInteract: openBonfireMenu,
+    })
+    registerInteractable({
+      x: 2.7,
+      y: 2.6,
+      z: 0,
+      radius: 1.8,
+      label: 'view eclipse photos',
+      onInteract: () => openPhotoViewer('eclipse', 'Eclipse'),
+    })
+    registerInteractable({
+      x: 2.7,
+      y: 2.6,
+      z: -3.5,
+      radius: 1.8,
+      label: 'view japan photos',
+      onInteract: () => openPhotoViewer('japan', 'Japan'),
+    })
+    registerInteractable({
+      x: 2.7,
+      y: 2.6,
+      z: -6.5,
+      radius: 1.8,
+      label: 'view costa rica photos',
+      onInteract: () => openPhotoViewer('costa-rica', 'Costa Rica'),
+    })
 
     // Add character
     this.scene.add(PlayerInstance.character)
@@ -197,8 +225,8 @@ export class Game {
     if (nearby !== null) {
       this.promptWorldPos.set(nearby.x, nearby.y, nearby.z)
       this.promptWorldPos.project(this.camera)
-      const screenX = (this.promptWorldPos.x + 1) / 2 * innerWidth
-      const screenY = (-this.promptWorldPos.y + 1) / 2 * innerHeight
+      const screenX = ((this.promptWorldPos.x + 1) / 2) * innerWidth
+      const screenY = ((-this.promptWorldPos.y + 1) / 2) * innerHeight
       showPrompt(nearby.label, screenX, screenY)
       if (!isInputBlocked() && getInteractPressed()) nearby.onInteract()
     } else {

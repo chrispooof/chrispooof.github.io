@@ -38,14 +38,16 @@ class PhotoViewer {
   /** Builds the full-screen overlay DOM. */
   private buildDOM(): HTMLElement {
     const overlay = document.createElement('div')
-    overlay.className = 'fixed inset-0 hidden flex-col items-center justify-center z-20 bg-black/95 font-serif'
+    overlay.className =
+      'fixed inset-0 hidden flex-col items-center justify-center z-20 bg-black/95 font-serif'
 
     this.titleEl = document.createElement('div')
     this.titleEl.className = 'mb-[14px] text-[#9a7040] text-[12px] tracking-[4px] uppercase'
     overlay.appendChild(this.titleEl)
 
     this.imgEl = document.createElement('img')
-    this.imgEl.className = 'max-w-[88vw] max-h-[76vh] object-contain border border-[rgba(175,135,55,0.25)]'
+    this.imgEl.className =
+      'max-w-[88vw] max-h-[76vh] object-contain border border-[rgba(175,135,55,0.25)]'
     overlay.appendChild(this.imgEl)
 
     this.counterEl = document.createElement('div')
@@ -74,7 +76,8 @@ class PhotoViewer {
    */
   private navigate(delta: number): void {
     if (this.currentUrls.length === 0) return
-    this.currentIndex = (this.currentIndex + delta + this.currentUrls.length) % this.currentUrls.length
+    this.currentIndex =
+      (this.currentIndex + delta + this.currentUrls.length) % this.currentUrls.length
     this.render()
   }
 
