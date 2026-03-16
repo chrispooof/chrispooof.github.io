@@ -8,6 +8,7 @@ import { showStartScreen } from './hud/startScreen'
 import './hud/touchControls'
 import { openAnimeViewer } from './interactions/animeViewer'
 import { openBonfireMenu } from './interactions/bonfireMenu'
+import { openBookViewer } from './interactions/bookViewer'
 import { getNearby, registerInteractable, updateNearby } from './interactions/interactables'
 import { openMangaViewer } from './interactions/mangaViewer'
 import { openPhotoViewer } from './interactions/photoViewer'
@@ -133,7 +134,7 @@ export class Game {
     registerCollider(2.5, -3.5, 0.7)
     registerCollider(2.5, -6.5, 0.7)
 
-    // Bookshelf and CD table side by side against the left wall (z=2 to z=8 section)
+    // Bookshelf and CD table side by side against the left wall (z=2 to z=5 pillar gap)
     const LEFT_WALL_X = -3.0
     const SHELF_Z = 3.0 // centered pair lands at z=3.5, inside the z=2–5 pillar gap
     const CD_Z = SHELF_Z + Bookshelf.W / 2 + CDTable.W / 2 + 0.1 // small gap between them
@@ -141,6 +142,14 @@ export class Game {
     registerCollider(LEFT_WALL_X + Bookshelf.D, SHELF_Z, 0.3)
     new CDTable().place(this.scene, new THREE.Vector3(LEFT_WALL_X + CDTable.D / 2, 0, CD_Z))
     registerCollider(LEFT_WALL_X + CDTable.D, CD_Z, 0.4)
+
+    // Second bookshelf against the left wall (z=5 to z=8 pillar gap) — holds the book list
+    const BOOK_SHELF_Z = 6.5
+    new Bookshelf().place(
+      this.scene,
+      new THREE.Vector3(LEFT_WALL_X + Bookshelf.D / 2, 0, BOOK_SHELF_Z),
+    )
+    registerCollider(LEFT_WALL_X + Bookshelf.D, BOOK_SHELF_Z, 0.3)
 
     // Register interactables
     registerInteractable({
@@ -182,6 +191,14 @@ export class Game {
       radius: 1.8,
       label: 'browse manga list',
       onInteract: openMangaViewer,
+    })
+    registerInteractable({
+      x: LEFT_WALL_X + Bookshelf.D,
+      y: 1.0,
+      z: BOOK_SHELF_Z,
+      radius: 1.8,
+      label: 'browse book list',
+      onInteract: openBookViewer,
     })
     registerInteractable({
       x: LEFT_WALL_X + CDTable.D,

@@ -1,3 +1,4 @@
+import type { Book } from '../types/hardcover'
 import type { MALAnimeEntry, MALMangaEntry } from '../types/mal'
 
 const LAMBDA_URL = 'https://wf7u6z3z05.execute-api.us-east-1.amazonaws.com/prod/'
@@ -29,6 +30,17 @@ export const fetchAnimeList = async (): Promise<MALAnimeEntry[]> => {
     ...e,
     node: { ...e.node, color: STATUS_COLORS[e.list_status.status] ?? '#F6FCFC' },
   }))
+}
+
+/** Fetches books from all Hardcover shelves, keyed by shelf name. */
+export const fetchBookList = async (): Promise<Record<string, Book[]>> => {
+  const data: { status_code: number; response: Record<string, Book[]> } = await fetch(LAMBDA_URL, {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ operation: 'get_books_from_all_shelves' }),
+  }).then((r) => r.json())
+  if (data.status_code !== 200) return {}
+  return data.response
 }
 
 /** Fetches the MAL manga list, attaching a status-based color to each entry. */
