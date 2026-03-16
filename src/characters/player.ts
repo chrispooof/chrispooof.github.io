@@ -106,6 +106,31 @@ class Player {
     this.head.add(mouth)
   }
 
+  /** Snaps the character into a bonfire-sitting pose. */
+  applySitPose(): void {
+    this.leftLeg.rotation.x = Math.PI * 0.48
+    this.rightLeg.rotation.x = Math.PI * 0.48
+    this.leftArm.rotation.x = 0.65
+    this.rightArm.rotation.x = 0.65
+    this.torso.rotation.x = 0.12
+    this.torso.position.y = 1.0
+    this.head.position.y = 1.62
+  }
+
+  /**
+   * Lerps all limb rotations back toward the neutral standing pose.
+   * @param factor - Lerp factor per frame (e.g. dt * 2.5 for a slow rise)
+   */
+  lerpTowardStand(factor: number): void {
+    this.leftLeg.rotation.x = THREE.MathUtils.lerp(this.leftLeg.rotation.x, 0, factor)
+    this.rightLeg.rotation.x = THREE.MathUtils.lerp(this.rightLeg.rotation.x, 0, factor)
+    this.leftArm.rotation.x = THREE.MathUtils.lerp(this.leftArm.rotation.x, 0, factor)
+    this.rightArm.rotation.x = THREE.MathUtils.lerp(this.rightArm.rotation.x, 0, factor)
+    this.torso.rotation.x = THREE.MathUtils.lerp(this.torso.rotation.x, 0, factor)
+    this.torso.position.y = THREE.MathUtils.lerp(this.torso.position.y, 1.1, factor)
+    this.head.position.y = THREE.MathUtils.lerp(this.head.position.y, 1.7, factor)
+  }
+
   /**
    * Animates the character's walk cycle.
    * @param dt - Delta time in seconds
