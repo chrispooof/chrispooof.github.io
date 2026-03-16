@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "deploy": "gh-pages -b master -d dist",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
@@ -17,8 +18,13 @@
     "tailwindcss": "^4.2.1",
     "three": "^0.183.2"
   },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": "prettier --write"
+  },
   "devDependencies": {
     "@types/three": "^0.183.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
     "typescript": "^5.9.0",
