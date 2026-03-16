@@ -34,14 +34,6 @@ export const IDLE_LERP = 10
 export const TERRAIN_SIZE = 20
 export const TERRAIN_SEGS = 20
 
-/**
- * @description
- * Scenery generation constants
- */
-export const TREE_COUNT = 5
-export const ROCK_COUNT = 10
-export const SPAWN_CLEAR_RADIUS = 3
-export const MIN_SCENERY_DIST = 2.5
 
 /**
  * @description

@@ -61,8 +61,8 @@ export const addCorridor = (scene: THREE.Scene): void => {
   scene.add(ceiling)
   registerCameraBlocker(ceiling)
 
-  // Wall torches — each gets a unique phase offset so they flicker independently
-  const torchZPositions = [-7, -3, 3, 7]
+  // Wall torches — one pair per inter-pillar gap (pillars at z=-8,-5,-2,2,5,8 → midpoints below)
+  const torchZPositions = [-6.5, -3.5, 0, 3.5, 6.5]
   const wallXPositions: Array<[number, number]> = [
     [-(CORRIDOR_HALF_WIDTH - 0.15), 1],   // [torchX, inward sign for light offset]
     [CORRIDOR_HALF_WIDTH - 0.15, -1],
@@ -72,7 +72,7 @@ export const addCorridor = (scene: THREE.Scene): void => {
   for (const z of torchZPositions) {
     for (const [torchX, sign] of wallXPositions) {
       const torch = new Torch(phaseIndex * 0.73)
-      torch.place(scene, new THREE.Vector3(torchX, 2.3, z), sign * 0.4)
+      torch.place(scene, new THREE.Vector3(torchX, 3.2, z), sign * 0.4)
       torches.push(torch)
       phaseIndex++
     }
