@@ -129,6 +129,9 @@ export class Game {
     new Painting(this.scene, 0x1a1040).place(new THREE.Vector3(2.7, 1.8, 0)) // eclipse    — midpoint: pillar z=+2 → pillar z=-2
     new Painting(this.scene, 0x3a1020).place(new THREE.Vector3(2.7, 1.8, -3.5)) // japan      — midpoint: pillar z=-2 → pillar z=-5
     new Painting(this.scene, 0x0a2a20).place(new THREE.Vector3(2.7, 1.8, -6.5)) // costa-rica — midpoint: pillar z=-5 → pillar z=-8
+    registerCollider(2.5, 0, 0.7)
+    registerCollider(2.5, -3.5, 0.7)
+    registerCollider(2.5, -6.5, 0.7)
 
     // Bookshelf and CD table side by side against the left wall (z=2 to z=8 section)
     const LEFT_WALL_X = -3.0

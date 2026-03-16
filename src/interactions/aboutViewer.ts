@@ -50,7 +50,7 @@ class AboutViewer {
 
     // Body
     const body = document.createElement('div')
-    body.className = 'flex-1 flex items-center justify-center overflow-y-auto px-8 py-12'
+    body.className = 'flex-1 overflow-y-auto px-8 py-12 flex justify-center items-start'
 
     const content = document.createElement('div')
     content.className = 'max-w-2xl w-full'

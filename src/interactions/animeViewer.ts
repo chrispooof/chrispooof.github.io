@@ -165,7 +165,7 @@ class AnimeViewer {
       this.body.appendChild(sectionTitle)
 
       const row = document.createElement('div')
-      row.className = 'flex flex-wrap gap-3 mb-8'
+      row.className = 'flex flex-wrap justify-center gap-3 mb-8'
       for (const entry of entries) row.appendChild(this.buildCard(entry))
       this.body.appendChild(row)
     }

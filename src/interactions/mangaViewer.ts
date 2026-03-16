@@ -175,7 +175,7 @@ class MangaViewer {
       this.body.appendChild(sectionTitle)
 
       const row = document.createElement('div')
-      row.className = 'flex flex-wrap gap-3 mb-2'
+      row.className = 'flex flex-wrap justify-center gap-3 mb-2'
       for (const entry of entries) row.appendChild(this.buildCard(entry))
       this.body.appendChild(row)
 
