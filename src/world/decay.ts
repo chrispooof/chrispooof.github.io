@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { CORRIDOR_HALF_LENGTH, CORRIDOR_HALF_WIDTH, WALL_HEIGHT } from '../utils/constants'
+import { makePRNG, rand, randInt } from '../utils/rng'
 
 const WX = CORRIDOR_HALF_WIDTH
 const WZ = CORRIDOR_HALF_LENGTH
@@ -13,28 +14,6 @@ const crackMat = new THREE.MeshBasicMaterial({ color: 0x040404 })
 const stainMat = new THREE.MeshLambertMaterial({ color: 0x0c0c0c })
 const streakMat = new THREE.MeshBasicMaterial({ color: 0x070710, transparent: true, opacity: 0.7 })
 const slabMat = new THREE.MeshLambertMaterial({ color: 0x222222 })
-
-/**
- * Seeded pseudo-random number generator (mulberry32).
- * Returns a function producing values in [0, 1).
- * @param seed - Integer seed value
- */
-const makePRNG = (seed: number): (() => number) => {
-  let s = seed
-  return (): number => {
-    s = (s + 0x6d2b79f5) | 0
-    let z = Math.imul(s ^ (s >>> 15), 1 | s)
-    z = (z + Math.imul(z ^ (z >>> 7), 61 | z)) ^ z
-    return ((z ^ (z >>> 14)) >>> 0) / 4294967296
-  }
-}
-
-/** Returns a random float in [min, max). */
-const rand = (rng: () => number, min: number, max: number): number => min + rng() * (max - min)
-
-/** Returns a random integer in [min, max]. */
-const randInt = (rng: () => number, min: number, max: number): number =>
-  Math.floor(min + rng() * (max - min + 1))
 
 /** Places a single box mesh at the given position with optional shadow casting. */
 const addBox = (

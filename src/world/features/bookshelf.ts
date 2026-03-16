@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { makePRNG, rand, randInt } from '../../utils/rng'
 
 const woodMat = new THREE.MeshLambertMaterial({ color: 0x2a1a08 })
 const shelfMat = new THREE.MeshLambertMaterial({ color: 0x1a0f04 })
@@ -8,19 +9,6 @@ const BOOK_COLORS = [
   0x181018,
 ]
 const bookMats = BOOK_COLORS.map((c) => new THREE.MeshLambertMaterial({ color: c }))
-
-const makePRNG = (seed: number): (() => number) => {
-  let s = seed
-  return (): number => {
-    s = (s + 0x6d2b79f5) | 0
-    let z = Math.imul(s ^ (s >>> 15), 1 | s)
-    z = (z + Math.imul(z ^ (z >>> 7), 61 | z)) ^ z
-    return ((z ^ (z >>> 14)) >>> 0) / 4294967296
-  }
-}
-const rand = (rng: () => number, min: number, max: number): number => min + rng() * (max - min)
-const randInt = (rng: () => number, min: number, max: number): number =>
-  Math.floor(min + rng() * (max - min + 1))
 
 /**
  * A wall-mounted bookshelf with procedurally placed books.
