@@ -34,7 +34,6 @@ export const IDLE_LERP = 10
 export const TERRAIN_SIZE = 20
 export const TERRAIN_SEGS = 20
 
-
 /**
  * @description
  * Player collision constants

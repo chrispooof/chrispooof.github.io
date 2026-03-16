@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { BaseFeature } from '../../utils/types'
-import { registerCollider } from '../colliders'
 import { getHeight } from '../../utils/utils'
+import { registerCollider } from '../colliders'
 
 /**
  * Stone dungeon pillar with a base slab, cylindrical column, and capital.

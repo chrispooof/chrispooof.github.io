@@ -1,7 +1,7 @@
 import * as THREE from 'three'
-import { Terrain } from '../world/terrain'
 import { pillarLocations } from '../world/features/locations'
 import { Pillar } from '../world/features/pillar'
+import { Terrain } from '../world/terrain'
 
 const _raycaster = new THREE.Raycaster()
 const _downDir = new THREE.Vector3(0, -1, 0)

@@ -1,4 +1,4 @@
-import './index.css'
 import { Game } from './game'
+import './index.css'
 
 new Game()

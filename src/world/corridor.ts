@@ -64,7 +64,7 @@ export const addCorridor = (scene: THREE.Scene): void => {
   // Wall torches — one pair per inter-pillar gap (pillars at z=-8,-5,-2,2,5,8 → midpoints below)
   const torchZPositions = [-6.5, -3.5, 0, 3.5, 6.5]
   const wallXPositions: Array<[number, number]> = [
-    [-(CORRIDOR_HALF_WIDTH - 0.15), 1],   // [torchX, inward sign for light offset]
+    [-(CORRIDOR_HALF_WIDTH - 0.15), 1], // [torchX, inward sign for light offset]
     [CORRIDOR_HALF_WIDTH - 0.15, -1],
   ]
 

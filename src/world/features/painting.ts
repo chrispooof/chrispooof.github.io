@@ -23,7 +23,11 @@ export class Painting extends BaseFeature {
   /** Constructs the painting geometry: canvas, frame, and accent light. */
   initialize(): void {
     const frameMat = new THREE.MeshLambertMaterial({ color: 0x2a1a0a })
-    const canvasMat = new THREE.MeshLambertMaterial({ color: this.canvasColor, emissive: this.canvasColor, emissiveIntensity: 0.15 })
+    const canvasMat = new THREE.MeshLambertMaterial({
+      color: this.canvasColor,
+      emissive: this.canvasColor,
+      emissiveIntensity: 0.15,
+    })
 
     const canvasWidth = 1.2
     const canvasHeight = 0.9
@@ -36,8 +40,20 @@ export class Painting extends BaseFeature {
 
     // Frame — four border strips (top, bottom, left, right)
     const frameSegments: Array<[number, number, number, number, number]> = [
-      [canvasWidth + frameThickness * 2, frameThickness, frameDepth, 0, (canvasHeight + frameThickness) / 2],
-      [canvasWidth + frameThickness * 2, frameThickness, frameDepth, 0, -(canvasHeight + frameThickness) / 2],
+      [
+        canvasWidth + frameThickness * 2,
+        frameThickness,
+        frameDepth,
+        0,
+        (canvasHeight + frameThickness) / 2,
+      ],
+      [
+        canvasWidth + frameThickness * 2,
+        frameThickness,
+        frameDepth,
+        0,
+        -(canvasHeight + frameThickness) / 2,
+      ],
       [frameThickness, canvasHeight, frameDepth, -(canvasWidth + frameThickness) / 2, 0],
       [frameThickness, canvasHeight, frameDepth, (canvasWidth + frameThickness) / 2, 0],
     ]
