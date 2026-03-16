@@ -1,9 +1,10 @@
 import * as THREE from 'three'
 import PlayerInstance from './characters/player'
 import './controls/camera'
-import { getInteractPressed, getMovement, isInputBlocked } from './controls/user'
-import './hud/controls'
+import { getInteractPressed, getMovement, isInputBlocked, setInputBlocked } from './controls/user'
+import { hideControls, showControls } from './hud/controls'
 import { hidePrompt, showPrompt } from './hud/prompt'
+import { showStartScreen } from './hud/startScreen'
 import { openBonfireMenu } from './interactions/bonfireMenu'
 import { getNearby, registerInteractable, updateNearby } from './interactions/interactables'
 import { openPhotoViewer } from './interactions/photoViewer'
@@ -60,6 +61,13 @@ export class Game {
   private readonly camRayDir = new THREE.Vector3()
   private readonly promptWorldPos = new THREE.Vector3()
   private lastTime = performance.now()
+
+  // Intro sequence state
+  private introState: 'intro' | 'rising' | 'play' = 'intro'
+  private introTimer = 0
+  private readonly RISE_DURATION = 2.2
+  private readonly introCamPos = new THREE.Vector3(1.5, 2.0, -3.8)
+  private readonly introCamTarget = new THREE.Vector3(0, 0.9, 0)
 
   // Character state
   private characterYaw = Math.PI
@@ -152,6 +160,15 @@ export class Game {
     // Add character
     this.scene.add(PlayerInstance.character)
 
+    // Intro: dense fog, sitting player, cinematic camera, blocked input
+    ;(this.scene.fog as THREE.FogExp2).density = 0.28
+    PlayerInstance.applySitPose()
+    setInputBlocked(true)
+    hideControls()
+    this.camera.position.copy(this.introCamPos)
+    this.camera.lookAt(this.introCamTarget)
+    showStartScreen(() => this.beginRise())
+
     // Add windowresize listener
     addEventListener('resize', () => {
       this.camera.aspect = innerWidth / innerHeight
@@ -160,6 +177,12 @@ export class Game {
     })
 
     this.renderer.setAnimationLoop(() => this.update())
+  }
+
+  /** Transitions from the title screen to the stand-up animation phase. */
+  private beginRise(): void {
+    this.introState = 'rising'
+    this.introTimer = 0
   }
 
   /**
@@ -173,6 +196,28 @@ export class Game {
     this.totalTime += deltaTime
     BonfireInstance.update(this.totalTime)
     updateTorches(this.totalTime)
+
+    // Intro: hold cinematic camera, wait for start screen interaction
+    if (this.introState === 'intro') {
+      PlayerInstance.character.rotation.y = this.characterYaw
+      this.camera.position.copy(this.introCamPos)
+      this.camera.lookAt(this.introCamTarget)
+      this.renderer.render(this.scene, this.camera)
+      return
+    }
+
+    // Rising: player stands up, fog lifts, camera naturally lerps to follow position
+    if (this.introState === 'rising') {
+      this.introTimer += deltaTime
+      const t = Math.min(this.introTimer / this.RISE_DURATION, 1)
+      PlayerInstance.lerpTowardStand(deltaTime * 2.2)
+      ;(this.scene.fog as THREE.FogExp2).density = THREE.MathUtils.lerp(0.28, 0.09, t)
+      if (t >= 1) {
+        this.introState = 'play'
+        setInputBlocked(false)
+        showControls()
+      }
+    }
 
     const { moveX, moveZ } = getMovement()
 
@@ -217,7 +262,9 @@ export class Game {
     }
 
     PlayerInstance.character.rotation.y = this.characterYaw
-    PlayerInstance.animateCharacter(deltaTime, isMoving, this.walkPhase)
+    if (this.introState === 'play') {
+      PlayerInstance.animateCharacter(deltaTime, isMoving, this.walkPhase)
+    }
 
     // Interaction proximity check
     updateNearby(PlayerInstance.character.position.x, PlayerInstance.character.position.z)
