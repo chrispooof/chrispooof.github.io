@@ -1,18 +1,13 @@
 const el = document.createElement('div')
 
-Object.assign(el.style, {
-  position: 'fixed',
-  color: 'rgba(200, 175, 110, 0.92)',
-  fontFamily: "Georgia, 'Times New Roman', serif",
-  fontSize: '13px',
-  letterSpacing: '2px',
-  pointerEvents: 'none',
-  textShadow: '0 1px 6px rgba(0,0,0,1), 0 0 12px rgba(0,0,0,0.8)',
-  display: 'none',
-  transform: 'translate(-50%, -50%)',
-  whiteSpace: 'nowrap',
-  textAlign: 'center',
-})
+el.className = [
+  'fixed hidden pointer-events-none',
+  '-translate-x-1/2 -translate-y-1/2',
+  'whitespace-nowrap text-center',
+  'font-serif text-[13px] tracking-[2px]',
+  'text-[rgba(200,175,110,0.92)]',
+  '[text-shadow:0_1px_6px_rgba(0,0,0,1),0_0_12px_rgba(0,0,0,0.8)]',
+].join(' ')
 
 document.body.appendChild(el)
 
@@ -26,10 +21,12 @@ export const showPrompt = (label: string, screenX: number, screenY: number): voi
   el.textContent = `[ E ]   ${label}`
   el.style.left = `${screenX}px`
   el.style.top = `${screenY}px`
-  el.style.display = 'block'
+  el.classList.remove('hidden')
+  el.classList.add('block')
 }
 
 /** Hides the interaction prompt. */
 export const hidePrompt = (): void => {
-  el.style.display = 'none'
+  el.classList.remove('block')
+  el.classList.add('hidden')
 }

@@ -12,7 +12,9 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.1",
     "gh-pages": "^5.0.0",
+    "tailwindcss": "^4.2.1",
     "three": "^0.183.2"
   },
   "devDependencies": {
