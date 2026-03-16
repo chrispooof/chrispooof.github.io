@@ -1,0 +1,225 @@
+import { setInputBlocked } from '../controls/user'
+import { hideControls, showControls } from '../hud/controls'
+import type { MALAnimeEntry } from '../types/mal'
+import { fetchAnimeList } from '../utils/api'
+
+const STATUS_ORDER = ['watching', 'completed', 'plan_to_watch', 'on_hold', 'dropped'] as const
+
+const STATUS_LABELS: Record<string, string> = {
+  watching: 'Currently Watching',
+  completed: 'Completed',
+  plan_to_watch: 'Plan to Watch',
+  on_hold: 'On Hold',
+  dropped: 'Dropped',
+}
+
+/**
+ * Full-screen overlay displaying the MAL anime list as a CD rack.
+ * Cards are organized by watch status. Hover a card to see details.
+ * Keyboard: E/Escape to close.
+ */
+class AnimeViewer {
+  private overlay: HTMLElement
+  private body: HTMLElement
+  private onClose: (() => void) | null = null
+  private cache: MALAnimeEntry[] | null = null
+  isOpen = false
+
+  constructor() {
+    const { overlay, body } = this.buildDOM()
+    this.overlay = overlay
+    this.body = body
+    document.body.appendChild(this.overlay)
+    document.addEventListener('keydown', this.handleKey)
+  }
+
+  private buildDOM(): { overlay: HTMLElement; body: HTMLElement } {
+    const overlay = document.createElement('div')
+    overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-[#06060e] font-serif'
+
+    const header = document.createElement('div')
+    header.className =
+      'flex items-center justify-between px-6 py-3 border-b border-[rgba(175,135,55,0.2)] shrink-0'
+
+    const title = document.createElement('div')
+    title.className = 'text-[#9a7040] text-[14px] tracking-[4px] uppercase'
+    title.textContent = 'Anime List'
+    header.appendChild(title)
+
+    const closeBtn = document.createElement('button')
+    closeBtn.className =
+      'text-[#6a5030] hover:text-[#9a7040] text-[14px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
+    closeBtn.textContent = '[ E ]  close'
+    closeBtn.addEventListener('click', () => this.close())
+    header.appendChild(closeBtn)
+
+    overlay.appendChild(header)
+
+    const body = document.createElement('div')
+    body.className = 'flex-1 overflow-y-auto px-6 py-6'
+    overlay.appendChild(body)
+
+    return { overlay, body }
+  }
+
+  private buildCard(entry: MALAnimeEntry): HTMLElement {
+    const card = document.createElement('div')
+    card.className =
+      'relative w-28 flex-shrink-0 cursor-pointer group hover:-translate-y-1 hover:scale-105 transition-transform duration-200'
+
+    // Status color bar across the top (CD case edge)
+    const bar = document.createElement('div')
+    bar.className = 'h-[3px] w-full'
+    bar.style.backgroundColor = entry.node.color ?? '#888'
+
+    const img = document.createElement('img')
+    img.src = entry.node.main_picture.large
+    img.alt = entry.node.title
+    img.className = 'w-full h-40 object-cover'
+    img.loading = 'lazy'
+
+    const footer = document.createElement('div')
+    footer.className = 'bg-[#0a0a14] px-2 py-1.5 border border-t-0 border-[rgba(175,135,55,0.12)]'
+
+    const titleEl = document.createElement('div')
+    titleEl.className = 'text-[#9a7040] text-[13px] tracking-[0.5px] truncate'
+    titleEl.textContent = entry.node.title
+
+    const details = document.createElement('div')
+    details.className = 'text-[#5a4a30] text-[12px] mt-0.5 flex justify-between'
+    const eps = entry.node.num_episodes === 0 ? '?' : entry.node.num_episodes
+    details.textContent = `${entry.list_status.num_episodes_watched}/${eps}ep  ★${entry.list_status.score || '-'}`
+
+    footer.appendChild(titleEl)
+    footer.appendChild(details)
+
+    // Hover overlay
+    const hoverEl = document.createElement('div')
+    hoverEl.className =
+      'absolute inset-0 bg-black/90 p-2 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none'
+
+    const hoverTitle = document.createElement('div')
+    hoverTitle.className = 'text-[#9a7040] text-[13px] tracking-[0.5px] leading-tight mb-2'
+    hoverTitle.textContent = entry.node.title
+
+    const hoverStatus = document.createElement('div')
+    hoverStatus.className = 'text-[#7a6a50] text-[12px] tracking-[1px] uppercase mb-1'
+    hoverStatus.textContent = STATUS_LABELS[entry.list_status.status] ?? ''
+
+    const hoverScore = document.createElement('div')
+    hoverScore.className = 'text-[#9a7040] text-[14px] mt-1'
+    hoverScore.textContent =
+      entry.list_status.score > 0 ? `★ ${entry.list_status.score}/10` : 'Unscored'
+
+    const hoverLink = document.createElement('a')
+    hoverLink.href = `https://myanimelist.net/anime/${entry.node.id}`
+    hoverLink.target = '_blank'
+    hoverLink.rel = 'noopener noreferrer'
+    hoverLink.className =
+      'text-[#5a7040] text-[12px] tracking-[1px] mt-2 uppercase pointer-events-auto'
+    hoverLink.textContent = 'MAL ↗'
+
+    hoverEl.appendChild(hoverTitle)
+    hoverEl.appendChild(hoverStatus)
+    hoverEl.appendChild(hoverScore)
+    hoverEl.appendChild(hoverLink)
+
+    card.appendChild(bar)
+    card.appendChild(img)
+    card.appendChild(footer)
+    card.appendChild(hoverEl)
+
+    return card
+  }
+
+  private renderLoading(): void {
+    this.body.innerHTML = ''
+    const el = document.createElement('div')
+    el.className =
+      'flex items-center justify-center h-32 text-[#6a5030] text-[14px] tracking-[4px] uppercase'
+    el.textContent = 'Loading...'
+    this.body.appendChild(el)
+  }
+
+  private renderError(): void {
+    this.body.innerHTML = ''
+    const el = document.createElement('div')
+    el.className = 'flex items-center justify-center h-32 text-[#6a2020] text-[12px] tracking-[2px]'
+    el.textContent = 'Failed to load anime list.'
+    this.body.appendChild(el)
+  }
+
+  private renderData(data: MALAnimeEntry[]): void {
+    this.body.innerHTML = ''
+
+    for (const status of STATUS_ORDER) {
+      const entries = data.filter((e) => e.list_status.status === status)
+      if (entries.length === 0) continue
+
+      const sectionTitle = document.createElement('div')
+      sectionTitle.className = 'text-[#6a5030] text-[13px] tracking-[4px] uppercase mb-4'
+      sectionTitle.textContent = `${STATUS_LABELS[status]}  (${entries.length})`
+      this.body.appendChild(sectionTitle)
+
+      const row = document.createElement('div')
+      row.className = 'flex flex-wrap gap-3 mb-8'
+      for (const entry of entries) row.appendChild(this.buildCard(entry))
+      this.body.appendChild(row)
+    }
+  }
+
+  private handleKey = (e: KeyboardEvent): void => {
+    if (!this.isOpen) return
+    if (e.code === 'Escape' || e.code === 'KeyE') {
+      e.stopImmediatePropagation()
+      this.close()
+    }
+  }
+
+  /**
+   * Opens the anime viewer and blocks game input.
+   * Fetches data on first open and caches it for subsequent opens.
+   * @param onClose - Optional callback fired when the viewer is closed
+   */
+  open(onClose?: () => void): void {
+    this.onClose = onClose ?? null
+    this.isOpen = true
+    this.overlay.classList.remove('hidden')
+    this.overlay.classList.add('flex')
+    setInputBlocked(true)
+    hideControls()
+
+    if (this.cache !== null) {
+      this.renderData(this.cache)
+    } else {
+      this.renderLoading()
+      fetchAnimeList()
+        .then((data) => {
+          this.cache = data
+          if (this.isOpen) this.renderData(data)
+        })
+        .catch(() => {
+          if (this.isOpen) this.renderError()
+        })
+    }
+  }
+
+  /** Closes the anime viewer, restores game input, and fires the onClose callback. */
+  close(): void {
+    this.isOpen = false
+    this.overlay.classList.remove('flex')
+    this.overlay.classList.add('hidden')
+    setInputBlocked(false)
+    showControls()
+    this.onClose?.()
+    this.onClose = null
+  }
+}
+
+const viewer = new AnimeViewer()
+
+/**
+ * Opens the in-page anime list viewer.
+ * @param onClose - Optional callback fired when the viewer is closed
+ */
+export const openAnimeViewer = (onClose?: () => void): void => viewer.open(onClose)
