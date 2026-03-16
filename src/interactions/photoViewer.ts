@@ -1,3 +1,4 @@
+import { setOrbitBlocked } from '../controls/camera'
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
 
@@ -6,6 +7,8 @@ const photoModules = import.meta.glob('/src/assets/photo-albums/**/*.jpg', {
   query: '?url',
   import: 'default',
 }) as Record<string, string>
+
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
 
 /**
  * Returns all photo URLs whose path contains the given album folder name.
@@ -19,6 +22,7 @@ const getAlbumUrls = (album: string): string[] =>
 /**
  * Full-screen photo gallery overlay.
  * Keyboard: A/← previous, D/→ next, E/Escape close.
+ * Touch: swipe left/right to navigate, tap X button to close.
  */
 class PhotoViewer {
   private overlay: HTMLElement
@@ -27,6 +31,8 @@ class PhotoViewer {
   private titleEl!: HTMLElement
   private currentIndex = 0
   private currentUrls: string[] = []
+  private swipeTouchId: number | null = null
+  private swipeStartX = 0
   isOpen = false
 
   constructor() {
@@ -40,6 +46,19 @@ class PhotoViewer {
     const overlay = document.createElement('div')
     overlay.className =
       'fixed inset-0 hidden flex-col items-center justify-center z-20 bg-black/95 font-serif'
+
+    // Close button — always visible on touch, hidden on desktop
+    const closeBtn = document.createElement('button')
+    closeBtn.className = [
+      'absolute top-4 right-4',
+      isTouchDevice ? 'flex' : 'hidden',
+      'items-center justify-center w-10 h-10',
+      'text-[#6a5030] hover:text-[#9a7040] text-[20px]',
+      'bg-transparent border-0 cursor-pointer transition-colors',
+    ].join(' ')
+    closeBtn.textContent = '✕'
+    closeBtn.addEventListener('click', () => this.close())
+    overlay.appendChild(closeBtn)
 
     this.titleEl = document.createElement('div')
     this.titleEl.className = 'mb-[14px] text-[#9a7040] text-[12px] tracking-[4px] uppercase'
@@ -56,8 +75,32 @@ class PhotoViewer {
 
     const hint = document.createElement('div')
     hint.className = 'absolute bottom-6 text-[#4a3820] text-[11px] tracking-[2px]'
-    hint.textContent = '← →  navigate    ·    E  close'
+    hint.textContent = isTouchDevice ? 'swipe to navigate' : '← →  navigate    ·    E  close'
     overlay.appendChild(hint)
+
+    // Swipe detection on the image
+    this.imgEl.addEventListener(
+      'touchstart',
+      (e: TouchEvent) => {
+        const t = e.changedTouches[0]
+        this.swipeTouchId = t.identifier
+        this.swipeStartX = t.clientX
+      },
+      { passive: true },
+    )
+
+    this.imgEl.addEventListener(
+      'touchend',
+      (e: TouchEvent) => {
+        for (const t of Array.from(e.changedTouches)) {
+          if (t.identifier !== this.swipeTouchId) continue
+          const dx = t.clientX - this.swipeStartX
+          if (Math.abs(dx) > 40) this.navigate(dx < 0 ? 1 : -1)
+          this.swipeTouchId = null
+        }
+      },
+      { passive: true },
+    )
 
     return overlay
   }
@@ -102,6 +145,7 @@ class PhotoViewer {
     this.overlay.classList.remove('hidden')
     this.overlay.classList.add('flex')
     setInputBlocked(true)
+    setOrbitBlocked(true)
     hideControls()
   }
 
@@ -111,6 +155,7 @@ class PhotoViewer {
     this.overlay.classList.remove('flex')
     this.overlay.classList.add('hidden')
     setInputBlocked(false)
+    setOrbitBlocked(false)
     showControls()
   }
 }

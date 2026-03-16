@@ -5,6 +5,7 @@ import { getInteractPressed, getMovement, isInputBlocked, setInputBlocked } from
 import { hideControls, showControls } from './hud/controls'
 import { hidePrompt, showPrompt } from './hud/prompt'
 import { showStartScreen } from './hud/startScreen'
+import './hud/touchControls'
 import { openAnimeViewer } from './interactions/animeViewer'
 import { openBonfireMenu } from './interactions/bonfireMenu'
 import { getNearby, registerInteractable, updateNearby } from './interactions/interactables'
@@ -85,11 +86,11 @@ export class Game {
 
   constructor() {
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
-    this.ambient = new THREE.AmbientLight(0x151520, 0.8)
-    this.sun = new THREE.DirectionalLight(0x221111, 0.25)
+    this.ambient = new THREE.AmbientLight(0x3a3a50, 3.5)
+    this.sun = new THREE.DirectionalLight(0x665544, 1.5)
     this.scene = new THREE.Scene()
-    this.scene.background = new THREE.Color(0x0a0a0f)
-    this.scene.fog = new THREE.FogExp2(0x0a0a0f, 0.09)
+    this.scene.background = new THREE.Color(0x1a1a24)
+    this.scene.fog = new THREE.FogExp2(0x1a1a24, 0.09)
     this.camera = new THREE.PerspectiveCamera(65, innerWidth / innerHeight, 0.1, 500)
 
     this.init()

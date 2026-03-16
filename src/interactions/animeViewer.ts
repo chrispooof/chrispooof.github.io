@@ -3,6 +3,8 @@ import { hideControls, showControls } from '../hud/controls'
 import type { MALAnimeEntry } from '../types/mal'
 import { fetchAnimeList } from '../utils/api'
 
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
 const STATUS_ORDER = ['watching', 'completed', 'plan_to_watch', 'on_hold', 'dropped'] as const
 
 const STATUS_LABELS: Record<string, string> = {
@@ -47,9 +49,10 @@ class AnimeViewer {
     header.appendChild(title)
 
     const closeBtn = document.createElement('button')
-    closeBtn.className =
-      'text-[#6a5030] hover:text-[#9a7040] text-[14px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
-    closeBtn.textContent = '[ E ]  close'
+    closeBtn.className = isTouchDevice
+      ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
+      : 'text-[#6a5030] hover:text-[#9a7040] text-[14px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
+    closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
     closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 

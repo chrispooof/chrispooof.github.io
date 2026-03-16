@@ -2,6 +2,8 @@ import resumePdf from '../assets/resume/christianbjerre-fernandes.pdf?url'
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
 
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
 /**
  * Full-screen in-page resume viewer using an iframe.
  * Keyboard: E/Escape to close.
@@ -31,9 +33,10 @@ class ResumeViewer {
     header.appendChild(title)
 
     const closeBtn = document.createElement('button')
-    closeBtn.className =
-      'text-[#6a5030] hover:text-[#9a7040] text-[11px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
-    closeBtn.textContent = '[ E ]  close'
+    closeBtn.className = isTouchDevice
+      ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
+      : 'text-[#6a5030] hover:text-[#9a7040] text-[11px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
+    closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
     closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 

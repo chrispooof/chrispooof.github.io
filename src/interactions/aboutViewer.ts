@@ -1,6 +1,8 @@
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
 
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
 const PARAGRAPHS = [
   `Hello! My name is Christian Bjerre-Fernandes. I studied Computer Science at the University of Chicago and graduated in 2021. I love to study languages and learn about other cultures. I took Japanese and Norwegian during college and continue to study Japanese even now.`,
   `I am currently a Senior Associate Software Engineer at Capital One with an AWS Solutions Architect certification. I work as a full-stack developer and data engineer on Capital One's Slingshot SaaS product.`,
@@ -37,9 +39,10 @@ class AboutViewer {
     header.appendChild(title)
 
     const closeBtn = document.createElement('button')
-    closeBtn.className =
-      'text-[#6a5030] hover:text-[#9a7040] text-lg tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
-    closeBtn.textContent = '[ E ]  close'
+    closeBtn.className = isTouchDevice
+      ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
+      : 'text-[#6a5030] hover:text-[#9a7040] text-lg tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
+    closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
     closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 

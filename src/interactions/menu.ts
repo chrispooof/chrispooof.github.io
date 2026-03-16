@@ -1,13 +1,18 @@
 import { setInputBlocked } from '../controls/user'
+import { blockTouchBtn } from '../hud/prompt'
+import { setTouchJoystickVisible } from '../hud/touchControls'
 
 export interface MenuItem {
   label: string
   action: () => void
 }
 
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
 /**
  * Reusable Dark Souls-style menu overlay.
  * Keyboard: W/S or arrows to navigate, E/Enter to confirm, Escape to close.
+ * Touch: centered layout, X button to close, tap to highlight and confirm.
  */
 export class Menu {
   private container: HTMLElement
@@ -34,21 +39,36 @@ export class Menu {
   private buildDOM(title: string): HTMLElement {
     const container = document.createElement('div')
     container.className = [
-      'fixed hidden bottom-[18%] right-[8%] z-10 select-none',
+      isTouchDevice
+        ? 'fixed hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 select-none'
+        : 'fixed hidden bottom-[18%] right-[8%] z-10 select-none',
       'min-w-[260px] px-[30px] pt-[22px] pb-[26px]',
       'font-serif',
       'bg-[rgba(8,6,4,0.93)] border border-[rgba(175,135,55,0.3)]',
     ].join(' ')
 
+    const titleRow = document.createElement('div')
+    titleRow.className =
+      'flex items-center justify-between mb-[18px] pb-[12px] border-b border-[rgba(140,100,40,0.2)]'
+
     const titleEl = document.createElement('div')
-    titleEl.className = [
-      'text-[10px] tracking-[4px] uppercase',
-      'text-[#6a5030]',
-      'mb-[18px] pb-[12px]',
-      'border-b border-[rgba(140,100,40,0.2)]',
-    ].join(' ')
+    titleEl.className = 'text-[10px] tracking-[4px] uppercase text-[#6a5030]'
     titleEl.textContent = title
-    container.appendChild(titleEl)
+    titleRow.appendChild(titleEl)
+
+    if (isTouchDevice) {
+      const closeBtn = document.createElement('button')
+      closeBtn.className =
+        'flex items-center justify-center w-8 h-8 text-[#6a5030] hover:text-[#9a7040] text-[18px] bg-transparent border-0 cursor-pointer transition-colors'
+      closeBtn.textContent = '✕'
+      closeBtn.addEventListener('touchend', (e: TouchEvent) => {
+        e.preventDefault()
+        this.close()
+      })
+      titleRow.appendChild(closeBtn)
+    }
+
+    container.appendChild(titleRow)
 
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i]
@@ -66,6 +86,21 @@ export class Menu {
       row.appendChild(label)
       row.addEventListener('mouseenter', () => this.select(i))
       row.addEventListener('click', () => this.confirm())
+
+      if (isTouchDevice) {
+        row.addEventListener(
+          'touchstart',
+          (e: TouchEvent) => {
+            e.preventDefault()
+            this.select(i)
+          },
+          { passive: false },
+        )
+        row.addEventListener('touchend', (e: TouchEvent) => {
+          e.preventDefault()
+          this.confirm()
+        })
+      }
 
       container.appendChild(row)
       this.itemEls.push(row)
@@ -126,6 +161,10 @@ export class Menu {
     this.container.classList.add('block')
     this.select(0)
     setInputBlocked(true)
+    if (isTouchDevice) {
+      setTouchJoystickVisible(false)
+      blockTouchBtn(true)
+    }
   }
 
   /** Closes the menu and restores game input. */
@@ -134,5 +173,9 @@ export class Menu {
     this.container.classList.remove('block')
     this.container.classList.add('hidden')
     setInputBlocked(false)
+    if (isTouchDevice) {
+      setTouchJoystickVisible(true)
+      blockTouchBtn(false)
+    }
   }
 }
