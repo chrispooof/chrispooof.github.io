@@ -1,18 +1,13 @@
-import resumePdf from '../assets/resume/christianbjerre-fernandes.pdf?url'
 import { Menu, type MenuItem } from './menu'
+import { openResumeViewer } from './resumeViewer'
 
 // Items declared separately so TypeScript can resolve `menu`'s type before the lambdas reference it
 const items: MenuItem[] = [
   {
-    label: 'Open Resume',
+    label: 'View Resume',
     action: (): void => {
-      window.open(resumePdf, '_blank')
-    },
-  },
-  {
-    label: 'Rest',
-    action: (): void => {
-      // Placeholder — will restore health, reset destruction, etc.
+      menu.close()
+      openResumeViewer(() => menu.open())
     },
   },
   {

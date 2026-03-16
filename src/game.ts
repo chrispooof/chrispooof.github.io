@@ -65,7 +65,7 @@ export class Game {
   // Intro sequence state
   private introState: 'intro' | 'rising' | 'play' = 'intro'
   private introTimer = 0
-  private readonly RISE_DURATION = 2.2
+  private readonly RISE_DURATION = 1.2
   private readonly introCamPos = new THREE.Vector3(1.5, 2.0, -3.8)
   private readonly introCamTarget = new THREE.Vector3(0, 0.9, 0)
 
