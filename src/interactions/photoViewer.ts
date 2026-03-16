@@ -1,22 +1,11 @@
+import { PHOTO_ALBUMS } from '../config/photoAlbums'
 import { setOrbitBlocked } from '../controls/camera'
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
 import { isTouchDevice } from '../utils/device'
 
-const photoModules = import.meta.glob('/src/assets/photo-albums/**/*.jpg', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>
-
-/**
- * Returns all photo URLs whose path contains the given album folder name.
- * @param album - Folder name to filter by (e.g. 'eclipse', 'japan')
- */
-const getAlbumUrls = (album: string): string[] =>
-  Object.entries(photoModules)
-    .filter(([path]) => path.includes(`/photo-albums/${album}/`))
-    .map(([, url]) => url)
+/** Returns all photo URLs for the given album key. */
+const getAlbumUrls = (album: string): string[] => PHOTO_ALBUMS[album] ?? []
 
 /**
  * Full-screen photo gallery overlay.
