@@ -25,6 +25,7 @@ import { addScenery, getHeight } from './utils/utils'
 import { cameraBlockers } from './world/cameraBlockers'
 import { checkCollision } from './world/colliders'
 import { addCorridor, updateTorches } from './world/corridor'
+import { addDecay } from './world/decay'
 import BonfireInstance from './world/features/bonfire'
 import { Painting } from './world/features/painting'
 import { Boundaries, Terrain } from './world/terrain'
@@ -115,6 +116,7 @@ export class Game {
     // Add terrain, corridor, scenery, and bonfire
     this.scene.add(Terrain)
     addCorridor(this.scene)
+    addDecay(this.scene)
     addScenery(this.scene)
     BonfireInstance.place(this.scene, new THREE.Vector3(0, 0, -1))
 
