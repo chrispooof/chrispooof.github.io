@@ -1,8 +1,16 @@
+import { openAboutViewer } from './aboutViewer'
 import { Menu, type MenuItem } from './menu'
 import { openResumeViewer } from './resumeViewer'
 
 // Items declared separately so TypeScript can resolve `menu`'s type before the lambdas reference it
 const items: MenuItem[] = [
+  {
+    label: 'About Me',
+    action: (): void => {
+      menu.close()
+      openAboutViewer(() => menu.open())
+    },
+  },
   {
     label: 'View Resume',
     action: (): void => {
