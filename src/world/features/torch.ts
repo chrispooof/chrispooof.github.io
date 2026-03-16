@@ -29,7 +29,7 @@ export class Torch {
   /** @param phaseOffset - Per-torch time offset so torches don't flicker in sync. */
   constructor(phaseOffset = 0) {
     this.group = new THREE.Group()
-    this.light = new THREE.PointLight(0xff8833, 7, 8)
+    this.light = new THREE.PointLight(0xff9944, 18, 12)
     this.phaseOffset = phaseOffset
     this.build()
   }
@@ -76,7 +76,7 @@ export class Torch {
    */
   update(time: number): void {
     const t = time + this.phaseOffset
-    this.light.intensity = 6.5 + Math.sin(t * 7.1) * 0.9 + Math.sin(t * 13.3) * 0.4
+    this.light.intensity = 17 + Math.sin(t * 7.1) * 2.0 + Math.sin(t * 13.3) * 1.0
 
     for (const flame of this.flames) {
       const offset = flame.userData['phaseOffset'] as number

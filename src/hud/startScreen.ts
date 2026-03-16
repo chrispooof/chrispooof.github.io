@@ -24,7 +24,8 @@ class StartScreen {
     header.className = 'absolute top-[11%] left-0 right-0 flex flex-col items-center gap-2'
 
     const title = document.createElement('div')
-    title.className = 'text-[#9a7040] text-[22px] tracking-[10px] uppercase'
+    title.className =
+      'text-[#9a7040] text-[18px] sm:text-[22px] tracking-[4px] sm:tracking-[10px] uppercase text-center px-4'
     title.textContent = 'Christian Bjerre-Fernandes'
     header.appendChild(title)
 

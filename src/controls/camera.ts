@@ -9,6 +9,14 @@ import {
 let pointerDown = false
 let lastX = 0
 let lastY = 0
+let cameraTouchId: number | null = null
+let orbitBlocked = false
+
+/** Prevents camera orbit from responding to input (e.g. while a viewer is open). */
+export const setOrbitBlocked = (blocked: boolean): void => {
+  orbitBlocked = blocked
+  if (blocked) cameraTouchId = null
+}
 
 /**
  * Applies a pointer drag delta to the camera yaw and pitch.
@@ -24,6 +32,7 @@ const onDrag = (dx: number, dy: number): void => {
 }
 
 document.addEventListener('mousedown', (e: MouseEvent) => {
+  if (orbitBlocked) return
   pointerDown = true
   lastX = e.clientX
   lastY = e.clientY
@@ -40,21 +49,34 @@ document.addEventListener('mousemove', (e: MouseEvent) => {
   lastY = e.clientY
 })
 
+// Touch orbit: only claims touches that start on the right half of the screen
+// so the left-side joystick never conflicts with camera rotation.
 document.addEventListener('touchstart', (e: TouchEvent) => {
-  const t = e.touches[0]
-  pointerDown = true
-  lastX = t.clientX
-  lastY = t.clientY
+  if (orbitBlocked || cameraTouchId !== null) return
+  for (const t of Array.from(e.changedTouches)) {
+    if (t.clientX >= innerWidth / 2) {
+      cameraTouchId = t.identifier
+      lastX = t.clientX
+      lastY = t.clientY
+      break
+    }
+  }
 })
 
-document.addEventListener('touchend', () => {
-  pointerDown = false
+document.addEventListener('touchend', (e: TouchEvent) => {
+  for (const t of Array.from(e.changedTouches)) {
+    if (t.identifier === cameraTouchId) {
+      cameraTouchId = null
+    }
+  }
 })
 
 document.addEventListener('touchmove', (e: TouchEvent) => {
-  if (!pointerDown) return
-  const t = e.touches[0]
-  onDrag(t.clientX - lastX, t.clientY - lastY)
-  lastX = t.clientX
-  lastY = t.clientY
+  for (const t of Array.from(e.changedTouches)) {
+    if (t.identifier === cameraTouchId) {
+      onDrag(t.clientX - lastX, t.clientY - lastY)
+      lastX = t.clientX
+      lastY = t.clientY
+    }
+  }
 })

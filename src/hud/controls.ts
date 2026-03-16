@@ -2,7 +2,10 @@ const hud = document.createElement('div')
 
 hud.className =
   'fixed bottom-5 left-1/2 -translate-x-1/2 text-white/70 font-sans text-[13px] pointer-events-none text-center'
-hud.textContent = 'WASD / Arrow keys to move  ·  Mouse drag to orbit'
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+hud.textContent = isTouchDevice
+  ? 'Joystick to move  ·  Drag to orbit'
+  : 'WASD / Arrow keys to move  ·  Mouse drag to orbit'
 
 document.body.appendChild(hud)
 
