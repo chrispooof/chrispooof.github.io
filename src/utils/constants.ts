@@ -56,3 +56,12 @@ export const PLAYER_RADIUS = 0.3
 export const CAMERA_PITCH_MIN = 0.15
 export const CAMERA_PITCH_MAX = 1.2
 export const CAMERA_ORBIT_SENSITIVITY = 0.005
+
+/**
+ * @description
+ * Dungeon corridor constants
+ */
+export const CORRIDOR_HALF_WIDTH = 3.0
+export const CORRIDOR_HALF_LENGTH = 9.5
+export const WALL_HEIGHT = 4.5
+export const WALL_THICKNESS = 0.5

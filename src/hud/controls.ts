@@ -13,6 +13,6 @@ Object.assign(hud.style, {
   textAlign: 'center',
 })
 
-hud.textContent = 'WASD / Arrow keys to move  ·  Drag to orbit camera'
+hud.textContent = 'WASD / Arrow keys to move  ·  Mouse drag to orbit'
 
 document.body.appendChild(hud)
