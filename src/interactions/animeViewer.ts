@@ -2,8 +2,7 @@ import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
 import type { MALAnimeEntry } from '../types/mal'
 import { fetchAnimeList } from '../utils/api'
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+import { isTouchDevice } from '../utils/device'
 
 const STATUS_ORDER = ['watching', 'completed', 'plan_to_watch', 'on_hold', 'dropped'] as const
 

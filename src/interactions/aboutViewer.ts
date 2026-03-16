@@ -1,7 +1,6 @@
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+import { isTouchDevice } from '../utils/device'
 
 const PARAGRAPHS = [
   `Hello! My name is Christian Bjerre-Fernandes. I studied Computer Science at the University of Chicago and graduated in 2021. I love to study languages and learn about other cultures. I took Japanese and Norwegian during college and continue to study Japanese even now.`,

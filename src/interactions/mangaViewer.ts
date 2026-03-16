@@ -2,8 +2,7 @@ import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
 import type { MALMangaEntry } from '../types/mal'
 import { fetchMangaList } from '../utils/api'
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+import { isTouchDevice } from '../utils/device'
 
 const STATUS_ORDER = ['reading', 'completed', 'plan_to_read', 'on_hold', 'dropped'] as const
 

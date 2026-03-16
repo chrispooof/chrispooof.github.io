@@ -1,14 +1,13 @@
 import { setOrbitBlocked } from '../controls/camera'
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
+import { isTouchDevice } from '../utils/device'
 
 const photoModules = import.meta.glob('/src/assets/photo-albums/**/*.jpg', {
   eager: true,
   query: '?url',
   import: 'default',
 }) as Record<string, string>
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
 
 /**
  * Returns all photo URLs whose path contains the given album folder name.

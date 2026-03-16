@@ -1,6 +1,5 @@
 import { setTouchMovement } from '../controls/user'
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+import { isTouchDevice } from '../utils/device'
 
 let joystickBase: HTMLElement | null = null
 

@@ -1,6 +1,5 @@
 import { triggerTouchInteract } from '../controls/user'
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+import { isTouchDevice } from '../utils/device'
 
 // World-projected prompt label
 const el = document.createElement('div')

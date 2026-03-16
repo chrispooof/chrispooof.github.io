@@ -1,13 +1,12 @@
 import { setInputBlocked } from '../controls/user'
 import { blockTouchBtn } from '../hud/prompt'
 import { setTouchJoystickVisible } from '../hud/touchControls'
+import { isTouchDevice } from '../utils/device'
 
 export interface MenuItem {
   label: string
   action: () => void
 }
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
 
 /**
  * Reusable Dark Souls-style menu overlay.

@@ -1,8 +1,7 @@
 import resumePdf from '../assets/resume/christianbjerre-fernandes.pdf?url'
 import { setInputBlocked } from '../controls/user'
 import { hideControls, showControls } from '../hud/controls'
-
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+import { isTouchDevice } from '../utils/device'
 
 /**
  * Full-screen in-page resume viewer using an iframe.
