@@ -39,7 +39,7 @@ class Player {
     this.createHead()
     this.createArms()
     this.createLegs()
-    this.createEyes()
+    this.createFace()
   }
 
   /**
@@ -87,15 +87,23 @@ class Player {
   }
 
   /**
-   * Creates and positions both eyes on the head.
+   * Creates eyes and a mouth as children of the head mesh so they follow head animation.
    */
-  createEyes(): void {
+  createFace(): void {
+    const faceMat = new THREE.MeshBasicMaterial({ color: 0x222222 })
+
+    // Eyes — parented to head so they bob during walk animation
     const eyeXPositions = [-0.1, 0.1]
     eyeXPositions.forEach((eyeX) => {
       const eye = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), this.eyeMat)
       eye.position.set(eyeX, 1.73, 0.22)
       this.character.add(eye)
     })
+
+    // Mouth
+    const mouth = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.04, 0.01), faceMat)
+    mouth.position.set(0, -0.1, 0.22)
+    this.head.add(mouth)
   }
 
   /**

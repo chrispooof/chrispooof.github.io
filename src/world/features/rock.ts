@@ -21,7 +21,7 @@ export class Rock extends BaseFeature {
   initialize(): void {
     const rock = new THREE.Mesh(
       new THREE.DodecahedronGeometry(this.radius, 0),
-      new THREE.MeshLambertMaterial({ color: 0x9e9e9e }),
+      new THREE.MeshLambertMaterial({ color: 0x585858 }),
     )
     rock.rotation.set(Math.random(), Math.random(), Math.random())
     rock.castShadow = true

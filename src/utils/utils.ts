@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { Terrain } from '../world/terrain'
-import { treeLocations, rockLocations } from '../world/features/locations'
-import { Tree } from '../world/features/tree'
+import { pillarLocations, rockLocations } from '../world/features/locations'
+import { Pillar } from '../world/features/pillar'
 import { Rock } from '../world/features/rock'
 
 const _raycaster = new THREE.Raycaster()
@@ -24,11 +24,11 @@ export const getHeight = (coordinates: THREE.Vector3): number => {
 
 /**
  * @description
- * Adds trees and rocks to the scene
+ * Adds pillars and rocks to the dungeon scene.
  *
- * @param scene - The scene to add the trees and rocks to
+ * @param scene - The scene to add scenery to
  */
-export const addScenery = (scene: THREE.Scene) => {
-  treeLocations.forEach((coordinates) => new Tree(scene).place(coordinates))
+export const addScenery = (scene: THREE.Scene): void => {
+  pillarLocations.forEach((coordinates) => new Pillar(scene).place(coordinates))
   rockLocations.forEach((coordinates) => new Rock(scene).place(coordinates))
 }

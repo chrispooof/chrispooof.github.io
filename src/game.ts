@@ -17,6 +17,9 @@ import {
   WALK_SPEED_FACTOR,
 } from './utils/constants'
 import { checkCollision } from './world/colliders'
+import { cameraBlockers } from './world/cameraBlockers'
+import { addCorridor, updateTorches } from './world/corridor'
+import BonfireInstance from './world/features/bonfire'
 import { Boundaries, Terrain } from './world/terrain'
 import { getHeight, addScenery } from './utils/utils'
 
@@ -47,11 +50,15 @@ export class Game {
   private readonly cameraSide = new THREE.Vector3()
   private readonly moveVec = new THREE.Vector3()
   private readonly nextPos = new THREE.Vector3()
+  private readonly camRaycaster = new THREE.Raycaster()
+  private readonly camRayOrigin = new THREE.Vector3()
+  private readonly camRayDir = new THREE.Vector3()
   private lastTime = performance.now()
 
   // Character state
-  private characterYaw = 0
+  private characterYaw = Math.PI
   private walkPhase = 0
+  private totalTime = 0
 
   // Light state
   private ambient: THREE.AmbientLight
@@ -59,11 +66,11 @@ export class Game {
 
   constructor() {
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
-    this.ambient = new THREE.AmbientLight(0xffffff, 0.6)
-    this.sun = new THREE.DirectionalLight(0xfff5cc, 1.8)
+    this.ambient = new THREE.AmbientLight(0x151520, 0.8)
+    this.sun = new THREE.DirectionalLight(0x221111, 0.25)
     this.scene = new THREE.Scene()
-    this.scene.background = new THREE.Color(0x87ceeb)
-    this.scene.fog = new THREE.FogExp2(0x87ceeb, 0.018)
+    this.scene.background = new THREE.Color(0x0a0a0f)
+    this.scene.fog = new THREE.FogExp2(0x0a0a0f, 0.09)
     this.camera = new THREE.PerspectiveCamera(65, innerWidth / innerHeight, 0.1, 500)
 
     this.init()
@@ -79,21 +86,23 @@ export class Game {
     this.renderer.shadowMap.type = THREE.PCFShadowMap
     document.body.appendChild(this.renderer.domElement)
 
-    // Add lights
+    // Add lights — dim ambient + weak directional for shadow casting
     this.scene.add(this.ambient)
-    this.sun.position.set(40, 80, 20)
+    this.sun.position.set(0, 10, 0)
     this.sun.castShadow = true
-    this.sun.shadow.mapSize.set(2048, 2048)
+    this.sun.shadow.mapSize.set(1024, 1024)
     this.sun.shadow.camera.near = 1
-    this.sun.shadow.camera.far = 300
+    this.sun.shadow.camera.far = 30
     const sc: THREE.OrthographicCamera = this.sun.shadow.camera
-    sc.left = sc.bottom = -80
-    sc.right = sc.top = 80
+    sc.left = sc.bottom = -12
+    sc.right = sc.top = 12
     this.scene.add(this.sun)
 
-    // Add terrain and scenery
+    // Add terrain, corridor, scenery, and bonfire
     this.scene.add(Terrain)
+    addCorridor(this.scene)
     addScenery(this.scene)
+    BonfireInstance.place(this.scene, new THREE.Vector3(0, 0, -1))
 
     // Add character
     this.scene.add(PlayerInstance.character)
@@ -116,6 +125,9 @@ export class Game {
     const now = performance.now()
     const deltaTime = Math.min((now - this.lastTime) / 1000, 0.05)
     this.lastTime = now
+    this.totalTime += deltaTime
+    BonfireInstance.update(this.totalTime)
+    updateTorches(this.totalTime)
 
     const { moveX, moveZ } = getMovement()
 
@@ -154,23 +166,38 @@ export class Game {
 
       // Character smoothly turns to face the direction it's moving, rather than instantly snapping to the new direction
       this.characterYaw += diff * Math.min(1, TURN_SPEED * deltaTime * TURN_LERP_FACTOR)
-      PlayerInstance.character.rotation.y = this.characterYaw
 
       // Update walk animation
       this.walkPhase += deltaTime * WALK_SPEED_FACTOR
     }
 
+    PlayerInstance.character.rotation.y = this.characterYaw
     PlayerInstance.animateCharacter(deltaTime, isMoving, this.walkPhase)
 
     PlayerInstance.character.position.y = getHeight(PlayerInstance.character.position)
 
-    // Calculate camera position based on character position and camera settings so it's following the character
+    // Calculate ideal camera position based on character position and orbit settings
     const pitch = CAMERA_PITCH.value
     const cosPitch = Math.cos(pitch)
     const camX = PlayerInstance.character.position.x + Math.sin(yaw) * CAMERA_DIST * cosPitch
     const camY = PlayerInstance.character.position.y + CAMERA_HEIGHT + Math.sin(pitch) * CAMERA_DIST
     const camZ = PlayerInstance.character.position.z + Math.cos(yaw) * CAMERA_DIST * cosPitch
     this.cameraDesired.set(camX, camY, camZ)
+
+    // Pull the camera in if a wall or ceiling is between the player and the desired position
+    this.camRayOrigin.copy(PlayerInstance.character.position)
+    this.camRayOrigin.y += CAMERA_LOOK_OFFSET
+    this.camRayDir.subVectors(this.cameraDesired, this.camRayOrigin)
+    const fullDist = this.camRayDir.length()
+    this.camRayDir.divideScalar(fullDist)
+    this.camRaycaster.set(this.camRayOrigin, this.camRayDir)
+    this.camRaycaster.far = fullDist
+    const hits = this.camRaycaster.intersectObjects(cameraBlockers)
+    if (hits.length > 0) {
+      const safeDist = Math.max(0.5, hits[0].distance - 0.3)
+      this.cameraDesired.copy(this.camRayOrigin).addScaledVector(this.camRayDir, safeDist)
+    }
+
     this.camera.position.lerp(this.cameraDesired, CAMERA_LERP * deltaTime)
     this.cameraTarget.set(
       PlayerInstance.character.position.x,
