@@ -41,10 +41,35 @@ class ResumeViewer {
 
     overlay.appendChild(header)
 
-    const iframe = document.createElement('iframe')
-    iframe.src = resumePdf
-    iframe.className = 'flex-1 w-full border-0'
-    overlay.appendChild(iframe)
+    if (isTouchDevice) {
+      // On mobile, iframes render PDFs at full print width — open natively instead
+      const body = document.createElement('div')
+      body.className = 'flex-1 flex flex-col items-center justify-center gap-6 px-8'
+
+      const msg = document.createElement('div')
+      msg.className = 'text-[#6a5030] text-[12px] tracking-[3px] uppercase text-center'
+      msg.textContent = 'PDF preview unavailable on mobile'
+      body.appendChild(msg)
+
+      const link = document.createElement('a')
+      link.href = resumePdf
+      link.target = '_blank'
+      link.rel = 'noopener noreferrer'
+      link.className = [
+        'px-6 py-3 border border-[rgba(175,135,55,0.4)]',
+        'text-[#9a7040] text-[13px] tracking-[3px] uppercase',
+        'hover:border-[rgba(175,135,55,0.8)] hover:text-[#c8a060] transition-colors',
+      ].join(' ')
+      link.textContent = 'Open Resume ↗'
+      body.appendChild(link)
+
+      overlay.appendChild(body)
+    } else {
+      const iframe = document.createElement('iframe')
+      iframe.src = resumePdf
+      iframe.className = 'flex-1 w-full border-0'
+      overlay.appendChild(iframe)
+    }
 
     return overlay
   }
