@@ -159,15 +159,33 @@ class AnimeViewer {
       const entries = data.filter((e) => e.list_status.status === status)
       if (entries.length === 0) continue
 
-      const sectionTitle = document.createElement('div')
-      sectionTitle.className = 'text-[#6a5030] text-[13px] tracking-[4px] uppercase mb-4'
-      sectionTitle.textContent = `${STATUS_LABELS[status]}  (${entries.length})`
-      this.body.appendChild(sectionTitle)
+      let collapsed = false
+
+      const header = document.createElement('div')
+      header.className =
+        'flex items-center gap-2 text-[#6a5030] text-[13px] tracking-[4px] uppercase mb-4 cursor-pointer select-none hover:text-[#9a7040] transition-colors'
+
+      const chevron = document.createElement('span')
+      chevron.className = 'text-[10px] transition-transform duration-200'
+      chevron.textContent = '▼'
+
+      const label = document.createElement('span')
+      label.textContent = `${STATUS_LABELS[status]}  (${entries.length})`
+
+      header.appendChild(chevron)
+      header.appendChild(label)
+      this.body.appendChild(header)
 
       const row = document.createElement('div')
       row.className = 'flex flex-wrap justify-center gap-3 mb-8'
       for (const entry of entries) row.appendChild(this.buildCard(entry))
       this.body.appendChild(row)
+
+      header.addEventListener('click', () => {
+        collapsed = !collapsed
+        row.style.display = collapsed ? 'none' : ''
+        chevron.style.transform = collapsed ? 'rotate(-90deg)' : ''
+      })
     }
   }
 
