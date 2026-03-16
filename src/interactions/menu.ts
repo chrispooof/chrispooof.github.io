@@ -33,55 +33,31 @@ export class Menu {
    */
   private buildDOM(title: string): HTMLElement {
     const container = document.createElement('div')
-    Object.assign(container.style, {
-      position: 'fixed',
-      bottom: '18%',
-      right: '8%',
-      minWidth: '260px',
-      background: 'rgba(8, 6, 4, 0.93)',
-      border: '1px solid rgba(175, 135, 55, 0.3)',
-      padding: '22px 30px 26px',
-      fontFamily: "Georgia, 'Times New Roman', serif",
-      display: 'none',
-      userSelect: 'none',
-      zIndex: '10',
-    })
+    container.className = [
+      'fixed hidden bottom-[18%] right-[8%] z-10 select-none',
+      'min-w-[260px] px-[30px] pt-[22px] pb-[26px]',
+      'font-serif',
+      'bg-[rgba(8,6,4,0.93)] border border-[rgba(175,135,55,0.3)]',
+    ].join(' ')
 
     const titleEl = document.createElement('div')
-    Object.assign(titleEl.style, {
-      fontSize: '10px',
-      letterSpacing: '4px',
-      color: '#6a5030',
-      textTransform: 'uppercase',
-      marginBottom: '18px',
-      paddingBottom: '12px',
-      borderBottom: '1px solid rgba(140, 100, 40, 0.2)',
-    })
+    titleEl.className = [
+      'text-[10px] tracking-[4px] uppercase',
+      'text-[#6a5030]',
+      'mb-[18px] pb-[12px]',
+      'border-b border-[rgba(140,100,40,0.2)]',
+    ].join(' ')
     titleEl.textContent = title
     container.appendChild(titleEl)
 
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i]
       const row = document.createElement('div')
-      Object.assign(row.style, {
-        fontSize: '14px',
-        padding: '8px 0',
-        color: '#90806a',
-        cursor: 'default',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '10px',
-      })
+      row.className = 'flex items-center gap-[10px] py-2 text-[14px] text-[#90806a] cursor-default'
 
       const cursor = document.createElement('span')
       cursor.textContent = '▶'
-      Object.assign(cursor.style, {
-        fontSize: '8px',
-        width: '12px',
-        color: '#c8a040',
-        opacity: '0',
-        flexShrink: '0',
-      })
+      cursor.className = 'text-[8px] w-3 shrink-0 text-[#c8a040] opacity-0'
 
       const label = document.createElement('span')
       label.textContent = item.label
@@ -146,7 +122,8 @@ export class Menu {
   /** Opens the menu and blocks game input. */
   open(): void {
     this.isOpen = true
-    this.container.style.display = 'block'
+    this.container.classList.remove('hidden')
+    this.container.classList.add('block')
     this.select(0)
     setInputBlocked(true)
   }
@@ -154,7 +131,8 @@ export class Menu {
   /** Closes the menu and restores game input. */
   close(): void {
     this.isOpen = false
-    this.container.style.display = 'none'
+    this.container.classList.remove('block')
+    this.container.classList.add('hidden')
     setInputBlocked(false)
   }
 }

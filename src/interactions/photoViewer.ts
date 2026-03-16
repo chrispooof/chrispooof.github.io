@@ -38,54 +38,22 @@ class PhotoViewer {
   /** Builds the full-screen overlay DOM. */
   private buildDOM(): HTMLElement {
     const overlay = document.createElement('div')
-    Object.assign(overlay.style, {
-      position: 'fixed',
-      inset: '0',
-      background: 'rgba(0, 0, 0, 0.96)',
-      display: 'none',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: '20',
-      fontFamily: "Georgia, 'Times New Roman', serif",
-    })
+    overlay.className = 'fixed inset-0 hidden flex-col items-center justify-center z-20 bg-black/95 font-serif'
 
     this.titleEl = document.createElement('div')
-    Object.assign(this.titleEl.style, {
-      marginBottom: '14px',
-      color: '#9a7040',
-      fontSize: '12px',
-      letterSpacing: '4px',
-      textTransform: 'uppercase',
-    })
+    this.titleEl.className = 'mb-[14px] text-[#9a7040] text-[12px] tracking-[4px] uppercase'
     overlay.appendChild(this.titleEl)
 
     this.imgEl = document.createElement('img')
-    Object.assign(this.imgEl.style, {
-      maxWidth: '88vw',
-      maxHeight: '76vh',
-      objectFit: 'contain',
-      border: '1px solid rgba(175, 135, 55, 0.25)',
-    })
+    this.imgEl.className = 'max-w-[88vw] max-h-[76vh] object-contain border border-[rgba(175,135,55,0.25)]'
     overlay.appendChild(this.imgEl)
 
     this.counterEl = document.createElement('div')
-    Object.assign(this.counterEl.style, {
-      marginTop: '16px',
-      color: '#6a5030',
-      fontSize: '11px',
-      letterSpacing: '3px',
-    })
+    this.counterEl.className = 'mt-4 text-[#6a5030] text-[11px] tracking-[3px]'
     overlay.appendChild(this.counterEl)
 
     const hint = document.createElement('div')
-    Object.assign(hint.style, {
-      position: 'absolute',
-      bottom: '24px',
-      color: '#4a3820',
-      fontSize: '11px',
-      letterSpacing: '2px',
-    })
+    hint.className = 'absolute bottom-6 text-[#4a3820] text-[11px] tracking-[2px]'
     hint.textContent = '← →  navigate    ·    E  close'
     overlay.appendChild(hint)
 
@@ -128,7 +96,8 @@ class PhotoViewer {
     this.currentIndex = 0
     this.titleEl.textContent = title
     this.render()
-    this.overlay.style.display = 'flex'
+    this.overlay.classList.remove('hidden')
+    this.overlay.classList.add('flex')
     setInputBlocked(true)
     hideControls()
   }
@@ -136,7 +105,8 @@ class PhotoViewer {
   /** Closes the viewer and restores game input. */
   close(): void {
     this.isOpen = false
-    this.overlay.style.display = 'none'
+    this.overlay.classList.remove('flex')
+    this.overlay.classList.add('hidden')
     setInputBlocked(false)
     showControls()
   }
