@@ -5,8 +5,10 @@ import { getInteractPressed, getMovement, isInputBlocked, setInputBlocked } from
 import { hideControls, showControls } from './hud/controls'
 import { hidePrompt, showPrompt } from './hud/prompt'
 import { showStartScreen } from './hud/startScreen'
+import { openAnimeViewer } from './interactions/animeViewer'
 import { openBonfireMenu } from './interactions/bonfireMenu'
 import { getNearby, registerInteractable, updateNearby } from './interactions/interactables'
+import { openMangaViewer } from './interactions/mangaViewer'
 import { openPhotoViewer } from './interactions/photoViewer'
 import {
   CAMERA_DIST,
@@ -23,10 +25,12 @@ import {
 } from './utils/constants'
 import { addScenery, getHeight } from './utils/utils'
 import { cameraBlockers } from './world/cameraBlockers'
-import { checkCollision } from './world/colliders'
+import { checkCollision, registerCollider } from './world/colliders'
 import { addCorridor, updateTorches } from './world/corridor'
 import { addDecay } from './world/decay'
 import BonfireInstance from './world/features/bonfire'
+import { Bookshelf } from './world/features/bookshelf'
+import { CDTable } from './world/features/cdTable'
 import { Painting } from './world/features/painting'
 import { Boundaries, Terrain } from './world/terrain'
 
@@ -125,6 +129,15 @@ export class Game {
     new Painting(this.scene, 0x3a1020).place(new THREE.Vector3(2.7, 1.8, -3.5)) // japan      — midpoint: pillar z=-2 → pillar z=-5
     new Painting(this.scene, 0x0a2a20).place(new THREE.Vector3(2.7, 1.8, -6.5)) // costa-rica — midpoint: pillar z=-5 → pillar z=-8
 
+    // Bookshelf and CD table side by side against the left wall (z=2 to z=8 section)
+    const LEFT_WALL_X = -3.0
+    const SHELF_Z = 3.0 // centered pair lands at z=3.5, inside the z=2–5 pillar gap
+    const CD_Z = SHELF_Z + Bookshelf.W / 2 + CDTable.W / 2 + 0.1 // small gap between them
+    new Bookshelf().place(this.scene, new THREE.Vector3(LEFT_WALL_X + Bookshelf.D / 2, 0, SHELF_Z))
+    registerCollider(LEFT_WALL_X + Bookshelf.D, SHELF_Z, 0.3)
+    new CDTable().place(this.scene, new THREE.Vector3(LEFT_WALL_X + CDTable.D / 2, 0, CD_Z))
+    registerCollider(LEFT_WALL_X + CDTable.D, CD_Z, 0.4)
+
     // Register interactables
     registerInteractable({
       x: 0,
@@ -158,6 +171,22 @@ export class Game {
       label: 'view costa rica photos',
       onInteract: () => openPhotoViewer('costa-rica', 'Costa Rica'),
     })
+    registerInteractable({
+      x: LEFT_WALL_X + Bookshelf.D,
+      y: 1.0,
+      z: SHELF_Z,
+      radius: 1.8,
+      label: 'browse manga list',
+      onInteract: openMangaViewer,
+    })
+    registerInteractable({
+      x: LEFT_WALL_X + CDTable.D,
+      y: 1.0,
+      z: CD_Z,
+      radius: 1.8,
+      label: 'browse anime list',
+      onInteract: openAnimeViewer,
+    })
 
     // Add character
     this.scene.add(PlayerInstance.character)
@@ -188,7 +217,6 @@ export class Game {
   }
 
   /**
-   * @description
    * Updates the game state and renders the scene
    */
   private update() {

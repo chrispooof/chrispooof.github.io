@@ -1,5 +1,4 @@
 /**
- * @description
  * Camera constants
  */
 export const CAMERA_YAW = { value: Math.PI }
@@ -8,14 +7,12 @@ export const CAMERA_DIST = 10
 export const CAMERA_HEIGHT = 5
 
 /**
- * @description
  * Movement constants
  */
 export const MOVE_SPEED = 6
 export const TURN_SPEED = 2.5
 
 /**
- * @description
  * Animation constants
  */
 export const WALK_SPEED_FACTOR = 9
@@ -28,20 +25,17 @@ export const WALK_BOB = 0.04
 export const IDLE_LERP = 10
 
 /**
- * @description
  * Terrain constants
  */
 export const TERRAIN_SIZE = 20
 export const TERRAIN_SEGS = 20
 
 /**
- * @description
  * Player collision constants
  */
 export const PLAYER_RADIUS = 0.3
 
 /**
- * @description
  * Camera orbit constants
  */
 export const CAMERA_PITCH_MIN = 0.15
@@ -49,7 +43,6 @@ export const CAMERA_PITCH_MAX = 1.2
 export const CAMERA_ORBIT_SENSITIVITY = 0.005
 
 /**
- * @description
  * Dungeon corridor constants
  */
 export const CORRIDOR_HALF_WIDTH = 3.0

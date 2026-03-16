@@ -8,7 +8,6 @@ const _downDir = new THREE.Vector3(0, -1, 0)
 const _rayOrigin = new THREE.Vector3()
 
 /**
- * @description
  * Gets the height at the given coordinates
  *
  * @param coordinates - The coordinates to get the height at
@@ -22,7 +21,6 @@ export const getHeight = (coordinates: THREE.Vector3): number => {
 }
 
 /**
- * @description
  * Adds pillars and rocks to the dungeon scene.
  *
  * @param scene - The scene to add scenery to

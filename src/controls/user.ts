@@ -11,7 +11,6 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
 document.addEventListener('keyup', (e: KeyboardEvent) => keys.delete(e.code))
 
 /**
- * @description
  * Gets the current movement input from the user.
  * Returns zero movement when input is blocked (e.g. a menu is open).
  *

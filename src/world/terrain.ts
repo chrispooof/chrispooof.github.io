@@ -11,7 +11,6 @@ const terrainGeo = new THREE.PlaneGeometry(TERRAIN_SIZE, TERRAIN_SIZE, TERRAIN_S
 terrainGeo.rotateX(-Math.PI / 2)
 
 /**
- * @description
  * The dungeon floor mesh — kept full-size for raycasting correctness.
  */
 export const Terrain = new THREE.Mesh(
@@ -21,7 +20,6 @@ export const Terrain = new THREE.Mesh(
 Terrain.receiveShadow = true
 
 /**
- * @description
  * The walkable boundary of the dungeon corridor.
  * Inset by PLAYER_RADIUS so the player's center never touches the wall.
  */
