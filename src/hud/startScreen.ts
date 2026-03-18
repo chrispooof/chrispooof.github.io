@@ -23,7 +23,7 @@ class StartScreen {
     overlay.className = 'fixed inset-0 z-30 font-serif cursor-pointer select-none'
     // Radial gradient: transparent circle in the centre fades to solid black at the edges
     overlay.style.background =
-      'radial-gradient(circle at 50% 52%, transparent 0%, transparent 20%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.92) 42%, #000 54%)'
+      'radial-gradient(circle at 50% 52%, transparent 0%, transparent 25%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.95) 42%, #000 54%)'
 
     // Title — floats above the circle in the solid black region
     const header = document.createElement('div')
@@ -31,12 +31,12 @@ class StartScreen {
 
     const title = document.createElement('div')
     title.className =
-      'text-[#9a7040] text-[18px] sm:text-[22px] tracking-[4px] sm:tracking-[10px] uppercase text-center px-4'
+      'text-[#9a7040] text-lg tracking-wider sm:tracking-[10px] uppercase text-center px-4'
     title.textContent = 'Christian Bjerre-Fernandes'
     header.appendChild(title)
 
     const subtitle = document.createElement('div')
-    subtitle.className = 'text-[#4a3820] text-[11px] tracking-[5px] uppercase'
+    subtitle.className = 'text-[#9a7040] text-xs tracking-[6px] uppercase'
     subtitle.textContent = 'Portfolio'
     header.appendChild(subtitle)
 
@@ -45,7 +45,7 @@ class StartScreen {
     // Prompt — sits below the circle in the solid black region
     const prompt = document.createElement('div')
     prompt.className =
-      'absolute bottom-[10%] left-0 right-0 text-center text-[#6a5030] text-[12px] tracking-[3px] animate-pulse'
+      'absolute bottom-[10%] left-0 right-0 text-center text-[#9a7040] text-sm tracking-wider animate-pulse'
     prompt.textContent = isTouchDevice ? '[ Tap to begin ]' : '[ Press any key to begin ]'
     overlay.appendChild(prompt)
 
