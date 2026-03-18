@@ -43,14 +43,17 @@ import { Boundaries, Terrain } from './world/terrain'
  * @property {THREE.WebGLRenderer} renderer - The WebGL renderer.
  * @property {THREE.Scene} scene - The Three.js scene.
  * @property {THREE.PerspectiveCamera} camera - The perspective camera.
- * @property {number} lastTime - The last time the game was updated.
- * @property {number} characterYaw - The character's yaw represents the character's horizontal rotation/direction they're facing.
- * 0 typically means facing forward (along positive Z axis)
- * π/2 (90°) means facing right (along positive X axis)
- * π (180°) means facing backward (along negative Z axis)
- * 3π/2 (270°) means facing left (along negative X axis)
- * @property {number} walkPhase - The character's walk phase.
  * @property {THREE.Vector3} cameraTarget - The camera's target position.
+ * @property {THREE.Vector3} cameraDesired - The camera's desired position.
+ * @property {THREE.Vector3} cameraForward - The camera's forward vector.
+ * @property {THREE.Vector3} cameraSide - The camera's side vector.
+ * @property {THREE.Vector3} moveVec - The character's movement vector.
+ * @property {THREE.Vector3} nextPos - The character's next position.
+ * @property {THREE.Raycaster} camRaycaster - The camera's raycaster.
+ * @property {THREE.Vector3} camRayOrigin - The camera's ray origin.
+ * @property {THREE.Vector3} camRayDir - The camera's ray direction.
+ * @property {THREE.Vector3} promptWorldPos - The prompt's world position.
+ * @property {number} lastTime - The last time the game was updated.
  */
 export class Game {
   // Renderer and scene state
