@@ -13,6 +13,10 @@ export const STATUS_COLORS: Record<string, string> = {
   completed: '#E7F3F7',
 }
 
+/**
+ * Sends a POST request to the Lambda proxy with the given operation name.
+ * @param operation - The operation key to include in the request body
+ */
 const lambdaPost = (
   operation: string,
 ): Promise<{ status_code: number; response: { data: unknown[] } }> =>

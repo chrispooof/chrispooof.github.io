@@ -34,6 +34,7 @@ class MangaViewer {
     document.addEventListener('keydown', this.handleKey)
   }
 
+  /** Builds the top-level overlay DOM structure with header and scrollable body. */
   private buildDOM(): { overlay: HTMLElement; body: HTMLElement } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-[#08060a] font-serif'
@@ -64,6 +65,10 @@ class MangaViewer {
     return { overlay, body }
   }
 
+  /**
+   * Builds a card element for a single manga entry.
+   * @param entry - The manga entry data to display
+   */
   private buildCard(entry: MALMangaEntry): HTMLElement {
     const card = document.createElement('div')
     card.className =
@@ -136,6 +141,7 @@ class MangaViewer {
     return card
   }
 
+  /** Builds the wooden shelf plank separator displayed under each status section. */
   private buildShelf(): HTMLElement {
     const shelf = document.createElement('div')
     shelf.className = 'w-full h-3 rounded mb-8'
@@ -144,6 +150,7 @@ class MangaViewer {
     return shelf
   }
 
+  /** Renders a loading indicator into the body. */
   private renderLoading(): void {
     this.body.innerHTML = ''
     const el = document.createElement('div')
@@ -153,6 +160,7 @@ class MangaViewer {
     this.body.appendChild(el)
   }
 
+  /** Renders an error message into the body. */
   private renderError(): void {
     this.body.innerHTML = ''
     const el = document.createElement('div')
@@ -161,6 +169,10 @@ class MangaViewer {
     this.body.appendChild(el)
   }
 
+  /**
+   * Renders the full manga list grouped by reading status.
+   * @param data - The list of manga entries to display
+   */
   private renderData(data: MALMangaEntry[]): void {
     this.body.innerHTML = ''
 
@@ -203,6 +215,7 @@ class MangaViewer {
     }
   }
 
+  /** Handles keyboard shortcuts for closing the viewer. */
   private handleKey = (e: KeyboardEvent): void => {
     if (!this.isOpen) return
     if (e.code === 'Escape' || e.code === 'KeyE') {

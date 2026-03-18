@@ -5,7 +5,7 @@ import { isTouchDevice } from '../utils/device'
 const PARAGRAPHS = [
   `Hello! My name is Christian Bjerre-Fernandes. I studied Computer Science at the University of Chicago and graduated in 2021. I love to study languages and learn about other cultures. I took Japanese and Norwegian during college and continue to study Japanese even now.`,
   `I am currently a Senior Associate Software Engineer at Capital One with an AWS Solutions Architect certification. I work as a full-stack developer and data engineer on Capital One's Slingshot SaaS product.`,
-  `Outside of work, I love to play RPGs like Elden Ring and other souls-like games in addition to battle royales like Apex Legends (I main Horizon). I love watching movies (The Prestige, Lincoln Lawyer, etc.) and shows of all kinds (Bojack Horseman, Love is Blind, etc.), photography, reading all sorts of things (manga, comics, fiction, etc.), and pickleball/biking.`,
+  `Outside of work, I love to play RPGs like Elden Ring and other souls-like games in addition to battle royales like Apex Legends (I main Horizon). I love watching movies (The Prestige, Lincoln Lawyer, etc.) and shows of all kinds (Bojack Horseman, Love is Blind, etc.), photography, and reading all sorts of things (manga, comics, fiction, etc.). I'm also very active and enjoy pickleball, biking, volleyball, and running.`,
 ]
 
 /**
@@ -23,6 +23,7 @@ class AboutViewer {
     document.addEventListener('keydown', this.handleKey)
   }
 
+  /** Builds the full-screen overlay DOM including header, bio paragraphs, and divider. */
   private buildDOM(): HTMLElement {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-black/95 font-serif'
@@ -77,6 +78,7 @@ class AboutViewer {
     return overlay
   }
 
+  /** Handles keyboard shortcuts for closing the viewer. */
   private handleKey = (e: KeyboardEvent): void => {
     if (!this.isOpen) return
     if (e.code === 'Escape' || e.code === 'KeyE') {

@@ -15,74 +15,93 @@ const ceilingMat = new THREE.MeshLambertMaterial({ color: 0x1e1e1e })
 const wallLength = TERRAIN_SIZE + WALL_THICKNESS * 2
 const corridorWidth = CORRIDOR_HALF_WIDTH * 2
 
-const torches: Torch[] = []
+/**
+ * Builds and manages the dungeon corridor geometry including walls, ceiling, and torches.
+ */
+class Corridor {
+  private torches: Torch[] = []
+
+  /**
+   * Adds the corridor geometry (side walls, end walls, ceiling, torches) to the scene.
+   * @param scene - The scene to add corridor geometry to
+   */
+  add(scene: THREE.Scene): void {
+    // Side walls
+    const sideWallGeo = new THREE.BoxGeometry(WALL_THICKNESS, WALL_HEIGHT, wallLength)
+    const leftWall = new THREE.Mesh(sideWallGeo, stoneMat)
+    leftWall.position.set(-(CORRIDOR_HALF_WIDTH + WALL_THICKNESS / 2), WALL_HEIGHT / 2, 0)
+    leftWall.receiveShadow = true
+    leftWall.castShadow = true
+    scene.add(leftWall)
+    registerCameraBlocker(leftWall)
+
+    const rightWall = leftWall.clone()
+    rightWall.position.x = CORRIDOR_HALF_WIDTH + WALL_THICKNESS / 2
+    scene.add(rightWall)
+    registerCameraBlocker(rightWall)
+
+    // End walls
+    const endWallWidth = corridorWidth + WALL_THICKNESS * 2
+    const endWallGeo = new THREE.BoxGeometry(endWallWidth, WALL_HEIGHT, WALL_THICKNESS)
+    const farWall = new THREE.Mesh(endWallGeo, stoneMat)
+    farWall.position.set(0, WALL_HEIGHT / 2, -(CORRIDOR_HALF_LENGTH + WALL_THICKNESS / 2))
+    farWall.receiveShadow = true
+    farWall.castShadow = true
+    scene.add(farWall)
+    registerCameraBlocker(farWall)
+
+    const nearWall = farWall.clone()
+    nearWall.position.z = CORRIDOR_HALF_LENGTH + WALL_THICKNESS / 2
+    scene.add(nearWall)
+    registerCameraBlocker(nearWall)
+
+    // Ceiling
+    const ceiling = new THREE.Mesh(
+      new THREE.BoxGeometry(endWallWidth, WALL_THICKNESS, wallLength),
+      ceilingMat,
+    )
+    ceiling.position.set(0, WALL_HEIGHT + WALL_THICKNESS / 2, 0)
+    scene.add(ceiling)
+    registerCameraBlocker(ceiling)
+
+    // Wall torches — one pair per inter-pillar gap (pillars at z=-8,-5,-2,2,5,8 → midpoints below)
+    const torchZPositions = [-6.5, -3.5, 0, 3.5, 6.5]
+    const wallXPositions: Array<[number, number]> = [
+      [-(CORRIDOR_HALF_WIDTH - 0.15), 1], // [torchX, inward sign for light offset]
+      [CORRIDOR_HALF_WIDTH - 0.15, -1],
+    ]
+
+    let phaseIndex = 0
+    for (const z of torchZPositions) {
+      for (const [torchX, sign] of wallXPositions) {
+        const torch = new Torch(phaseIndex * 0.73)
+        torch.place(scene, new THREE.Vector3(torchX, 3.2, z), sign * 0.4)
+        this.torches.push(torch)
+        phaseIndex++
+      }
+    }
+  }
+
+  /**
+   * Animates all torch flames and flickers their lights. Call every frame.
+   * @param time - Total elapsed time in seconds
+   */
+  update(time: number): void {
+    this.torches.forEach((torch) => torch.update(time))
+  }
+}
+
+const corridor = new Corridor()
 
 /**
  * Builds the dungeon corridor: side walls, end walls, ceiling, and wall torches.
  * Call updateTorches() each frame to animate the torches.
  * @param scene - The scene to add corridor geometry to
  */
-export const addCorridor = (scene: THREE.Scene): void => {
-  // Side walls
-  const sideWallGeo = new THREE.BoxGeometry(WALL_THICKNESS, WALL_HEIGHT, wallLength)
-  const leftWall = new THREE.Mesh(sideWallGeo, stoneMat)
-  leftWall.position.set(-(CORRIDOR_HALF_WIDTH + WALL_THICKNESS / 2), WALL_HEIGHT / 2, 0)
-  leftWall.receiveShadow = true
-  leftWall.castShadow = true
-  scene.add(leftWall)
-  registerCameraBlocker(leftWall)
-
-  const rightWall = leftWall.clone()
-  rightWall.position.x = CORRIDOR_HALF_WIDTH + WALL_THICKNESS / 2
-  scene.add(rightWall)
-  registerCameraBlocker(rightWall)
-
-  // End walls
-  const endWallWidth = corridorWidth + WALL_THICKNESS * 2
-  const endWallGeo = new THREE.BoxGeometry(endWallWidth, WALL_HEIGHT, WALL_THICKNESS)
-  const farWall = new THREE.Mesh(endWallGeo, stoneMat)
-  farWall.position.set(0, WALL_HEIGHT / 2, -(CORRIDOR_HALF_LENGTH + WALL_THICKNESS / 2))
-  farWall.receiveShadow = true
-  farWall.castShadow = true
-  scene.add(farWall)
-  registerCameraBlocker(farWall)
-
-  const nearWall = farWall.clone()
-  nearWall.position.z = CORRIDOR_HALF_LENGTH + WALL_THICKNESS / 2
-  scene.add(nearWall)
-  registerCameraBlocker(nearWall)
-
-  // Ceiling
-  const ceiling = new THREE.Mesh(
-    new THREE.BoxGeometry(endWallWidth, WALL_THICKNESS, wallLength),
-    ceilingMat,
-  )
-  ceiling.position.set(0, WALL_HEIGHT + WALL_THICKNESS / 2, 0)
-  scene.add(ceiling)
-  registerCameraBlocker(ceiling)
-
-  // Wall torches — one pair per inter-pillar gap (pillars at z=-8,-5,-2,2,5,8 → midpoints below)
-  const torchZPositions = [-6.5, -3.5, 0, 3.5, 6.5]
-  const wallXPositions: Array<[number, number]> = [
-    [-(CORRIDOR_HALF_WIDTH - 0.15), 1], // [torchX, inward sign for light offset]
-    [CORRIDOR_HALF_WIDTH - 0.15, -1],
-  ]
-
-  let phaseIndex = 0
-  for (const z of torchZPositions) {
-    for (const [torchX, sign] of wallXPositions) {
-      const torch = new Torch(phaseIndex * 0.73)
-      torch.place(scene, new THREE.Vector3(torchX, 3.2, z), sign * 0.4)
-      torches.push(torch)
-      phaseIndex++
-    }
-  }
-}
+export const addCorridor = (scene: THREE.Scene): void => corridor.add(scene)
 
 /**
  * Animates all torch flames and flickers their lights. Call every frame.
  * @param time - Total elapsed time in seconds
  */
-export const updateTorches = (time: number): void => {
-  torches.forEach((torch) => torch.update(time))
-}
+export const updateTorches = (time: number): void => corridor.update(time)

@@ -41,6 +41,17 @@ export class CDTable {
     scene.add(this.group)
   }
 
+  /**
+   * Adds a box mesh to the group at the given local position.
+   * @param mat - The material to apply
+   * @param w - Width
+   * @param h - Height
+   * @param d - Depth
+   * @param x - Local X position
+   * @param y - Local Y position
+   * @param z - Local Z position
+   * @param shadows - Whether to cast and receive shadows
+   */
   private box(
     mat: THREE.Material,
     w: number,

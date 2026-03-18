@@ -18,6 +18,7 @@ class ResumeViewer {
     document.addEventListener('keydown', this.handleKey)
   }
 
+  /** Builds the overlay DOM: header with close button, and either an iframe or a mobile link. */
   private buildDOM(): HTMLElement {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-black/95 font-serif'
@@ -74,6 +75,7 @@ class ResumeViewer {
     return overlay
   }
 
+  /** Handles keyboard shortcuts for closing the viewer. */
   private handleKey = (e: KeyboardEvent): void => {
     if (!this.isOpen) return
     if (e.code === 'Escape' || e.code === 'KeyE') {

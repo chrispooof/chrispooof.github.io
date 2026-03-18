@@ -216,6 +216,7 @@ class BookViewer {
     }
   }
 
+  /** Handles keyboard shortcuts for closing the viewer. */
   private handleKey = (e: KeyboardEvent): void => {
     if (!this.isOpen) return
     if (e.code === 'Escape' || e.code === 'KeyE') {

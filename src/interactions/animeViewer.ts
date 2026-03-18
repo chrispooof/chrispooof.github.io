@@ -34,6 +34,7 @@ class AnimeViewer {
     document.addEventListener('keydown', this.handleKey)
   }
 
+  /** Builds the top-level overlay DOM structure with header and scrollable body. */
   private buildDOM(): { overlay: HTMLElement; body: HTMLElement } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-[#06060e] font-serif'
@@ -64,6 +65,10 @@ class AnimeViewer {
     return { overlay, body }
   }
 
+  /**
+   * Builds a card element for a single anime entry.
+   * @param entry - The anime entry data to display
+   */
   private buildCard(entry: MALAnimeEntry): HTMLElement {
     const card = document.createElement('div')
     card.className =
@@ -134,6 +139,7 @@ class AnimeViewer {
     return card
   }
 
+  /** Renders a loading indicator into the body. */
   private renderLoading(): void {
     this.body.innerHTML = ''
     const el = document.createElement('div')
@@ -143,6 +149,7 @@ class AnimeViewer {
     this.body.appendChild(el)
   }
 
+  /** Renders an error message into the body. */
   private renderError(): void {
     this.body.innerHTML = ''
     const el = document.createElement('div')
@@ -151,6 +158,10 @@ class AnimeViewer {
     this.body.appendChild(el)
   }
 
+  /**
+   * Renders the full anime list grouped by watch status.
+   * @param data - The list of anime entries to display
+   */
   private renderData(data: MALAnimeEntry[]): void {
     this.body.innerHTML = ''
 
@@ -188,6 +199,7 @@ class AnimeViewer {
     }
   }
 
+  /** Handles keyboard shortcuts for closing the viewer. */
   private handleKey = (e: KeyboardEvent): void => {
     if (!this.isOpen) return
     if (e.code === 'Escape' || e.code === 'KeyE') {

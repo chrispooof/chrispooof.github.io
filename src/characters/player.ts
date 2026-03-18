@@ -5,6 +5,10 @@ import { ARM_SWING, IDLE_LERP, WALK_BOB, WALK_SWING } from '../utils/constants'
 const armGeo = new THREE.BoxGeometry(0.2, 0.55, 0.2)
 const legGeo = new THREE.BoxGeometry(0.24, 0.55, 0.24)
 
+/**
+ * The player character: a Dark Souls-style armored knight assembled from box geometry.
+ * Manages limb references for walk-cycle animation and sit/stand transitions.
+ */
 class Player {
   public character: THREE.Group
 

@@ -3,6 +3,7 @@ import { blockTouchBtn } from '../hud/prompt'
 import { setTouchJoystickVisible } from '../hud/touchControls'
 import { isTouchDevice } from '../utils/device'
 
+/** A single entry in a navigation menu with a display label and associated action. */
 export interface MenuItem {
   label: string
   action: () => void
