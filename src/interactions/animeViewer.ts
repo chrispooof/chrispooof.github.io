@@ -1,8 +1,7 @@
-import { setInputBlocked } from '../controls/user'
-import { hideControls, showControls } from '../hud/controls'
 import type { MALAnimeEntry } from '../types/mal'
 import { fetchAnimeList } from '../utils/api'
 import { isTouchDevice } from '../utils/device'
+import { BaseOverlay } from './baseOverlay'
 
 const STATUS_ORDER = ['watching', 'completed', 'plan_to_watch', 'on_hold', 'dropped'] as const
 
@@ -19,23 +18,23 @@ const STATUS_LABELS: Record<string, string> = {
  * Cards are organized by watch status. Hover a card to see details.
  * Keyboard: E/Escape to close.
  */
-class AnimeViewer {
-  private overlay: HTMLElement
-  private body: HTMLElement
-  private onClose: (() => void) | null = null
+class AnimeViewer extends BaseOverlay {
+  private readonly body: HTMLElement
   private cache: MALAnimeEntry[] | null = null
-  isOpen = false
 
   constructor() {
-    const { overlay, body } = this.buildDOM()
-    this.overlay = overlay
+    const { overlay, body, closeBtn } = AnimeViewer.buildDOM()
+    super(overlay)
     this.body = body
-    document.body.appendChild(this.overlay)
-    document.addEventListener('keydown', this.handleKey)
+    closeBtn.addEventListener('click', () => this.close())
   }
 
   /** Builds the top-level overlay DOM structure with header and scrollable body. */
-  private buildDOM(): { overlay: HTMLElement; body: HTMLElement } {
+  private static buildDOM(): {
+    overlay: HTMLElement
+    body: HTMLElement
+    closeBtn: HTMLElement
+  } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-[#06060e] font-serif'
 
@@ -53,7 +52,6 @@ class AnimeViewer {
       ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
       : 'text-[#6a5030] hover:text-[#9a7040] text-[14px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
     closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
-    closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 
     overlay.appendChild(header)
@@ -62,7 +60,7 @@ class AnimeViewer {
     body.className = 'flex-1 overflow-y-auto px-6 py-6'
     overlay.appendChild(body)
 
-    return { overlay, body }
+    return { overlay, body, closeBtn }
   }
 
   /**
@@ -74,7 +72,6 @@ class AnimeViewer {
     card.className =
       'relative w-28 flex-shrink-0 cursor-pointer group hover:-translate-y-1 hover:scale-105 transition-transform duration-200'
 
-    // Status color bar across the top (CD case edge)
     const bar = document.createElement('div')
     bar.className = 'h-[3px] w-full'
     bar.style.backgroundColor = entry.node.color ?? '#888'
@@ -100,7 +97,6 @@ class AnimeViewer {
     footer.appendChild(titleEl)
     footer.appendChild(details)
 
-    // Hover overlay
     const hoverEl = document.createElement('div')
     hoverEl.className =
       'absolute inset-0 bg-black/90 p-2 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none'
@@ -199,52 +195,21 @@ class AnimeViewer {
     }
   }
 
-  /** Handles keyboard shortcuts for closing the viewer. */
-  private handleKey = (e: KeyboardEvent): void => {
-    if (!this.isOpen) return
-    if (e.code === 'Escape' || e.code === 'KeyE') {
-      e.stopImmediatePropagation()
-      this.close()
-    }
-  }
-
-  /**
-   * Opens the anime viewer and blocks game input.
-   * Fetches data on first open and caches it for subsequent opens.
-   * @param onClose - Optional callback fired when the viewer is closed
-   */
-  open(onClose?: () => void): void {
-    this.onClose = onClose ?? null
-    this.isOpen = true
-    this.overlay.classList.remove('hidden')
-    this.overlay.classList.add('flex')
-    setInputBlocked(true)
-    hideControls()
-
+  /** Fetches on first open, renders from cache on subsequent opens. */
+  protected override render(): void {
     if (this.cache !== null) {
       this.renderData(this.cache)
-    } else {
-      this.renderLoading()
-      fetchAnimeList()
-        .then((data) => {
-          this.cache = data
-          if (this.isOpen) this.renderData(data)
-        })
-        .catch(() => {
-          if (this.isOpen) this.renderError()
-        })
+      return
     }
-  }
-
-  /** Closes the anime viewer, restores game input, and fires the onClose callback. */
-  close(): void {
-    this.isOpen = false
-    this.overlay.classList.remove('flex')
-    this.overlay.classList.add('hidden')
-    setInputBlocked(false)
-    showControls()
-    this.onClose?.()
-    this.onClose = null
+    this.renderLoading()
+    fetchAnimeList()
+      .then((data) => {
+        this.cache = data
+        if (this.isOpen) this.renderData(data)
+      })
+      .catch(() => {
+        if (this.isOpen) this.renderError()
+      })
   }
 }
 

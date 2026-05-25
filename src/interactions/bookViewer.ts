@@ -1,8 +1,7 @@
-import { setInputBlocked } from '../controls/user'
-import { hideControls, showControls } from '../hud/controls'
 import type { Book } from '../types/hardcover'
 import { fetchBookList } from '../utils/api'
 import { isTouchDevice } from '../utils/device'
+import { BaseOverlay } from './baseOverlay'
 
 const SHELF_ORDER = ['currently-reading', 'to-read', 'read'] as const
 
@@ -19,23 +18,23 @@ const FALLBACK_COLOR = '#3a2a1a'
  * Each shelf group sits on its own warm wooden shelf plank.
  * Hover a book to see details. Keyboard: E/Escape to close.
  */
-class BookViewer {
-  private overlay: HTMLElement
-  private body: HTMLElement
-  private onClose: (() => void) | null = null
+class BookViewer extends BaseOverlay {
+  private readonly body: HTMLElement
   private cache: Record<string, Book[]> | null = null
-  isOpen = false
 
   constructor() {
-    const { overlay, body } = this.buildDOM()
-    this.overlay = overlay
+    const { overlay, body, closeBtn } = BookViewer.buildDOM()
+    super(overlay)
     this.body = body
-    document.body.appendChild(this.overlay)
-    document.addEventListener('keydown', this.handleKey)
+    closeBtn.addEventListener('click', () => this.close())
   }
 
   /** Builds the top-level overlay DOM structure. */
-  private buildDOM(): { overlay: HTMLElement; body: HTMLElement } {
+  private static buildDOM(): {
+    overlay: HTMLElement
+    body: HTMLElement
+    closeBtn: HTMLElement
+  } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-[#08060a] font-serif'
 
@@ -53,7 +52,6 @@ class BookViewer {
       ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
       : 'text-[#6a5030] hover:text-[#9a7040] text-[14px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
     closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
-    closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 
     overlay.appendChild(header)
@@ -62,7 +60,7 @@ class BookViewer {
     body.className = 'flex-1 overflow-y-auto px-6 py-6'
     overlay.appendChild(body)
 
-    return { overlay, body }
+    return { overlay, body, closeBtn }
   }
 
   /**
@@ -104,7 +102,6 @@ class BookViewer {
     footer.appendChild(titleEl)
     footer.appendChild(authorEl)
 
-    // Hover overlay
     const hoverEl = document.createElement('div')
     hoverEl.className =
       'absolute inset-0 bg-black/90 p-2 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none'
@@ -216,52 +213,21 @@ class BookViewer {
     }
   }
 
-  /** Handles keyboard shortcuts for closing the viewer. */
-  private handleKey = (e: KeyboardEvent): void => {
-    if (!this.isOpen) return
-    if (e.code === 'Escape' || e.code === 'KeyE') {
-      e.stopImmediatePropagation()
-      this.close()
-    }
-  }
-
-  /**
-   * Opens the book viewer and blocks game input.
-   * Fetches data on first open and caches it for subsequent opens.
-   * @param onClose - Optional callback fired when the viewer is closed
-   */
-  open(onClose?: () => void): void {
-    this.onClose = onClose ?? null
-    this.isOpen = true
-    this.overlay.classList.remove('hidden')
-    this.overlay.classList.add('flex')
-    setInputBlocked(true)
-    hideControls()
-
+  /** Fetches on first open, renders from cache on subsequent opens. */
+  protected override render(): void {
     if (this.cache !== null) {
       this.renderData(this.cache)
-    } else {
-      this.renderLoading()
-      fetchBookList()
-        .then((data) => {
-          this.cache = data
-          if (this.isOpen) this.renderData(data)
-        })
-        .catch(() => {
-          if (this.isOpen) this.renderError()
-        })
+      return
     }
-  }
-
-  /** Closes the book viewer, restores game input, and fires the onClose callback. */
-  close(): void {
-    this.isOpen = false
-    this.overlay.classList.remove('flex')
-    this.overlay.classList.add('hidden')
-    setInputBlocked(false)
-    showControls()
-    this.onClose?.()
-    this.onClose = null
+    this.renderLoading()
+    fetchBookList()
+      .then((data) => {
+        this.cache = data
+        if (this.isOpen) this.renderData(data)
+      })
+      .catch(() => {
+        if (this.isOpen) this.renderError()
+      })
   }
 }
 
