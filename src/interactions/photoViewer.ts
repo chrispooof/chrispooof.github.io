@@ -1,8 +1,6 @@
 import { PHOTO_ALBUMS } from '../config/photoAlbums'
-import { setOrbitBlocked } from '../controls/camera'
-import { setInputBlocked } from '../controls/user'
-import { hideControls, showControls } from '../hud/controls'
 import { isTouchDevice } from '../utils/device'
+import { BaseOverlay } from './baseOverlay'
 
 /** Returns all photo URLs for the given album key. */
 const getAlbumUrls = (album: string): string[] => PHOTO_ALBUMS[album] ?? []
@@ -12,61 +10,24 @@ const getAlbumUrls = (album: string): string[] => PHOTO_ALBUMS[album] ?? []
  * Keyboard: A/← previous, D/→ next, E/Escape close.
  * Touch: swipe left/right to navigate, tap X button to close.
  */
-class PhotoViewer {
-  private overlay: HTMLElement
-  private imgEl!: HTMLImageElement
-  private counterEl!: HTMLElement
-  private titleEl!: HTMLElement
+class PhotoViewer extends BaseOverlay {
+  private readonly imgEl: HTMLImageElement
+  private readonly counterEl: HTMLElement
+  private readonly titleEl: HTMLElement
   private currentIndex = 0
   private currentUrls: string[] = []
   private swipeTouchId: number | null = null
   private swipeStartX = 0
-  isOpen = false
 
   constructor() {
-    this.overlay = this.buildDOM()
-    document.body.appendChild(this.overlay)
-    document.addEventListener('keydown', this.handleKey)
-  }
-
-  /** Builds the full-screen overlay DOM. */
-  private buildDOM(): HTMLElement {
-    const overlay = document.createElement('div')
-    overlay.className =
-      'fixed inset-0 hidden flex-col items-center justify-center z-20 bg-black/95 font-serif'
-
-    // Close button — always visible on touch, hidden on desktop
-    const closeBtn = document.createElement('button')
-    closeBtn.className = [
-      'absolute top-4 right-4',
-      isTouchDevice ? 'flex' : 'hidden',
-      'items-center justify-center w-10 h-10',
-      'text-[#6a5030] hover:text-[#9a7040] text-[20px]',
-      'bg-transparent border-0 cursor-pointer transition-colors',
-    ].join(' ')
-    closeBtn.textContent = '✕'
+    const { overlay, imgEl, counterEl, titleEl, closeBtn } = PhotoViewer.buildDOM()
+    super(overlay, { blocksOrbit: true })
+    this.imgEl = imgEl
+    this.counterEl = counterEl
+    this.titleEl = titleEl
     closeBtn.addEventListener('click', () => this.close())
-    overlay.appendChild(closeBtn)
 
-    this.titleEl = document.createElement('div')
-    this.titleEl.className = 'mb-[14px] text-[#9a7040] text-[12px] tracking-[4px] uppercase'
-    overlay.appendChild(this.titleEl)
-
-    this.imgEl = document.createElement('img')
-    this.imgEl.className =
-      'max-w-[88vw] max-h-[76vh] object-contain border border-[rgba(175,135,55,0.25)]'
-    overlay.appendChild(this.imgEl)
-
-    this.counterEl = document.createElement('div')
-    this.counterEl.className = 'mt-4 text-[#6a5030] text-[11px] tracking-[3px]'
-    overlay.appendChild(this.counterEl)
-
-    const hint = document.createElement('div')
-    hint.className = 'absolute bottom-6 text-[#4a3820] text-[11px] tracking-[2px]'
-    hint.textContent = isTouchDevice ? 'swipe to navigate' : '← →  navigate    ·    E  close'
-    overlay.appendChild(hint)
-
-    // Swipe detection on the image
+    // Swipe detection on the image — claims a single touch and triggers nav on release.
     this.imgEl.addEventListener(
       'touchstart',
       (e: TouchEvent) => {
@@ -89,12 +50,55 @@ class PhotoViewer {
       },
       { passive: true },
     )
-
-    return overlay
   }
 
-  /** Handles keyboard navigation. */
-  private handleKey = (e: KeyboardEvent): void => {
+  /** Builds the full-screen overlay DOM and returns refs needed by the instance. */
+  private static buildDOM(): {
+    overlay: HTMLElement
+    imgEl: HTMLImageElement
+    counterEl: HTMLElement
+    titleEl: HTMLElement
+    closeBtn: HTMLElement
+  } {
+    const overlay = document.createElement('div')
+    overlay.className =
+      'fixed inset-0 hidden flex-col items-center justify-center z-20 bg-black/95 font-serif'
+
+    // Close button — always visible on touch, hidden on desktop
+    const closeBtn = document.createElement('button')
+    closeBtn.className = [
+      'absolute top-4 right-4',
+      isTouchDevice ? 'flex' : 'hidden',
+      'items-center justify-center w-10 h-10',
+      'text-[#6a5030] hover:text-[#9a7040] text-[20px]',
+      'bg-transparent border-0 cursor-pointer transition-colors',
+    ].join(' ')
+    closeBtn.textContent = '✕'
+    overlay.appendChild(closeBtn)
+
+    const titleEl = document.createElement('div')
+    titleEl.className = 'mb-[14px] text-[#9a7040] text-[12px] tracking-[4px] uppercase'
+    overlay.appendChild(titleEl)
+
+    const imgEl = document.createElement('img')
+    imgEl.className =
+      'max-w-[88vw] max-h-[76vh] object-contain border border-[rgba(175,135,55,0.25)]'
+    overlay.appendChild(imgEl)
+
+    const counterEl = document.createElement('div')
+    counterEl.className = 'mt-4 text-[#6a5030] text-[11px] tracking-[3px]'
+    overlay.appendChild(counterEl)
+
+    const hint = document.createElement('div')
+    hint.className = 'absolute bottom-6 text-[#4a3820] text-[11px] tracking-[2px]'
+    hint.textContent = isTouchDevice ? 'swipe to navigate' : '← →  navigate    ·    E  close'
+    overlay.appendChild(hint)
+
+    return { overlay, imgEl, counterEl, titleEl, closeBtn }
+  }
+
+  /** Adds arrow-key navigation on top of the default Escape/E close behavior. */
+  protected override handleKey(e: KeyboardEvent): void {
     if (!this.isOpen) return
     if (e.code === 'ArrowLeft' || e.code === 'KeyA') this.navigate(-1)
     else if (e.code === 'ArrowRight' || e.code === 'KeyD') this.navigate(1)
@@ -109,42 +113,32 @@ class PhotoViewer {
     if (this.currentUrls.length === 0) return
     this.currentIndex =
       (this.currentIndex + delta + this.currentUrls.length) % this.currentUrls.length
-    this.render()
+    this.renderImage()
   }
 
   /** Updates the displayed image and counter. */
-  private render(): void {
+  private renderImage(): void {
     this.imgEl.src = this.currentUrls[this.currentIndex]
     this.counterEl.textContent = `${this.currentIndex + 1}  /  ${this.currentUrls.length}`
   }
 
+  /** Render hook invoked by BaseOverlay.open() — paints the current photo. */
+  protected override render(): void {
+    this.renderImage()
+  }
+
   /**
-   * Opens the viewer for the given album and blocks game input.
+   * Opens the viewer for the given album. No-op when the album is empty.
    * @param album - Folder name of the album to display
    * @param title - Display title shown above the photos
    */
-  open(album: string, title: string): void {
-    this.currentUrls = getAlbumUrls(album)
-    if (this.currentUrls.length === 0) return
-    this.isOpen = true
+  openAlbum(album: string, title: string): void {
+    const urls = getAlbumUrls(album)
+    if (urls.length === 0) return
+    this.currentUrls = urls
     this.currentIndex = 0
     this.titleEl.textContent = title
-    this.render()
-    this.overlay.classList.remove('hidden')
-    this.overlay.classList.add('flex')
-    setInputBlocked(true)
-    setOrbitBlocked(true)
-    hideControls()
-  }
-
-  /** Closes the viewer and restores game input. */
-  close(): void {
-    this.isOpen = false
-    this.overlay.classList.remove('flex')
-    this.overlay.classList.add('hidden')
-    setInputBlocked(false)
-    setOrbitBlocked(false)
-    showControls()
+    super.open()
   }
 }
 
@@ -155,4 +149,5 @@ const viewer = new PhotoViewer()
  * @param album - Folder name under photo-albums/ (e.g. 'eclipse')
  * @param title - Human-readable title displayed above the photos
  */
-export const openPhotoViewer = (album: string, title: string): void => viewer.open(album, title)
+export const openPhotoViewer = (album: string, title: string): void =>
+  viewer.openAlbum(album, title)

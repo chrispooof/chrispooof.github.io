@@ -1,6 +1,5 @@
-import { setInputBlocked } from '../controls/user'
-import { hideControls, showControls } from '../hud/controls'
 import { isTouchDevice } from '../utils/device'
+import { BaseOverlay } from './baseOverlay'
 
 const PARAGRAPHS = [
   `Hello! My name is Christian Bjerre-Fernandes. I studied Computer Science at the University of Chicago and graduated in 2021. I love to study languages and learn about other cultures. I took Japanese and Norwegian during college and continue to study Japanese even now.`,
@@ -12,23 +11,18 @@ const PARAGRAPHS = [
  * Full-screen overlay displaying the about me blurb.
  * Keyboard: E/Escape to close.
  */
-class AboutViewer {
-  private overlay: HTMLElement
-  private onClose: (() => void) | null = null
-  isOpen = false
-
+class AboutViewer extends BaseOverlay {
   constructor() {
-    this.overlay = this.buildDOM()
-    document.body.appendChild(this.overlay)
-    document.addEventListener('keydown', this.handleKey)
+    const { overlay, closeBtn } = AboutViewer.buildDOM()
+    super(overlay)
+    closeBtn.addEventListener('click', () => this.close())
   }
 
   /** Builds the full-screen overlay DOM including header, bio paragraphs, and divider. */
-  private buildDOM(): HTMLElement {
+  private static buildDOM(): { overlay: HTMLElement; closeBtn: HTMLElement } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-black/95 font-serif'
 
-    // Header
     const header = document.createElement('div')
     header.className =
       'flex items-center justify-between px-6 py-3 border-b border-[rgba(175,135,55,0.2)]'
@@ -43,12 +37,10 @@ class AboutViewer {
       ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
       : 'text-[#6a5030] hover:text-[#9a7040] text-lg tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
     closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
-    closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 
     overlay.appendChild(header)
 
-    // Body
     const body = document.createElement('div')
     body.className = 'flex-1 overflow-y-auto px-8 py-12 flex justify-center items-start'
 
@@ -67,7 +59,6 @@ class AboutViewer {
       content.appendChild(p)
     }
 
-    // Divider
     const divider = document.createElement('div')
     divider.className = 'border-t border-[rgba(175,135,55,0.15)] mt-8'
     content.appendChild(divider)
@@ -75,40 +66,7 @@ class AboutViewer {
     body.appendChild(content)
     overlay.appendChild(body)
 
-    return overlay
-  }
-
-  /** Handles keyboard shortcuts for closing the viewer. */
-  private handleKey = (e: KeyboardEvent): void => {
-    if (!this.isOpen) return
-    if (e.code === 'Escape' || e.code === 'KeyE') {
-      e.stopImmediatePropagation()
-      this.close()
-    }
-  }
-
-  /**
-   * Opens the about viewer and blocks game input.
-   * @param onClose - Optional callback fired when the viewer is closed
-   */
-  open(onClose?: () => void): void {
-    this.onClose = onClose ?? null
-    this.isOpen = true
-    this.overlay.classList.remove('hidden')
-    this.overlay.classList.add('flex')
-    setInputBlocked(true)
-    hideControls()
-  }
-
-  /** Closes the about viewer, restores game input, and fires the onClose callback. */
-  close(): void {
-    this.isOpen = false
-    this.overlay.classList.remove('flex')
-    this.overlay.classList.add('hidden')
-    setInputBlocked(false)
-    showControls()
-    this.onClose?.()
-    this.onClose = null
+    return { overlay, closeBtn }
   }
 }
 

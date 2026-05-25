@@ -1,8 +1,7 @@
-import { setInputBlocked } from '../controls/user'
-import { hideControls, showControls } from '../hud/controls'
 import type { MALMangaEntry } from '../types/mal'
 import { fetchMangaList } from '../utils/api'
 import { isTouchDevice } from '../utils/device'
+import { BaseOverlay } from './baseOverlay'
 
 const STATUS_ORDER = ['reading', 'completed', 'plan_to_read', 'on_hold', 'dropped'] as const
 
@@ -19,23 +18,23 @@ const STATUS_LABELS: Record<string, string> = {
  * Each status group sits on its own warm wooden shelf plank.
  * Hover a book to see details. Keyboard: E/Escape to close.
  */
-class MangaViewer {
-  private overlay: HTMLElement
-  private body: HTMLElement
-  private onClose: (() => void) | null = null
+class MangaViewer extends BaseOverlay {
+  private readonly body: HTMLElement
   private cache: MALMangaEntry[] | null = null
-  isOpen = false
 
   constructor() {
-    const { overlay, body } = this.buildDOM()
-    this.overlay = overlay
+    const { overlay, body, closeBtn } = MangaViewer.buildDOM()
+    super(overlay)
     this.body = body
-    document.body.appendChild(this.overlay)
-    document.addEventListener('keydown', this.handleKey)
+    closeBtn.addEventListener('click', () => this.close())
   }
 
   /** Builds the top-level overlay DOM structure with header and scrollable body. */
-  private buildDOM(): { overlay: HTMLElement; body: HTMLElement } {
+  private static buildDOM(): {
+    overlay: HTMLElement
+    body: HTMLElement
+    closeBtn: HTMLElement
+  } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-[#08060a] font-serif'
 
@@ -53,7 +52,6 @@ class MangaViewer {
       ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
       : 'text-[#6a5030] hover:text-[#9a7040] text-[14px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
     closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
-    closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 
     overlay.appendChild(header)
@@ -62,7 +60,7 @@ class MangaViewer {
     body.className = 'flex-1 overflow-y-auto px-6 py-6'
     overlay.appendChild(body)
 
-    return { overlay, body }
+    return { overlay, body, closeBtn }
   }
 
   /**
@@ -73,7 +71,6 @@ class MangaViewer {
     const card = document.createElement('div')
     card.className =
       'relative w-28 flex-shrink-0 cursor-pointer group hover:-translate-y-2 hover:scale-105 transition-transform duration-200'
-    // Left border as book spine color
     card.style.borderLeft = `3px solid ${entry.node.color ?? '#888'}`
 
     const img = document.createElement('img')
@@ -97,7 +94,6 @@ class MangaViewer {
     footer.appendChild(titleEl)
     footer.appendChild(details)
 
-    // Hover overlay
     const hoverEl = document.createElement('div')
     hoverEl.className =
       'absolute inset-0 bg-black/90 p-2 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none'
@@ -202,7 +198,6 @@ class MangaViewer {
       for (const entry of entries) row.appendChild(this.buildCard(entry))
       this.body.appendChild(row)
 
-      // Wooden shelf plank under each section
       const shelf = this.buildShelf()
       this.body.appendChild(shelf)
 
@@ -215,52 +210,21 @@ class MangaViewer {
     }
   }
 
-  /** Handles keyboard shortcuts for closing the viewer. */
-  private handleKey = (e: KeyboardEvent): void => {
-    if (!this.isOpen) return
-    if (e.code === 'Escape' || e.code === 'KeyE') {
-      e.stopImmediatePropagation()
-      this.close()
-    }
-  }
-
-  /**
-   * Opens the manga viewer and blocks game input.
-   * Fetches data on first open and caches it for subsequent opens.
-   * @param onClose - Optional callback fired when the viewer is closed
-   */
-  open(onClose?: () => void): void {
-    this.onClose = onClose ?? null
-    this.isOpen = true
-    this.overlay.classList.remove('hidden')
-    this.overlay.classList.add('flex')
-    setInputBlocked(true)
-    hideControls()
-
+  /** Fetches on first open, renders from cache on subsequent opens. */
+  protected override render(): void {
     if (this.cache !== null) {
       this.renderData(this.cache)
-    } else {
-      this.renderLoading()
-      fetchMangaList()
-        .then((data) => {
-          this.cache = data
-          if (this.isOpen) this.renderData(data)
-        })
-        .catch(() => {
-          if (this.isOpen) this.renderError()
-        })
+      return
     }
-  }
-
-  /** Closes the manga viewer, restores game input, and fires the onClose callback. */
-  close(): void {
-    this.isOpen = false
-    this.overlay.classList.remove('flex')
-    this.overlay.classList.add('hidden')
-    setInputBlocked(false)
-    showControls()
-    this.onClose?.()
-    this.onClose = null
+    this.renderLoading()
+    fetchMangaList()
+      .then((data) => {
+        this.cache = data
+        if (this.isOpen) this.renderData(data)
+      })
+      .catch(() => {
+        if (this.isOpen) this.renderError()
+      })
   }
 }
 

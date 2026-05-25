@@ -1,25 +1,20 @@
 import resumePdf from '../assets/resume/christianbjerre-fernandes.pdf?url'
-import { setInputBlocked } from '../controls/user'
-import { hideControls, showControls } from '../hud/controls'
 import { isTouchDevice } from '../utils/device'
+import { BaseOverlay } from './baseOverlay'
 
 /**
- * Full-screen in-page resume viewer using an iframe.
+ * Full-screen in-page resume viewer using an iframe (desktop) or external link (mobile).
  * Keyboard: E/Escape to close.
  */
-class ResumeViewer {
-  private overlay: HTMLElement
-  private onClose: (() => void) | null = null
-  isOpen = false
-
+class ResumeViewer extends BaseOverlay {
   constructor() {
-    this.overlay = this.buildDOM()
-    document.body.appendChild(this.overlay)
-    document.addEventListener('keydown', this.handleKey)
+    const { overlay, closeBtn } = ResumeViewer.buildDOM()
+    super(overlay)
+    closeBtn.addEventListener('click', () => this.close())
   }
 
   /** Builds the overlay DOM: header with close button, and either an iframe or a mobile link. */
-  private buildDOM(): HTMLElement {
+  private static buildDOM(): { overlay: HTMLElement; closeBtn: HTMLElement } {
     const overlay = document.createElement('div')
     overlay.className = 'fixed inset-0 hidden flex-col z-20 bg-black/95 font-serif'
 
@@ -37,7 +32,6 @@ class ResumeViewer {
       ? 'flex items-center justify-center w-10 h-10 text-[#6a5030] hover:text-[#9a7040] text-[20px] bg-transparent border-0 cursor-pointer transition-colors'
       : 'text-[#6a5030] hover:text-[#9a7040] text-[11px] tracking-[2px] bg-transparent border-0 cursor-pointer transition-colors'
     closeBtn.textContent = isTouchDevice ? '✕' : '[ E ]  close'
-    closeBtn.addEventListener('click', () => this.close())
     header.appendChild(closeBtn)
 
     overlay.appendChild(header)
@@ -72,40 +66,7 @@ class ResumeViewer {
       overlay.appendChild(iframe)
     }
 
-    return overlay
-  }
-
-  /** Handles keyboard shortcuts for closing the viewer. */
-  private handleKey = (e: KeyboardEvent): void => {
-    if (!this.isOpen) return
-    if (e.code === 'Escape' || e.code === 'KeyE') {
-      e.stopImmediatePropagation()
-      this.close()
-    }
-  }
-
-  /**
-   * Opens the resume viewer and blocks game input.
-   * @param onClose - Optional callback fired when the viewer is closed
-   */
-  open(onClose?: () => void): void {
-    this.onClose = onClose ?? null
-    this.isOpen = true
-    this.overlay.classList.remove('hidden')
-    this.overlay.classList.add('flex')
-    setInputBlocked(true)
-    hideControls()
-  }
-
-  /** Closes the resume viewer, restores game input, and fires the onClose callback. */
-  close(): void {
-    this.isOpen = false
-    this.overlay.classList.remove('flex')
-    this.overlay.classList.add('hidden')
-    setInputBlocked(false)
-    showControls()
-    this.onClose?.()
-    this.onClose = null
+    return { overlay, closeBtn }
   }
 }
 
