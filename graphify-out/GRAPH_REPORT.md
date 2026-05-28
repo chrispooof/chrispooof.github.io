@@ -1,16 +1,16 @@
-# Graph Report - chrispooof.github.io  (2026-05-25)
+# Graph Report - chrispooof.github.io  (2026-05-28)
 
 ## Corpus Check
-- 47 files · ~19,706 words
+- 49 files · ~20,825 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 520 nodes · 1185 edges · 33 communities (25 shown, 8 thin omitted)
+- 539 nodes · 1169 edges · 33 communities (25 shown, 8 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 61 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e8eafc9b`
+- Built from commit: `139a29d5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -44,16 +44,16 @@
 - [[_COMMUNITY_Vite Default Export|Vite Default Export]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `setInputBlocked()` - 35 edges
-2. `isTouchDevice` - 26 edges
-3. `hideControls()` - 22 edges
-4. `showControls()` - 22 edges
-5. `registerCollider()` - 16 edges
-6. `compilerOptions` - 15 edges
-7. `Prompt` - 14 edges
-8. `Menu` - 13 edges
-9. `rand()` - 13 edges
-10. `Player` - 13 edges
+1. `isTouchDevice` - 27 edges
+2. `registerCollider()` - 18 edges
+3. `setInputBlocked()` - 17 edges
+4. `compilerOptions` - 15 edges
+5. `Prompt` - 14 edges
+6. `Menu` - 13 edges
+7. `rand()` - 13 edges
+8. `Player` - 13 edges
+9. `MangaViewer` - 12 edges
+10. `BookViewer` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Book` --semantically_similar_to--> `MAL types`  [INFERRED] [semantically similar]
@@ -62,10 +62,10 @@
   world/features/torch.ts → src/world/features/bonfire.ts
 - `three.js dependency` --references--> `Game`  [INFERRED]
   package.json → game.ts
+- `Input blocking on overlay open` --conceptually_related_to--> `Menu`  [INFERRED]
+  src/controls/user.ts → interactions/menu.ts
 - `PHOTO_ALBUMS` --implements--> `CloudFront Photo Assets`  [INFERRED]
   config/photoAlbums.ts → src/config/photoAlbums.ts
-- `Terrain` --conceptually_related_to--> `Corridor`  [INFERRED]
-  world/terrain.ts → src/world/corridor.ts
 
 ## Hyperedges (group relationships)
 - **Full-screen overlay viewer family (consistent open/close + input-block pattern)** — interactions_aboutviewer_class, interactions_resumeviewer_class, interactions_mangaviewer_class, interactions_animeviewer_class, interactions_bookviewer_class, interactions_photoviewer_class [INFERRED 0.95]
@@ -84,12 +84,12 @@
 ## Communities (33 total, 8 thin omitted)
 
 ### Community 0 - "HUD Controls & Input Blocking"
-Cohesion: 0.08
-Nodes (30): Input blocking on overlay open, setOrbitBlocked(), keys, setInputBlocked(), setTouchMovement(), Controls, hideControls(), showControls() (+22 more)
+Cohesion: 0.12
+Nodes (12): AboutViewer, openAboutViewer(), PARAGRAPHS, viewer, items, menu, openBonfireMenu(), Menu (+4 more)
 
 ### Community 1 - "Anime/About Overlay Viewers"
 Cohesion: 0.09
-Nodes (26): AWS Lambda API Proxy, Lambda Proxy External API, AnimeViewer, STATUS_LABELS, STATUS_ORDER, viewer, SHELF_LABELS, SHELF_ORDER (+18 more)
+Nodes (27): AWS Lambda API Proxy, Lambda Proxy External API, AnimeViewer, openAnimeViewer(), STATUS_LABELS, STATUS_ORDER, viewer, SHELF_LABELS (+19 more)
 
 ### Community 2 - "Resume & Social Presence"
 Cohesion: 0.09
@@ -100,8 +100,8 @@ Cohesion: 0.06
 Nodes (31): dependencies, gh-pages, tailwindcss, @tailwindcss/vite, three, devDependencies, husky, jsdom (+23 more)
 
 ### Community 4 - "User Input & Touch Prompts"
-Cohesion: 0.08
-Nodes (33): Player.animateCharacter, user.test, onDrag(), getInteractPressed(), getMovement(), isInputBlocked(), triggerTouchInteract(), PILLAR_Z_POSITIONS (+25 more)
+Cohesion: 0.09
+Nodes (24): Touch Device Branching, user.test, getInteractPressed(), getMovement(), isInputBlocked(), keys, setTouchMovement(), triggerTouchInteract() (+16 more)
 
 ### Community 5 - "Bookshelf Build & Materials"
 Cohesion: 0.16
@@ -120,24 +120,24 @@ Cohesion: 0.12
 Nodes (16): compilerOptions, allowImportingTsExtensions, isolatedModules, lib, module, moduleResolution, noEmit, noFallthroughCasesInSwitch (+8 more)
 
 ### Community 10 - "Camera Blocker System"
-Cohesion: 0.10
-Nodes (21): Animated Flame Feature, Collision System, Dungeon World, Bonfire, FLAME_CONFIGS, Torch, TorchFlameConfig, cameraBlockers test suite (+13 more)
+Cohesion: 0.11
+Nodes (20): Animated Flame Feature, Collision System, Dungeon World, Bonfire, FLAME_CONFIGS, Torch, TorchFlameConfig, cameraBlockers test suite (+12 more)
 
 ### Community 11 - "Pillar & Raycaster Utils"
-Cohesion: 0.19
+Cohesion: 0.18
 Nodes (6): CloudFront Photo Assets, PHOTO_ALBUMS, url(), getAlbumUrls(), PhotoViewer, viewer
 
 ### Community 12 - "Collider Registry"
-Cohesion: 0.10
-Nodes (11): Bonfire, BonfireInstance, FLAME_CONFIGS, FlameConfig, Painting, Pillar, colliders test suite, BaseFeature (+3 more)
+Cohesion: 0.06
+Nodes (30): Player.animateCharacter, onDrag(), Bonfire, BonfireInstance, FLAME_CONFIGS, FlameConfig, DoceAltar, DoceAltarInstance (+22 more)
 
 ### Community 13 - "CD Table Feature"
 Cohesion: 0.27
 Nodes (6): CASE_COLORS, caseMats, cdSilverMat, CDTable, metalMat, woodMat
 
 ### Community 14 - "Camera & Terrain Constants"
-Cohesion: 0.14
-Nodes (8): calls, created, makeOverlay(), o, onClose, OrderingOverlay, TestOverlay, track()
+Cohesion: 0.07
+Nodes (23): Input blocking on overlay open, setOrbitBlocked(), setInputBlocked(), close(), destroy(), handleKey(), open(), render() (+15 more)
 
 ### Community 15 - "Animated Flame Features"
 Cohesion: 0.20
@@ -148,8 +148,8 @@ Cohesion: 0.43
 Nodes (8): Full-screen overlay viewer pattern (open/close blocks input), AboutViewer class, AnimeViewer class, BookViewer class, MangaViewer class, PhotoViewer class, ResumeViewer class, vite-env.d.ts PDF url declaration
 
 ### Community 19 - "Start Screen"
-Cohesion: 0.36
-Nodes (3): Touch Device Branching, showStartScreen(), StartScreen
+Cohesion: 0.25
+Nodes (4): HTML entry mounting /src/main.ts, three.js dependency, Game, main.ts bootstrap (new Game())
 
 ### Community 21 - "Camera Blocker Tests"
 Cohesion: 0.53
@@ -160,24 +160,24 @@ Cohesion: 0.60
 Nodes (3): ALL_KEYS, press(), release()
 
 ## Knowledge Gaps
-- **78 isolated node(s):** `created`, `o`, `onClose`, `calls`, `Recommended IDE Setup` (+73 more)
+- **83 isolated node(s):** `DoceTab`, `TABS`, `DESCRIPTION`, `viewer`, `created` (+78 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `setInputBlocked()` connect `HUD Controls & Input Blocking` to `Anime/About Overlay Viewers`, `User Input & Touch Prompts`, `Overlay Viewer Pattern`, `Pillar & Raycaster Utils`, `Camera & Terrain Constants`, `Book Viewer Overlay`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
-- **Why does `hideControls()` connect `HUD Controls & Input Blocking` to `Anime/About Overlay Viewers`, `User Input & Touch Prompts`, `Overlay Viewer Pattern`, `Pillar & Raycaster Utils`, `Camera & Terrain Constants`, `Book Viewer Overlay`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `isTouchDevice` connect `User Input & Touch Prompts` to `HUD Controls & Input Blocking`, `Anime/About Overlay Viewers`, `Pillar & Raycaster Utils`, `Camera & Terrain Constants`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `registerCollider()` connect `Collider Registry` to `Camera Blocker System`, `Start Screen`, `User Input & Touch Prompts`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `setInputBlocked()` (e.g. with `setOrbitBlocked()` and `Input blocking on overlay open`) actually correct?**
   _`setInputBlocked()` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `created`, `o`, `onClose` to the rest of the system?**
-  _80 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `DoceTab`, `TABS`, `DESCRIPTION` to the rest of the system?**
+  _85 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `HUD Controls & Input Blocking` be split into smaller, more focused modules?**
-  _Cohesion score 0.07614035087719298 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11693548387096774 - nodes in this community are weakly interconnected._
 - **Should `Anime/About Overlay Viewers` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09371980676328502 - nodes in this community are weakly interconnected._
 - **Should `Resume & Social Presence` be split into smaller, more focused modules?**
   _Cohesion score 0.08522727272727272 - nodes in this community are weakly interconnected._
