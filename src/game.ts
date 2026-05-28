@@ -9,6 +9,7 @@ import './hud/touchControls'
 import { openAnimeViewer } from './interactions/animeViewer'
 import { openBonfireMenu } from './interactions/bonfireMenu'
 import { openBookViewer } from './interactions/bookViewer'
+import { openDoceViewer } from './interactions/doceViewer'
 import { getNearby, registerInteractable, updateNearby } from './interactions/interactables'
 import { openMangaViewer } from './interactions/mangaViewer'
 import { openPhotoViewer } from './interactions/photoViewer'
@@ -33,6 +34,7 @@ import { addDecay } from './world/decay'
 import BonfireInstance from './world/features/bonfire'
 import { Bookshelf } from './world/features/bookshelf'
 import { CDTable } from './world/features/cdTable'
+import DoceAltarInstance from './world/features/doceAltar'
 import { Painting } from './world/features/painting'
 import { Boundaries, Terrain } from './world/terrain'
 
@@ -154,6 +156,10 @@ export class Game {
     )
     registerCollider(LEFT_WALL_X + Bookshelf.D, BOOK_SHELF_Z, 0.3)
 
+    // Doce project altar — corridor centerline, just past the last pillar pair at z=8
+    const DOCE_ALTAR_Z = 8.5
+    DoceAltarInstance.place(this.scene, new THREE.Vector3(0, 0, DOCE_ALTAR_Z))
+
     // Register interactables
     registerInteractable({
       x: 0,
@@ -211,6 +217,14 @@ export class Game {
       label: 'browse anime list',
       onInteract: openAnimeViewer,
     })
+    registerInteractable({
+      x: 0,
+      y: 1.3,
+      z: DOCE_ALTAR_Z,
+      radius: 1.8,
+      label: 'view doce project',
+      onInteract: openDoceViewer,
+    })
 
     // Add character
     this.scene.add(PlayerInstance.character)
@@ -249,6 +263,7 @@ export class Game {
     this.lastTime = now
     this.totalTime += deltaTime
     BonfireInstance.update(this.totalTime)
+    DoceAltarInstance.update(this.totalTime)
     updateTorches(this.totalTime)
 
     // Intro: hold cinematic camera, wait for start screen interaction

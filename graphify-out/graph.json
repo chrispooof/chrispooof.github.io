@@ -181,7 +181,7 @@
       "source_file": "main.ts",
       "source_location": "L1",
       "id": "main_ts",
-      "community": 4,
+      "community": 19,
       "norm_label": "main.ts"
     },
     {
@@ -199,50 +199,50 @@
       "source_file": "game.ts",
       "source_location": "L1",
       "id": "game_ts",
-      "community": 4,
+      "community": 12,
       "norm_label": "game.ts"
     },
     {
       "label": "Game",
       "file_type": "code",
       "source_file": "game.ts",
-      "source_location": "L58",
+      "source_location": "L60",
       "id": "src_game_game",
-      "community": 4,
+      "community": 19,
       "norm_label": "game"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "game.ts",
-      "source_location": "L91",
+      "source_location": "L93",
       "id": "src_game_game_constructor",
-      "community": 4,
+      "community": 19,
       "norm_label": ".constructor()"
     },
     {
       "label": ".init()",
       "file_type": "code",
       "source_file": "game.ts",
-      "source_location": "L103",
+      "source_location": "L105",
       "id": "src_game_game_init",
-      "community": 4,
+      "community": 19,
       "norm_label": ".init()"
     },
     {
       "label": ".beginRise()",
       "file_type": "code",
       "source_file": "game.ts",
-      "source_location": "L238",
+      "source_location": "L252",
       "id": "src_game_game_beginrise",
-      "community": 4,
+      "community": 19,
       "norm_label": ".beginrise()"
     },
     {
       "label": ".update()",
       "file_type": "code",
       "source_file": "game.ts",
-      "source_location": "L246",
+      "source_location": "L260",
       "id": "src_game_game_update",
       "community": 4,
       "norm_label": ".update()"
@@ -253,7 +253,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L1",
       "id": "interactions_baseoverlay_ts",
-      "community": 0,
+      "community": 14,
       "norm_label": "baseoverlay.ts"
     },
     {
@@ -262,7 +262,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L22",
       "id": "interactions_baseoverlay_constructor",
-      "community": 0,
+      "community": 14,
       "norm_label": "constructor()"
     },
     {
@@ -271,7 +271,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L36",
       "id": "interactions_baseoverlay_handlekey",
-      "community": 0,
+      "community": 14,
       "norm_label": "handlekey()"
     },
     {
@@ -280,7 +280,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L45",
       "id": "interactions_baseoverlay_render",
-      "community": 0,
+      "community": 14,
       "norm_label": "render()"
     },
     {
@@ -289,7 +289,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L48",
       "id": "interactions_baseoverlay_teardown",
-      "community": 0,
+      "community": 14,
       "norm_label": "teardown()"
     },
     {
@@ -298,7 +298,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L56",
       "id": "interactions_baseoverlay_open",
-      "community": 0,
+      "community": 14,
       "norm_label": "open()"
     },
     {
@@ -307,7 +307,7 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L72",
       "id": "interactions_baseoverlay_close",
-      "community": 0,
+      "community": 14,
       "norm_label": "close()"
     },
     {
@@ -316,8 +316,116 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L90",
       "id": "interactions_baseoverlay_destroy",
-      "community": 0,
+      "community": 14,
       "norm_label": "destroy()"
+    },
+    {
+      "label": "doceViewer.ts",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L1",
+      "id": "interactions_doceviewer_ts",
+      "community": 14,
+      "norm_label": "doceviewer.ts"
+    },
+    {
+      "label": "DoceTab",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L7",
+      "id": "interactions_doceviewer_docetab",
+      "community": 14,
+      "norm_label": "docetab"
+    },
+    {
+      "label": "TABS",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L12",
+      "id": "interactions_doceviewer_tabs",
+      "community": 14,
+      "norm_label": "tabs"
+    },
+    {
+      "label": "DESCRIPTION",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L18",
+      "id": "interactions_doceviewer_description",
+      "community": 14,
+      "norm_label": "description"
+    },
+    {
+      "label": "DoceViewer",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L35",
+      "id": "interactions_doceviewer_doceviewer",
+      "community": 14,
+      "norm_label": "doceviewer"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L39",
+      "id": "interactions_doceviewer_doceviewer_constructor",
+      "community": 14,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".buildDOM()",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L52",
+      "id": "interactions_doceviewer_doceviewer_builddom",
+      "community": 14,
+      "norm_label": ".builddom()"
+    },
+    {
+      "label": ".switchTab()",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L134",
+      "id": "interactions_doceviewer_doceviewer_switchtab",
+      "community": 14,
+      "norm_label": ".switchtab()"
+    },
+    {
+      "label": ".render()",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L144",
+      "id": "interactions_doceviewer_doceviewer_render",
+      "community": 14,
+      "norm_label": ".render()"
+    },
+    {
+      "label": ".teardown()",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L149",
+      "id": "interactions_doceviewer_doceviewer_teardown",
+      "community": 14,
+      "norm_label": ".teardown()"
+    },
+    {
+      "label": "viewer",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L154",
+      "id": "interactions_doceviewer_viewer",
+      "community": 14,
+      "norm_label": "viewer"
+    },
+    {
+      "label": "openDoceViewer()",
+      "file_type": "code",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L160",
+      "id": "interactions_doceviewer_opendoceviewer",
+      "community": 14,
+      "norm_label": "opendoceviewer()"
     },
     {
       "label": "interactables.ts",
@@ -658,7 +766,7 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L171",
       "id": "interactions_menu_menu_close",
-      "community": 0,
+      "community": 4,
       "norm_label": ".close()"
     },
     {
@@ -775,7 +883,7 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L222",
       "id": "interactions_animeviewer_openanimeviewer",
-      "community": 4,
+      "community": 1,
       "norm_label": "openanimeviewer()"
     },
     {
@@ -1459,7 +1567,7 @@
       "source_file": "world/terrain.ts",
       "source_location": "L1",
       "id": "world_terrain_ts",
-      "community": 4,
+      "community": 12,
       "norm_label": "terrain.ts"
     },
     {
@@ -1468,7 +1576,7 @@
       "source_file": "world/terrain.ts",
       "source_location": "L10",
       "id": "world_terrain_terraingeo",
-      "community": 4,
+      "community": 12,
       "norm_label": "terraingeo"
     },
     {
@@ -1477,7 +1585,7 @@
       "source_file": "world/terrain.ts",
       "source_location": "L16",
       "id": "world_terrain_terrain",
-      "community": 4,
+      "community": 12,
       "norm_label": "terrain"
     },
     {
@@ -1486,7 +1594,7 @@
       "source_file": "world/terrain.ts",
       "source_location": "L26",
       "id": "world_terrain_boundaries",
-      "community": 4,
+      "community": 12,
       "norm_label": "boundaries"
     },
     {
@@ -1549,7 +1657,7 @@
       "source_file": "world/colliders.ts",
       "source_location": "L53",
       "id": "world_colliders_checkcollision",
-      "community": 4,
+      "community": 12,
       "norm_label": "checkcollision()"
     },
     {
@@ -1760,6 +1868,69 @@
       "norm_label": "updatetorches()"
     },
     {
+      "label": "doceAltar.ts",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L1",
+      "id": "world_features_docealtar_ts",
+      "community": 12,
+      "norm_label": "docealtar.ts"
+    },
+    {
+      "label": "DoceAltar",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L17",
+      "id": "features_docealtar_docealtar",
+      "community": 12,
+      "norm_label": "docealtar"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L22",
+      "id": "features_docealtar_docealtar_constructor",
+      "community": 12,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".build()",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L30",
+      "id": "features_docealtar_docealtar_build",
+      "community": 12,
+      "norm_label": ".build()"
+    },
+    {
+      "label": ".place()",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L86",
+      "id": "features_docealtar_docealtar_place",
+      "community": 12,
+      "norm_label": ".place()"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L96",
+      "id": "features_docealtar_docealtar_update",
+      "community": 12,
+      "norm_label": ".update()"
+    },
+    {
+      "label": "DoceAltarInstance",
+      "file_type": "code",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L103",
+      "id": "features_docealtar_docealtarinstance",
+      "community": 12,
+      "norm_label": "docealtarinstance"
+    },
+    {
       "label": "pillar.ts",
       "file_type": "code",
       "source_file": "world/features/pillar.ts",
@@ -1810,7 +1981,7 @@
       "source_file": "world/features/locations.ts",
       "source_location": "L1",
       "id": "world_features_locations_ts",
-      "community": 4,
+      "community": 12,
       "norm_label": "locations.ts"
     },
     {
@@ -1819,7 +1990,7 @@
       "source_file": "world/features/locations.ts",
       "source_location": "L5",
       "id": "features_locations_pillar_z_positions",
-      "community": 4,
+      "community": 12,
       "norm_label": "pillar_z_positions"
     },
     {
@@ -1828,7 +1999,7 @@
       "source_file": "world/features/locations.ts",
       "source_location": "L8",
       "id": "features_locations_pillarlocations",
-      "community": 4,
+      "community": 12,
       "norm_label": "pillarlocations"
     },
     {
@@ -2296,7 +2467,7 @@
       "source_file": "utils/utils.ts",
       "source_location": "L1",
       "id": "utils_utils_ts",
-      "community": 4,
+      "community": 12,
       "norm_label": "utils.ts"
     },
     {
@@ -2305,7 +2476,7 @@
       "source_file": "utils/utils.ts",
       "source_location": "L6",
       "id": "utils_utils_raycaster",
-      "community": 4,
+      "community": 12,
       "norm_label": "_raycaster"
     },
     {
@@ -2314,7 +2485,7 @@
       "source_file": "utils/utils.ts",
       "source_location": "L7",
       "id": "utils_utils_downdir",
-      "community": 4,
+      "community": 12,
       "norm_label": "_downdir"
     },
     {
@@ -2323,7 +2494,7 @@
       "source_file": "utils/utils.ts",
       "source_location": "L8",
       "id": "utils_utils_rayorigin",
-      "community": 4,
+      "community": 12,
       "norm_label": "_rayorigin"
     },
     {
@@ -2332,7 +2503,7 @@
       "source_file": "utils/utils.ts",
       "source_location": "L16",
       "id": "utils_utils_getheight",
-      "community": 4,
+      "community": 12,
       "norm_label": "getheight()"
     },
     {
@@ -2341,7 +2512,7 @@
       "source_file": "utils/utils.ts",
       "source_location": "L28",
       "id": "utils_utils_addscenery",
-      "community": 4,
+      "community": 12,
       "norm_label": "addscenery()"
     },
     {
@@ -2431,7 +2602,7 @@
       "source_file": "utils/constants.ts",
       "source_location": "L1",
       "id": "utils_constants_ts",
-      "community": 4,
+      "community": 12,
       "norm_label": "constants.ts"
     },
     {
@@ -2440,7 +2611,7 @@
       "source_file": "utils/constants.ts",
       "source_location": "L4",
       "id": "utils_constants_camera_yaw",
-      "community": 4,
+      "community": 12,
       "norm_label": "camera_yaw"
     },
     {
@@ -2449,7 +2620,7 @@
       "source_file": "utils/constants.ts",
       "source_location": "L5",
       "id": "utils_constants_camera_pitch",
-      "community": 4,
+      "community": 12,
       "norm_label": "camera_pitch"
     },
     {
@@ -2503,7 +2674,7 @@
       "source_file": "controls/camera.ts",
       "source_location": "L1",
       "id": "controls_camera_ts",
-      "community": 4,
+      "community": 12,
       "norm_label": "camera.ts"
     },
     {
@@ -2512,7 +2683,7 @@
       "source_file": "controls/camera.ts",
       "source_location": "L16",
       "id": "controls_camera_setorbitblocked",
-      "community": 0,
+      "community": 14,
       "norm_label": "setorbitblocked()"
     },
     {
@@ -2521,7 +2692,7 @@
       "source_file": "controls/camera.ts",
       "source_location": "L26",
       "id": "controls_camera_ondrag",
-      "community": 4,
+      "community": 12,
       "norm_label": "ondrag()"
     },
     {
@@ -2539,7 +2710,7 @@
       "source_file": "controls/user.ts",
       "source_location": "L1",
       "id": "controls_user_keys",
-      "community": 0,
+      "community": 4,
       "norm_label": "keys"
     },
     {
@@ -2566,7 +2737,7 @@
       "source_file": "controls/user.ts",
       "source_location": "L46",
       "id": "controls_user_setinputblocked",
-      "community": 0,
+      "community": 14,
       "norm_label": "setinputblocked()"
     },
     {
@@ -2584,7 +2755,7 @@
       "source_file": "controls/user.ts",
       "source_location": "L64",
       "id": "controls_user_settouchmovement",
-      "community": 0,
+      "community": 4,
       "norm_label": "settouchmovement()"
     },
     {
@@ -2845,7 +3016,7 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L101",
       "id": "hud_prompt_blocktouchbtn",
-      "community": 0,
+      "community": 4,
       "norm_label": "blocktouchbtn()"
     },
     {
@@ -2872,7 +3043,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L1",
       "id": "hud_startscreen_ts",
-      "community": 19,
+      "community": 4,
       "norm_label": "startscreen.ts"
     },
     {
@@ -2881,7 +3052,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L8",
       "id": "hud_startscreen_startscreen",
-      "community": 19,
+      "community": 4,
       "norm_label": "startscreen"
     },
     {
@@ -2890,7 +3061,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L12",
       "id": "hud_startscreen_startscreen_constructor",
-      "community": 19,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -2899,7 +3070,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L21",
       "id": "hud_startscreen_startscreen_builddom",
-      "community": 19,
+      "community": 4,
       "norm_label": ".builddom()"
     },
     {
@@ -2908,7 +3079,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L59",
       "id": "hud_startscreen_startscreen_show",
-      "community": 19,
+      "community": 4,
       "norm_label": ".show()"
     },
     {
@@ -2917,7 +3088,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L78",
       "id": "hud_startscreen_startscreen_hide",
-      "community": 19,
+      "community": 4,
       "norm_label": ".hide()"
     },
     {
@@ -2926,7 +3097,7 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L89",
       "id": "hud_startscreen_showstartscreen",
-      "community": 19,
+      "community": 4,
       "norm_label": "showstartscreen()"
     },
     {
@@ -2935,7 +3106,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L1",
       "id": "hud_touchcontrols_ts",
-      "community": 0,
+      "community": 4,
       "norm_label": "touchcontrols.ts"
     },
     {
@@ -2944,7 +3115,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L10",
       "id": "hud_touchcontrols_touchcontrols",
-      "community": 0,
+      "community": 4,
       "norm_label": "touchcontrols"
     },
     {
@@ -2953,7 +3124,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L17",
       "id": "hud_touchcontrols_touchcontrols_constructor",
-      "community": 0,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -2962,7 +3133,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L26",
       "id": "hud_touchcontrols_touchcontrols_setjoystickvisible",
-      "community": 0,
+      "community": 4,
       "norm_label": ".setjoystickvisible()"
     },
     {
@@ -2971,7 +3142,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L36",
       "id": "hud_touchcontrols_touchcontrols_moveknob",
-      "community": 0,
+      "community": 4,
       "norm_label": ".moveknob()"
     },
     {
@@ -2980,7 +3151,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L49",
       "id": "hud_touchcontrols_touchcontrols_resetknob",
-      "community": 0,
+      "community": 4,
       "norm_label": ".resetknob()"
     },
     {
@@ -2989,7 +3160,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L55",
       "id": "hud_touchcontrols_touchcontrols_init",
-      "community": 0,
+      "community": 4,
       "norm_label": ".init()"
     },
     {
@@ -2998,7 +3169,7 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L128",
       "id": "hud_touchcontrols_settouchjoystickvisible",
-      "community": 0,
+      "community": 4,
       "norm_label": "settouchjoystickvisible()"
     },
     {
@@ -3007,7 +3178,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L1",
       "id": "hud_controls_ts",
-      "community": 0,
+      "community": 4,
       "norm_label": "controls.ts"
     },
     {
@@ -3016,7 +3187,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L6",
       "id": "hud_controls_controls",
-      "community": 0,
+      "community": 4,
       "norm_label": "controls"
     },
     {
@@ -3025,7 +3196,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L9",
       "id": "hud_controls_controls_constructor",
-      "community": 0,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -3034,7 +3205,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L20",
       "id": "hud_controls_controls_hide",
-      "community": 0,
+      "community": 4,
       "norm_label": ".hide()"
     },
     {
@@ -3043,7 +3214,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L25",
       "id": "hud_controls_controls_show",
-      "community": 0,
+      "community": 4,
       "norm_label": ".show()"
     },
     {
@@ -3052,7 +3223,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L33",
       "id": "hud_controls_hidecontrols",
-      "community": 0,
+      "community": 4,
       "norm_label": "hidecontrols()"
     },
     {
@@ -3061,7 +3232,7 @@
       "source_file": "hud/controls.ts",
       "source_location": "L36",
       "id": "hud_controls_showcontrols",
-      "community": 0,
+      "community": 4,
       "norm_label": "showcontrols()"
     },
     {
@@ -3636,7 +3807,7 @@
       "file_type": "code",
       "source_file": "src/main.ts",
       "source_location": "L1",
-      "community": 4,
+      "community": 19,
       "norm_label": "main.ts",
       "id": "src_main_ts"
     },
@@ -3672,7 +3843,7 @@
       "file_type": "code",
       "source_file": "src/interactions/mangaViewer.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "mangaviewer.ts",
       "id": "src_interactions_mangaviewer_ts"
     },
@@ -3699,7 +3870,7 @@
       "file_type": "code",
       "source_file": "src/interactions/resumeViewer.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "resumeviewer.ts",
       "id": "src_interactions_resumeviewer_ts"
     },
@@ -3726,7 +3897,7 @@
       "file_type": "code",
       "source_file": "src/interactions/menu.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "menu.ts",
       "id": "src_interactions_menu_ts"
     },
@@ -3735,7 +3906,7 @@
       "file_type": "code",
       "source_file": "src/interactions/animeViewer.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 1,
       "norm_label": "animeviewer.ts",
       "id": "src_interactions_animeviewer_ts"
     },
@@ -3798,7 +3969,7 @@
       "file_type": "code",
       "source_file": "src/interactions/bookViewer.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "bookviewer.ts",
       "id": "src_interactions_bookviewer_ts"
     },
@@ -3825,7 +3996,7 @@
       "file_type": "code",
       "source_file": "src/interactions/photoViewer.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "photoviewer.ts",
       "id": "src_interactions_photoviewer_ts"
     },
@@ -3843,7 +4014,7 @@
       "file_type": "code",
       "source_file": "src/interactions/photoViewer.ts",
       "source_location": "L141",
-      "community": 0,
+      "community": 11,
       "norm_label": ".close()",
       "id": "interactions_photoviewer_photoviewer_close"
     },
@@ -3897,7 +4068,7 @@
       "file_type": "code",
       "source_file": "src/world/terrain.ts",
       "source_location": "L1",
-      "community": 4,
+      "community": 12,
       "norm_label": "terrain.ts",
       "id": "src_world_terrain_ts"
     },
@@ -3942,7 +4113,7 @@
       "file_type": "code",
       "source_file": "src/world/features/locations.ts",
       "source_location": "L1",
-      "community": 4,
+      "community": 12,
       "norm_label": "locations.ts",
       "id": "src_world_features_locations_ts"
     },
@@ -4014,7 +4185,7 @@
       "file_type": "code",
       "source_file": "src/utils/utils.ts",
       "source_location": "L1",
-      "community": 4,
+      "community": 12,
       "norm_label": "utils.ts",
       "id": "src_utils_utils_ts"
     },
@@ -4041,7 +4212,7 @@
       "file_type": "code",
       "source_file": "src/utils/constants.ts",
       "source_location": "L1",
-      "community": 4,
+      "community": 12,
       "norm_label": "constants.ts",
       "id": "src_utils_constants_ts"
     },
@@ -4059,7 +4230,7 @@
       "file_type": "code",
       "source_file": "src/utils/device.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "device.ts",
       "id": "src_utils_device_ts"
     },
@@ -4068,7 +4239,7 @@
       "file_type": "code",
       "source_file": "src/controls/camera.ts",
       "source_location": "L1",
-      "community": 4,
+      "community": 12,
       "norm_label": "camera.ts",
       "id": "src_controls_camera_ts"
     },
@@ -4077,7 +4248,7 @@
       "file_type": "code",
       "source_file": "src/controls/user.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "user.ts",
       "id": "src_controls_user_ts"
     },
@@ -4104,7 +4275,7 @@
       "file_type": "code",
       "source_file": "src/hud/prompt.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "prompt.ts",
       "id": "src_hud_prompt_ts"
     },
@@ -4113,7 +4284,7 @@
       "file_type": "code",
       "source_file": "src/hud/startScreen.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "startscreen.ts",
       "id": "src_hud_startscreen_ts"
     },
@@ -4122,7 +4293,7 @@
       "file_type": "code",
       "source_file": "src/hud/touchControls.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "touchcontrols.ts",
       "id": "src_hud_touchcontrols_ts"
     },
@@ -4131,7 +4302,7 @@
       "file_type": "code",
       "source_file": "src/hud/controls.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 4,
       "norm_label": "controls.ts",
       "id": "src_hud_controls_ts"
     },
@@ -4157,7 +4328,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 19,
       "norm_label": "three.js dependency",
       "id": "package_json_three_dep"
     },
@@ -4222,7 +4393,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 19,
       "norm_label": "html entry mounting /src/main.ts",
       "id": "index_html_entry"
     },
@@ -4261,7 +4432,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 19,
       "norm_label": "main.ts bootstrap (new game())",
       "id": "src_main_bootstrap"
     },
@@ -4443,7 +4614,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 14,
       "norm_label": "input blocking on overlay open",
       "id": "concept_input_blocking"
     },
@@ -4495,7 +4666,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 10,
+      "community": 12,
       "norm_label": "colliders",
       "id": "world_colliders_cls"
     },
@@ -4651,7 +4822,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 12,
       "norm_label": "constants",
       "id": "utils_constants_constants"
     },
@@ -4664,7 +4835,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 4,
       "norm_label": "istouchdevice",
       "id": "utils_device_istouchdevice"
     },
@@ -4716,7 +4887,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 12,
       "norm_label": "player.animatecharacter",
       "id": "characters_player_animatecharacter"
     },
@@ -4742,7 +4913,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 19,
+      "community": 4,
       "norm_label": "touch device branching",
       "id": "concept_touch_device_branching"
     },
@@ -5184,9 +5355,9 @@
       "source_file": "main.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_ts",
-      "target": "game_ts",
-      "confidence_score": 1.0
+      "target": "game_ts"
     },
     {
       "relation": "imports",
@@ -5195,9 +5366,9 @@
       "source_file": "main.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_ts",
-      "target": "src_game_game",
-      "confidence_score": 1.0
+      "target": "src_game_game"
     },
     {
       "relation": "imports_from",
@@ -5206,9 +5377,9 @@
       "source_file": "game.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "characters_player_ts",
-      "confidence_score": 1.0
+      "target": "characters_player_ts"
     },
     {
       "relation": "imports_from",
@@ -5217,9 +5388,9 @@
       "source_file": "game.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "controls_camera_ts",
-      "confidence_score": 1.0
+      "target": "controls_camera_ts"
     },
     {
       "relation": "imports_from",
@@ -5228,9 +5399,9 @@
       "source_file": "game.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "controls_user_ts",
-      "confidence_score": 1.0
+      "target": "controls_user_ts"
     },
     {
       "relation": "imports",
@@ -5239,9 +5410,9 @@
       "source_file": "game.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "controls_user_getinteractpressed",
-      "confidence_score": 1.0
+      "target": "controls_user_getinteractpressed"
     },
     {
       "relation": "imports",
@@ -5250,9 +5421,9 @@
       "source_file": "game.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "controls_user_getmovement",
-      "confidence_score": 1.0
+      "target": "controls_user_getmovement"
     },
     {
       "relation": "imports",
@@ -5261,9 +5432,9 @@
       "source_file": "game.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "controls_user_isinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_isinputblocked"
     },
     {
       "relation": "imports",
@@ -5272,9 +5443,9 @@
       "source_file": "game.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "controls_user_setinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_setinputblocked"
     },
     {
       "relation": "imports_from",
@@ -5283,9 +5454,9 @@
       "source_file": "game.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_controls_ts",
-      "confidence_score": 1.0
+      "target": "hud_controls_ts"
     },
     {
       "relation": "imports",
@@ -5294,9 +5465,9 @@
       "source_file": "game.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_controls_hidecontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_hidecontrols"
     },
     {
       "relation": "imports",
@@ -5305,9 +5476,9 @@
       "source_file": "game.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_controls_showcontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_showcontrols"
     },
     {
       "relation": "imports_from",
@@ -5316,9 +5487,9 @@
       "source_file": "game.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_prompt_ts",
-      "confidence_score": 1.0
+      "target": "hud_prompt_ts"
     },
     {
       "relation": "imports",
@@ -5327,9 +5498,9 @@
       "source_file": "game.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_prompt_hideprompt",
-      "confidence_score": 1.0
+      "target": "hud_prompt_hideprompt"
     },
     {
       "relation": "imports",
@@ -5338,9 +5509,9 @@
       "source_file": "game.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_prompt_showprompt",
-      "confidence_score": 1.0
+      "target": "hud_prompt_showprompt"
     },
     {
       "relation": "imports_from",
@@ -5349,9 +5520,9 @@
       "source_file": "game.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_startscreen_ts",
-      "confidence_score": 1.0
+      "target": "hud_startscreen_ts"
     },
     {
       "relation": "imports",
@@ -5360,9 +5531,9 @@
       "source_file": "game.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_startscreen_showstartscreen",
-      "confidence_score": 1.0
+      "target": "hud_startscreen_showstartscreen"
     },
     {
       "relation": "imports_from",
@@ -5371,9 +5542,9 @@
       "source_file": "game.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "hud_touchcontrols_ts",
-      "confidence_score": 1.0
+      "target": "hud_touchcontrols_ts"
     },
     {
       "relation": "imports_from",
@@ -5382,9 +5553,9 @@
       "source_file": "game.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_animeviewer_ts",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_ts"
     },
     {
       "relation": "imports",
@@ -5393,9 +5564,9 @@
       "source_file": "game.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_animeviewer_openanimeviewer",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_openanimeviewer"
     },
     {
       "relation": "imports_from",
@@ -5404,9 +5575,9 @@
       "source_file": "game.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_bonfiremenu_ts",
-      "confidence_score": 1.0
+      "target": "interactions_bonfiremenu_ts"
     },
     {
       "relation": "imports",
@@ -5415,9 +5586,9 @@
       "source_file": "game.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_bonfiremenu_openbonfiremenu",
-      "confidence_score": 1.0
+      "target": "interactions_bonfiremenu_openbonfiremenu"
     },
     {
       "relation": "imports_from",
@@ -5426,9 +5597,9 @@
       "source_file": "game.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_bookviewer_ts",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_ts"
     },
     {
       "relation": "imports",
@@ -5437,9 +5608,9 @@
       "source_file": "game.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_bookviewer_openbookviewer",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_openbookviewer"
     },
     {
       "relation": "imports_from",
@@ -5449,7 +5620,7 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "game_ts",
-      "target": "interactions_interactables_ts",
+      "target": "interactions_doceviewer_ts",
       "confidence_score": 1.0
     },
     {
@@ -5460,8 +5631,19 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "game_ts",
-      "target": "interactions_interactables_getnearby",
+      "target": "interactions_doceviewer_opendoceviewer",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "game.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_ts",
+      "target": "interactions_interactables_ts"
     },
     {
       "relation": "imports",
@@ -5470,9 +5652,9 @@
       "source_file": "game.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_interactables_registerinteractable",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_getnearby"
     },
     {
       "relation": "imports",
@@ -5481,9 +5663,20 @@
       "source_file": "game.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_interactables_updatenearby",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_registerinteractable"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "game.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_ts",
+      "target": "interactions_interactables_updatenearby"
     },
     {
       "relation": "imports_from",
@@ -5492,9 +5685,9 @@
       "source_file": "game.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_mangaviewer_ts",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_ts"
     },
     {
       "relation": "imports",
@@ -5503,9 +5696,9 @@
       "source_file": "game.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_mangaviewer_openmangaviewer",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_openmangaviewer"
     },
     {
       "relation": "imports_from",
@@ -5514,9 +5707,9 @@
       "source_file": "game.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_photoviewer_ts",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_ts"
     },
     {
       "relation": "imports",
@@ -5525,9 +5718,9 @@
       "source_file": "game.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "interactions_photoviewer_openphotoviewer",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_openphotoviewer"
     },
     {
       "relation": "imports_from",
@@ -5536,9 +5729,9 @@
       "source_file": "game.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "imports",
@@ -5547,9 +5740,9 @@
       "source_file": "game.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "utils_constants_camera_pitch",
-      "confidence_score": 1.0
+      "target": "utils_constants_camera_pitch"
     },
     {
       "relation": "imports",
@@ -5558,9 +5751,9 @@
       "source_file": "game.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "utils_constants_camera_yaw",
-      "confidence_score": 1.0
+      "target": "utils_constants_camera_yaw"
     },
     {
       "relation": "imports_from",
@@ -5569,9 +5762,9 @@
       "source_file": "game.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "utils_utils_ts",
-      "confidence_score": 1.0
+      "target": "utils_utils_ts"
     },
     {
       "relation": "imports",
@@ -5580,9 +5773,9 @@
       "source_file": "game.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "utils_utils_addscenery",
-      "confidence_score": 1.0
+      "target": "utils_utils_addscenery"
     },
     {
       "relation": "imports",
@@ -5591,9 +5784,9 @@
       "source_file": "game.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "utils_utils_getheight",
-      "confidence_score": 1.0
+      "target": "utils_utils_getheight"
     },
     {
       "relation": "imports_from",
@@ -5602,9 +5795,9 @@
       "source_file": "game.ts",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_camerablockers_ts",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_ts"
     },
     {
       "relation": "imports",
@@ -5613,9 +5806,9 @@
       "source_file": "game.ts",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_camerablockers_camerablockers",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_camerablockers"
     },
     {
       "relation": "imports_from",
@@ -5624,9 +5817,9 @@
       "source_file": "game.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_colliders_ts",
-      "confidence_score": 1.0
+      "target": "world_colliders_ts"
     },
     {
       "relation": "imports",
@@ -5635,9 +5828,9 @@
       "source_file": "game.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_colliders_checkcollision",
-      "confidence_score": 1.0
+      "target": "world_colliders_checkcollision"
     },
     {
       "relation": "imports",
@@ -5646,9 +5839,9 @@
       "source_file": "game.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_colliders_registercollider",
-      "confidence_score": 1.0
+      "target": "world_colliders_registercollider"
     },
     {
       "relation": "imports_from",
@@ -5657,9 +5850,9 @@
       "source_file": "game.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_corridor_ts",
-      "confidence_score": 1.0
+      "target": "world_corridor_ts"
     },
     {
       "relation": "imports",
@@ -5668,9 +5861,9 @@
       "source_file": "game.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_corridor_addcorridor",
-      "confidence_score": 1.0
+      "target": "world_corridor_addcorridor"
     },
     {
       "relation": "imports",
@@ -5679,9 +5872,9 @@
       "source_file": "game.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_corridor_updatetorches",
-      "confidence_score": 1.0
+      "target": "world_corridor_updatetorches"
     },
     {
       "relation": "imports_from",
@@ -5690,9 +5883,9 @@
       "source_file": "game.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_decay_ts",
-      "confidence_score": 1.0
+      "target": "world_decay_ts"
     },
     {
       "relation": "imports",
@@ -5701,9 +5894,9 @@
       "source_file": "game.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_decay_adddecay",
-      "confidence_score": 1.0
+      "target": "world_decay_adddecay"
     },
     {
       "relation": "imports_from",
@@ -5712,9 +5905,9 @@
       "source_file": "game.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_features_bonfire_ts",
-      "confidence_score": 1.0
+      "target": "world_features_bonfire_ts"
     },
     {
       "relation": "imports_from",
@@ -5723,9 +5916,9 @@
       "source_file": "game.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_features_bookshelf_ts",
-      "confidence_score": 1.0
+      "target": "world_features_bookshelf_ts"
     },
     {
       "relation": "imports",
@@ -5734,9 +5927,9 @@
       "source_file": "game.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "features_bookshelf_bookshelf",
-      "confidence_score": 1.0
+      "target": "features_bookshelf_bookshelf"
     },
     {
       "relation": "imports_from",
@@ -5745,9 +5938,9 @@
       "source_file": "game.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_features_cdtable_ts",
-      "confidence_score": 1.0
+      "target": "world_features_cdtable_ts"
     },
     {
       "relation": "imports",
@@ -5756,8 +5949,19 @@
       "source_file": "game.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "features_cdtable_cdtable",
+      "target": "features_cdtable_cdtable"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "game.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "game_ts",
+      "target": "world_features_docealtar_ts",
       "confidence_score": 1.0
     },
     {
@@ -5767,9 +5971,9 @@
       "source_file": "game.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_features_painting_ts",
-      "confidence_score": 1.0
+      "target": "world_features_painting_ts"
     },
     {
       "relation": "imports",
@@ -5778,9 +5982,9 @@
       "source_file": "game.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "features_painting_painting",
-      "confidence_score": 1.0
+      "target": "features_painting_painting"
     },
     {
       "relation": "imports_from",
@@ -5789,9 +5993,9 @@
       "source_file": "game.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_terrain_ts",
-      "confidence_score": 1.0
+      "target": "world_terrain_ts"
     },
     {
       "relation": "imports",
@@ -5800,9 +6004,9 @@
       "source_file": "game.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_terrain_boundaries",
-      "confidence_score": 1.0
+      "target": "world_terrain_boundaries"
     },
     {
       "relation": "imports",
@@ -5811,9 +6015,9 @@
       "source_file": "game.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "world_terrain_terrain",
-      "confidence_score": 1.0
+      "target": "world_terrain_terrain"
     },
     {
       "relation": "contains",
@@ -5821,9 +6025,9 @@
       "source_file": "game.ts",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_ts",
-      "target": "src_game_game",
-      "confidence_score": 1.0
+      "target": "src_game_game"
     },
     {
       "relation": "method",
@@ -6154,9 +6358,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "controls_camera_ts",
-      "confidence_score": 1.0
+      "target": "controls_camera_ts"
     },
     {
       "relation": "imports",
@@ -6165,9 +6369,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "controls_camera_setorbitblocked",
-      "confidence_score": 1.0
+      "target": "controls_camera_setorbitblocked"
     },
     {
       "relation": "imports_from",
@@ -6176,9 +6380,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "controls_user_ts",
-      "confidence_score": 1.0
+      "target": "controls_user_ts"
     },
     {
       "relation": "imports",
@@ -6187,9 +6391,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "controls_user_setinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_setinputblocked"
     },
     {
       "relation": "imports_from",
@@ -6198,9 +6402,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "hud_controls_ts",
-      "confidence_score": 1.0
+      "target": "hud_controls_ts"
     },
     {
       "relation": "imports",
@@ -6209,9 +6413,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "hud_controls_hidecontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_hidecontrols"
     },
     {
       "relation": "imports",
@@ -6220,9 +6424,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "hud_controls_showcontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_showcontrols"
     },
     {
       "relation": "contains",
@@ -6230,9 +6434,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_constructor",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_constructor"
     },
     {
       "relation": "contains",
@@ -6240,9 +6444,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_handlekey",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_handlekey"
     },
     {
       "relation": "contains",
@@ -6250,9 +6454,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_render",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_render"
     },
     {
       "relation": "contains",
@@ -6260,9 +6464,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_teardown",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_teardown"
     },
     {
       "relation": "contains",
@@ -6270,9 +6474,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_open",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_open"
     },
     {
       "relation": "contains",
@@ -6280,9 +6484,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_close",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_close"
     },
     {
       "relation": "contains",
@@ -6290,8 +6494,19 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_ts",
-      "target": "interactions_baseoverlay_destroy",
+      "target": "interactions_baseoverlay_destroy"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_baseoverlay_ts",
       "confidence_score": 1.0
     },
     {
@@ -6301,9 +6516,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "imports_from",
@@ -6312,9 +6527,9 @@
       "source_file": "interactions/resumeViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_resumeviewer_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "imports_from",
@@ -6323,9 +6538,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "imports_from",
@@ -6334,9 +6549,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "imports_from",
@@ -6345,9 +6560,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "imports_from",
@@ -6356,9 +6571,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "imports_from",
@@ -6367,9 +6582,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "interactions_baseoverlay_ts",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_ts"
     },
     {
       "relation": "calls",
@@ -6378,9 +6593,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_handlekey",
-      "target": "interactions_baseoverlay_close",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_close"
     },
     {
       "relation": "calls",
@@ -6389,9 +6604,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_open",
-      "target": "interactions_baseoverlay_render",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_render"
     },
     {
       "relation": "calls",
@@ -6400,9 +6615,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_close",
-      "target": "interactions_baseoverlay_teardown",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_teardown"
     },
     {
       "relation": "calls",
@@ -6444,9 +6659,9 @@
       "source_file": "interactions/baseOverlay.ts",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_baseoverlay_destroy",
-      "target": "interactions_baseoverlay_close",
-      "confidence_score": 1.0
+      "target": "interactions_baseoverlay_close"
     },
     {
       "relation": "calls",
@@ -6482,14 +6697,168 @@
       "target": "hud_controls_showcontrols"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "utils_device_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "utils_device_istouchdevice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_doceviewer_docetab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_doceviewer_tabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_doceviewer_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_doceviewer_doceviewer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_doceviewer_viewer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_ts",
+      "target": "interactions_doceviewer_opendoceviewer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer",
+      "target": "interactions_doceviewer_doceviewer_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer",
+      "target": "interactions_doceviewer_doceviewer_builddom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer",
+      "target": "interactions_doceviewer_doceviewer_switchtab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer",
+      "target": "interactions_doceviewer_doceviewer_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer",
+      "target": "interactions_doceviewer_doceviewer_teardown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer_constructor",
+      "target": "interactions_doceviewer_doceviewer_builddom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "interactions/doceViewer.ts",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "interactions_doceviewer_doceviewer_render",
+      "target": "interactions_doceviewer_doceviewer_switchtab",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "interactions/interactables.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_interactables_ts",
-      "target": "interactions_interactables_interactable",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_interactable"
     },
     {
       "relation": "contains",
@@ -6497,9 +6866,9 @@
       "source_file": "interactions/interactables.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_interactables_ts",
-      "target": "interactions_interactables_interactables",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_interactables"
     },
     {
       "relation": "contains",
@@ -6507,9 +6876,9 @@
       "source_file": "interactions/interactables.ts",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_interactables_ts",
-      "target": "interactions_interactables_registerinteractable",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_registerinteractable"
     },
     {
       "relation": "contains",
@@ -6517,9 +6886,9 @@
       "source_file": "interactions/interactables.ts",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_interactables_ts",
-      "target": "interactions_interactables_updatenearby",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_updatenearby"
     },
     {
       "relation": "contains",
@@ -6527,9 +6896,9 @@
       "source_file": "interactions/interactables.ts",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_interactables_ts",
-      "target": "interactions_interactables_getnearby",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_getnearby"
     },
     {
       "relation": "imports_from",
@@ -6538,9 +6907,9 @@
       "source_file": "interactions/__tests__/interactables.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_interactables_test_ts",
-      "target": "interactions_interactables_ts",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_ts"
     },
     {
       "relation": "imports",
@@ -6549,9 +6918,9 @@
       "source_file": "interactions/__tests__/interactables.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_interactables_test_ts",
-      "target": "interactions_interactables_interactable",
-      "confidence_score": 1.0
+      "target": "interactions_interactables_interactable"
     },
     {
       "relation": "contains",
@@ -6817,9 +7186,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "types_mal_ts",
-      "confidence_score": 1.0
+      "target": "types_mal_ts"
     },
     {
       "relation": "imports",
@@ -6828,9 +7197,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "types_mal_malmangaentry",
-      "confidence_score": 1.0
+      "target": "types_mal_malmangaentry"
     },
     {
       "relation": "imports_from",
@@ -6839,9 +7208,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "utils_api_ts",
-      "confidence_score": 1.0
+      "target": "utils_api_ts"
     },
     {
       "relation": "imports",
@@ -6850,9 +7219,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "utils_api_fetchmangalist",
-      "confidence_score": 1.0
+      "target": "utils_api_fetchmangalist"
     },
     {
       "relation": "imports_from",
@@ -6861,9 +7230,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -6872,9 +7241,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -6882,9 +7251,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "interactions_mangaviewer_status_order",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_status_order"
     },
     {
       "relation": "contains",
@@ -6892,9 +7261,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "interactions_mangaviewer_status_labels",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_status_labels"
     },
     {
       "relation": "contains",
@@ -6902,9 +7271,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "interactions_mangaviewer_mangaviewer",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_mangaviewer"
     },
     {
       "relation": "contains",
@@ -6912,9 +7281,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L231",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "interactions_mangaviewer_viewer",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_viewer"
     },
     {
       "relation": "contains",
@@ -6922,9 +7291,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L237",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_ts",
-      "target": "interactions_mangaviewer_openmangaviewer",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_openmangaviewer"
     },
     {
       "relation": "contains",
@@ -7022,9 +7391,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L214",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_mangaviewer",
-      "target": "interactions_mangaviewer_mangaviewer_render",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_mangaviewer_render"
     },
     {
       "relation": "contains",
@@ -7096,9 +7465,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_mangaviewer_render",
-      "target": "interactions_mangaviewer_mangaviewer_renderloading",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_mangaviewer_renderloading"
     },
     {
       "relation": "calls",
@@ -7118,9 +7487,9 @@
       "source_file": "interactions/mangaViewer.ts",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_mangaviewer_mangaviewer_render",
-      "target": "interactions_mangaviewer_mangaviewer_renderdata",
-      "confidence_score": 1.0
+      "target": "interactions_mangaviewer_mangaviewer_renderdata"
     },
     {
       "relation": "calls",
@@ -7213,9 +7582,9 @@
       "source_file": "interactions/resumeViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_resumeviewer_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -7224,9 +7593,9 @@
       "source_file": "interactions/resumeViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_resumeviewer_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -7234,9 +7603,9 @@
       "source_file": "interactions/resumeViewer.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_resumeviewer_ts",
-      "target": "interactions_resumeviewer_resumeviewer",
-      "confidence_score": 1.0
+      "target": "interactions_resumeviewer_resumeviewer"
     },
     {
       "relation": "contains",
@@ -7244,9 +7613,9 @@
       "source_file": "interactions/resumeViewer.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_resumeviewer_ts",
-      "target": "interactions_resumeviewer_viewer",
-      "confidence_score": 1.0
+      "target": "interactions_resumeviewer_viewer"
     },
     {
       "relation": "contains",
@@ -7254,9 +7623,9 @@
       "source_file": "interactions/resumeViewer.ts",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_resumeviewer_ts",
-      "target": "interactions_resumeviewer_openresumeviewer",
-      "confidence_score": 1.0
+      "target": "interactions_resumeviewer_openresumeviewer"
     },
     {
       "relation": "imports_from",
@@ -7265,9 +7634,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_resumeviewer_ts",
-      "confidence_score": 1.0
+      "target": "interactions_resumeviewer_ts"
     },
     {
       "relation": "method",
@@ -7347,9 +7716,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_resumeviewer_openresumeviewer",
-      "confidence_score": 1.0
+      "target": "interactions_resumeviewer_openresumeviewer"
     },
     {
       "relation": "contains",
@@ -7410,9 +7779,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "controls_user_ts",
-      "confidence_score": 1.0
+      "target": "controls_user_ts"
     },
     {
       "relation": "imports",
@@ -7421,9 +7790,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "controls_user_setinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_setinputblocked"
     },
     {
       "relation": "imports_from",
@@ -7432,9 +7801,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "hud_prompt_ts",
-      "confidence_score": 1.0
+      "target": "hud_prompt_ts"
     },
     {
       "relation": "imports",
@@ -7443,9 +7812,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "hud_prompt_blocktouchbtn",
-      "confidence_score": 1.0
+      "target": "hud_prompt_blocktouchbtn"
     },
     {
       "relation": "imports_from",
@@ -7454,9 +7823,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "hud_touchcontrols_ts",
-      "confidence_score": 1.0
+      "target": "hud_touchcontrols_ts"
     },
     {
       "relation": "imports",
@@ -7465,9 +7834,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "hud_touchcontrols_settouchjoystickvisible",
-      "confidence_score": 1.0
+      "target": "hud_touchcontrols_settouchjoystickvisible"
     },
     {
       "relation": "imports_from",
@@ -7476,9 +7845,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -7487,9 +7856,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -7497,9 +7866,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "interactions_menu_menuitem",
-      "confidence_score": 1.0
+      "target": "interactions_menu_menuitem"
     },
     {
       "relation": "contains",
@@ -7507,9 +7876,9 @@
       "source_file": "interactions/menu.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_menu_ts",
-      "target": "interactions_menu_menu",
-      "confidence_score": 1.0
+      "target": "interactions_menu_menu"
     },
     {
       "relation": "imports_from",
@@ -7518,9 +7887,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_menu_ts",
-      "confidence_score": 1.0
+      "target": "interactions_menu_ts"
     },
     {
       "relation": "imports",
@@ -7529,9 +7898,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_menu_menuitem",
-      "confidence_score": 1.0
+      "target": "interactions_menu_menuitem"
     },
     {
       "relation": "contains",
@@ -7641,9 +8010,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_menu_menu",
-      "confidence_score": 1.0
+      "target": "interactions_menu_menu"
     },
     {
       "relation": "contains",
@@ -7759,9 +8128,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "types_mal_ts",
-      "confidence_score": 1.0
+      "target": "types_mal_ts"
     },
     {
       "relation": "imports",
@@ -7770,9 +8139,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "types_mal_malanimeentry",
-      "confidence_score": 1.0
+      "target": "types_mal_malanimeentry"
     },
     {
       "relation": "imports_from",
@@ -7781,9 +8150,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "utils_api_ts",
-      "confidence_score": 1.0
+      "target": "utils_api_ts"
     },
     {
       "relation": "imports",
@@ -7792,9 +8161,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "utils_api_fetchanimelist",
-      "confidence_score": 1.0
+      "target": "utils_api_fetchanimelist"
     },
     {
       "relation": "imports_from",
@@ -7803,9 +8172,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -7814,9 +8183,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -7824,9 +8193,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "interactions_animeviewer_status_order",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_status_order"
     },
     {
       "relation": "contains",
@@ -7834,9 +8203,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "interactions_animeviewer_status_labels",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_status_labels"
     },
     {
       "relation": "contains",
@@ -7844,9 +8213,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "interactions_animeviewer_animeviewer",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_animeviewer"
     },
     {
       "relation": "contains",
@@ -7854,9 +8223,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "interactions_animeviewer_viewer",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_viewer"
     },
     {
       "relation": "contains",
@@ -7864,9 +8233,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L222",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_ts",
-      "target": "interactions_animeviewer_openanimeviewer",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_openanimeviewer"
     },
     {
       "relation": "contains",
@@ -7954,9 +8323,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_animeviewer",
-      "target": "interactions_animeviewer_animeviewer_render",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_animeviewer_render"
     },
     {
       "relation": "contains",
@@ -8017,9 +8386,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L204",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_animeviewer_render",
-      "target": "interactions_animeviewer_animeviewer_renderloading",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_animeviewer_renderloading"
     },
     {
       "relation": "calls",
@@ -8039,9 +8408,9 @@
       "source_file": "interactions/animeViewer.ts",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_animeviewer_animeviewer_render",
-      "target": "interactions_animeviewer_animeviewer_renderdata",
-      "confidence_score": 1.0
+      "target": "interactions_animeviewer_animeviewer_renderdata"
     },
     {
       "relation": "calls",
@@ -8134,9 +8503,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_aboutviewer_ts",
-      "confidence_score": 1.0
+      "target": "interactions_aboutviewer_ts"
     },
     {
       "relation": "imports",
@@ -8145,9 +8514,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_aboutviewer_openaboutviewer",
-      "confidence_score": 1.0
+      "target": "interactions_aboutviewer_openaboutviewer"
     },
     {
       "relation": "contains",
@@ -8155,9 +8524,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_bonfiremenu_items",
-      "confidence_score": 1.0
+      "target": "interactions_bonfiremenu_items"
     },
     {
       "relation": "contains",
@@ -8165,9 +8534,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_bonfiremenu_menu",
-      "confidence_score": 1.0
+      "target": "interactions_bonfiremenu_menu"
     },
     {
       "relation": "contains",
@@ -8175,9 +8544,9 @@
       "source_file": "interactions/bonfireMenu.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bonfiremenu_ts",
-      "target": "interactions_bonfiremenu_openbonfiremenu",
-      "confidence_score": 1.0
+      "target": "interactions_bonfiremenu_openbonfiremenu"
     },
     {
       "relation": "contains",
@@ -8247,9 +8616,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -8258,9 +8627,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -8268,9 +8637,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "interactions_aboutviewer_paragraphs",
-      "confidence_score": 1.0
+      "target": "interactions_aboutviewer_paragraphs"
     },
     {
       "relation": "contains",
@@ -8278,9 +8647,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "interactions_aboutviewer_aboutviewer",
-      "confidence_score": 1.0
+      "target": "interactions_aboutviewer_aboutviewer"
     },
     {
       "relation": "contains",
@@ -8288,9 +8657,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "interactions_aboutviewer_viewer",
-      "confidence_score": 1.0
+      "target": "interactions_aboutviewer_viewer"
     },
     {
       "relation": "contains",
@@ -8298,9 +8667,9 @@
       "source_file": "interactions/aboutViewer.ts",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_aboutviewer_ts",
-      "target": "interactions_aboutviewer_openaboutviewer",
-      "confidence_score": 1.0
+      "target": "interactions_aboutviewer_openaboutviewer"
     },
     {
       "relation": "contains",
@@ -8432,9 +8801,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "types_hardcover_ts",
-      "confidence_score": 1.0
+      "target": "types_hardcover_ts"
     },
     {
       "relation": "imports",
@@ -8443,9 +8812,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "types_hardcover_book",
-      "confidence_score": 1.0
+      "target": "types_hardcover_book"
     },
     {
       "relation": "imports_from",
@@ -8454,9 +8823,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "utils_api_ts",
-      "confidence_score": 1.0
+      "target": "utils_api_ts"
     },
     {
       "relation": "imports",
@@ -8465,9 +8834,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "utils_api_fetchbooklist",
-      "confidence_score": 1.0
+      "target": "utils_api_fetchbooklist"
     },
     {
       "relation": "imports_from",
@@ -8476,9 +8845,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -8487,9 +8856,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -8497,9 +8866,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "interactions_bookviewer_shelf_order",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_shelf_order"
     },
     {
       "relation": "contains",
@@ -8507,9 +8876,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "interactions_bookviewer_shelf_labels",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_shelf_labels"
     },
     {
       "relation": "contains",
@@ -8517,9 +8886,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "interactions_bookviewer_bookviewer",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_bookviewer"
     },
     {
       "relation": "contains",
@@ -8527,9 +8896,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L234",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "interactions_bookviewer_viewer",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_viewer"
     },
     {
       "relation": "contains",
@@ -8537,9 +8906,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L240",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_ts",
-      "target": "interactions_bookviewer_openbookviewer",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_openbookviewer"
     },
     {
       "relation": "contains",
@@ -8637,9 +9006,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L217",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_bookviewer",
-      "target": "interactions_bookviewer_bookviewer_render",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_bookviewer_render"
     },
     {
       "relation": "contains",
@@ -8711,9 +9080,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L222",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_bookviewer_render",
-      "target": "interactions_bookviewer_bookviewer_renderloading",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_bookviewer_renderloading"
     },
     {
       "relation": "calls",
@@ -8733,9 +9102,9 @@
       "source_file": "interactions/bookViewer.ts",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_bookviewer_bookviewer_render",
-      "target": "interactions_bookviewer_bookviewer_renderdata",
-      "confidence_score": 1.0
+      "target": "interactions_bookviewer_bookviewer_renderdata"
     },
     {
       "relation": "calls",
@@ -8828,9 +9197,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "config_photoalbums_ts",
-      "confidence_score": 1.0
+      "target": "config_photoalbums_ts"
     },
     {
       "relation": "imports",
@@ -8839,9 +9208,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "config_photoalbums_photo_albums",
-      "confidence_score": 1.0
+      "target": "config_photoalbums_photo_albums"
     },
     {
       "relation": "imports_from",
@@ -8850,9 +9219,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports",
@@ -8861,9 +9230,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -8871,9 +9240,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "interactions_photoviewer_getalbumurls",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_getalbumurls"
     },
     {
       "relation": "contains",
@@ -8881,9 +9250,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "interactions_photoviewer_photoviewer",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer"
     },
     {
       "relation": "contains",
@@ -8891,9 +9260,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "interactions_photoviewer_viewer",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_viewer"
     },
     {
       "relation": "contains",
@@ -8901,9 +9270,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_ts",
-      "target": "interactions_photoviewer_openphotoviewer",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_openphotoviewer"
     },
     {
       "relation": "calls",
@@ -8912,9 +9281,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer_openalbum",
-      "target": "interactions_photoviewer_getalbumurls",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_getalbumurls"
     },
     {
       "relation": "contains",
@@ -8963,9 +9332,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer",
-      "target": "interactions_photoviewer_photoviewer_handlekey",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_handlekey"
     },
     {
       "relation": "method",
@@ -8983,9 +9352,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer",
-      "target": "interactions_photoviewer_photoviewer_renderimage",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_renderimage"
     },
     {
       "relation": "method",
@@ -9003,9 +9372,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer",
-      "target": "interactions_photoviewer_photoviewer_openalbum",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_openalbum"
     },
     {
       "relation": "contains",
@@ -9055,9 +9424,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer_handlekey",
-      "target": "interactions_photoviewer_photoviewer_navigate",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_navigate"
     },
     {
       "relation": "calls",
@@ -9066,9 +9435,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer_navigate",
-      "target": "interactions_photoviewer_photoviewer_renderimage",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_renderimage"
     },
     {
       "relation": "calls",
@@ -9088,9 +9457,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_photoviewer_render",
-      "target": "interactions_photoviewer_photoviewer_renderimage",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_renderimage"
     },
     {
       "relation": "calls",
@@ -9110,9 +9479,9 @@
       "source_file": "interactions/photoViewer.ts",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_photoviewer_openphotoviewer",
-      "target": "interactions_photoviewer_photoviewer_openalbum",
-      "confidence_score": 1.0
+      "target": "interactions_photoviewer_photoviewer_openalbum"
     },
     {
       "relation": "contains",
@@ -9183,9 +9552,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "controls_camera_ts",
-      "confidence_score": 1.0
+      "target": "controls_camera_ts"
     },
     {
       "relation": "imports",
@@ -9194,9 +9563,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "controls_camera_setorbitblocked",
-      "confidence_score": 1.0
+      "target": "controls_camera_setorbitblocked"
     },
     {
       "relation": "imports_from",
@@ -9205,9 +9574,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "controls_user_ts",
-      "confidence_score": 1.0
+      "target": "controls_user_ts"
     },
     {
       "relation": "imports",
@@ -9216,9 +9585,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "controls_user_setinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_setinputblocked"
     },
     {
       "relation": "imports_from",
@@ -9227,9 +9596,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "hud_controls_ts",
-      "confidence_score": 1.0
+      "target": "hud_controls_ts"
     },
     {
       "relation": "imports",
@@ -9238,9 +9607,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "hud_controls_hidecontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_hidecontrols"
     },
     {
       "relation": "imports",
@@ -9249,9 +9618,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "hud_controls_showcontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_showcontrols"
     },
     {
       "relation": "contains",
@@ -9259,9 +9628,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_testoverlay",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_testoverlay"
     },
     {
       "relation": "contains",
@@ -9269,9 +9638,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_press",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_press"
     },
     {
       "relation": "contains",
@@ -9279,9 +9648,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_created",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_created"
     },
     {
       "relation": "contains",
@@ -9289,9 +9658,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_track",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_track"
     },
     {
       "relation": "contains",
@@ -9299,9 +9668,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_makeoverlay",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_makeoverlay"
     },
     {
       "relation": "contains",
@@ -9309,9 +9678,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L249",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_o",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_o"
     },
     {
       "relation": "contains",
@@ -9319,9 +9688,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L175",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_onclose",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_onclose"
     },
     {
       "relation": "contains",
@@ -9329,9 +9698,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L239",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_calls",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_calls"
     },
     {
       "relation": "contains",
@@ -9339,9 +9708,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L243",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_baseoverlay_test_ts",
-      "target": "tests_baseoverlay_test_orderingoverlay",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_orderingoverlay"
     },
     {
       "relation": "method",
@@ -9349,9 +9718,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_baseoverlay_test_testoverlay",
-      "target": "tests_baseoverlay_test_testoverlay_constructor",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_testoverlay_constructor"
     },
     {
       "relation": "method",
@@ -9359,9 +9728,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_baseoverlay_test_testoverlay",
-      "target": "tests_baseoverlay_test_testoverlay_render",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_testoverlay_render"
     },
     {
       "relation": "method",
@@ -9369,9 +9738,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_baseoverlay_test_testoverlay",
-      "target": "tests_baseoverlay_test_testoverlay_teardown",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_testoverlay_teardown"
     },
     {
       "relation": "calls",
@@ -9380,9 +9749,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_baseoverlay_test_makeoverlay",
-      "target": "tests_baseoverlay_test_track",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_track"
     },
     {
       "relation": "method",
@@ -9390,9 +9759,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L229",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_baseoverlay_test_orderingoverlay",
-      "target": "tests_baseoverlay_test_orderingoverlay_render",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_orderingoverlay_render"
     },
     {
       "relation": "method",
@@ -9400,9 +9769,9 @@
       "source_file": "interactions/__tests__/baseOverlay.test.ts",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_baseoverlay_test_orderingoverlay",
-      "target": "tests_baseoverlay_test_orderingoverlay_teardown",
-      "confidence_score": 1.0
+      "target": "tests_baseoverlay_test_orderingoverlay_teardown"
     },
     {
       "relation": "contains",
@@ -9410,9 +9779,9 @@
       "source_file": "interactions/__tests__/interactables.test.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_interactables_test_ts",
-      "target": "tests_interactables_test_makeinteractable",
-      "confidence_score": 1.0
+      "target": "tests_interactables_test_makeinteractable"
     },
     {
       "relation": "contains",
@@ -9420,9 +9789,9 @@
       "source_file": "interactions/__tests__/interactables.test.ts",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_interactables_test_ts",
-      "target": "tests_interactables_test_i",
-      "confidence_score": 1.0
+      "target": "tests_interactables_test_i"
     },
     {
       "relation": "contains",
@@ -9430,9 +9799,9 @@
       "source_file": "interactions/__tests__/interactables.test.ts",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_interactables_test_ts",
-      "target": "tests_interactables_test_a",
-      "confidence_score": 1.0
+      "target": "tests_interactables_test_a"
     },
     {
       "relation": "contains",
@@ -9440,9 +9809,9 @@
       "source_file": "interactions/__tests__/interactables.test.ts",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interactions_tests_interactables_test_ts",
-      "target": "tests_interactables_test_b",
-      "confidence_score": 1.0
+      "target": "tests_interactables_test_b"
     },
     {
       "relation": "contains",
@@ -9490,9 +9859,9 @@
       "source_file": "types/hardcover.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_hardcover_ts",
-      "target": "types_hardcover_book",
-      "confidence_score": 1.0
+      "target": "types_hardcover_book"
     },
     {
       "relation": "imports_from",
@@ -9501,9 +9870,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "types_hardcover_ts",
-      "confidence_score": 1.0
+      "target": "types_hardcover_ts"
     },
     {
       "relation": "imports",
@@ -9512,9 +9881,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "types_hardcover_book",
-      "confidence_score": 1.0
+      "target": "types_hardcover_book"
     },
     {
       "relation": "imports",
@@ -9574,9 +9943,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malpicture",
-      "confidence_score": 1.0
+      "target": "types_mal_malpicture"
     },
     {
       "relation": "contains",
@@ -9584,9 +9953,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malanimenode",
-      "confidence_score": 1.0
+      "target": "types_mal_malanimenode"
     },
     {
       "relation": "contains",
@@ -9594,9 +9963,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malanimeliststatus",
-      "confidence_score": 1.0
+      "target": "types_mal_malanimeliststatus"
     },
     {
       "relation": "contains",
@@ -9604,9 +9973,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malanimeentry",
-      "confidence_score": 1.0
+      "target": "types_mal_malanimeentry"
     },
     {
       "relation": "contains",
@@ -9614,9 +9983,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malmanganode",
-      "confidence_score": 1.0
+      "target": "types_mal_malmanganode"
     },
     {
       "relation": "contains",
@@ -9624,9 +9993,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malmangaliststatus",
-      "confidence_score": 1.0
+      "target": "types_mal_malmangaliststatus"
     },
     {
       "relation": "contains",
@@ -9634,9 +10003,9 @@
       "source_file": "types/mal.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_mal_ts",
-      "target": "types_mal_malmangaentry",
-      "confidence_score": 1.0
+      "target": "types_mal_malmangaentry"
     },
     {
       "relation": "imports_from",
@@ -9645,9 +10014,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "types_mal_ts",
-      "confidence_score": 1.0
+      "target": "types_mal_ts"
     },
     {
       "relation": "contains",
@@ -9686,9 +10055,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "types_mal_malanimeentry",
-      "confidence_score": 1.0
+      "target": "types_mal_malanimeentry"
     },
     {
       "relation": "imports",
@@ -9749,9 +10118,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "types_mal_malmangaentry",
-      "confidence_score": 1.0
+      "target": "types_mal_malmangaentry"
     },
     {
       "relation": "imports",
@@ -9791,9 +10160,9 @@
       "source_file": "config/photoAlbums.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_photoalbums_ts",
-      "target": "config_photoalbums_url",
-      "confidence_score": 1.0
+      "target": "config_photoalbums_url"
     },
     {
       "relation": "contains",
@@ -9801,9 +10170,9 @@
       "source_file": "config/photoAlbums.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_photoalbums_ts",
-      "target": "config_photoalbums_photo_albums",
-      "confidence_score": 1.0
+      "target": "config_photoalbums_photo_albums"
     },
     {
       "relation": "contains",
@@ -9852,9 +10221,9 @@
       "source_file": "world/cameraBlockers.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_camerablockers_ts",
-      "target": "world_camerablockers_camerablockers",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_camerablockers"
     },
     {
       "relation": "contains",
@@ -9862,9 +10231,9 @@
       "source_file": "world/cameraBlockers.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_camerablockers_ts",
-      "target": "world_camerablockers_instance",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_instance"
     },
     {
       "relation": "contains",
@@ -9872,9 +10241,9 @@
       "source_file": "world/cameraBlockers.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_camerablockers_ts",
-      "target": "world_camerablockers_registercamerablocker",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_registercamerablocker"
     },
     {
       "relation": "imports_from",
@@ -9883,9 +10252,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_camerablockers_ts",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_ts"
     },
     {
       "relation": "method",
@@ -9946,9 +10315,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_camerablockers_registercamerablocker",
-      "confidence_score": 1.0
+      "target": "world_camerablockers_registercamerablocker"
     },
     {
       "relation": "calls",
@@ -10019,9 +10388,9 @@
       "source_file": "world/terrain.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_terrain_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "contains",
@@ -10029,9 +10398,9 @@
       "source_file": "world/terrain.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_terrain_ts",
-      "target": "world_terrain_terraingeo",
-      "confidence_score": 1.0
+      "target": "world_terrain_terraingeo"
     },
     {
       "relation": "contains",
@@ -10039,9 +10408,9 @@
       "source_file": "world/terrain.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_terrain_ts",
-      "target": "world_terrain_terrain",
-      "confidence_score": 1.0
+      "target": "world_terrain_terrain"
     },
     {
       "relation": "contains",
@@ -10049,9 +10418,9 @@
       "source_file": "world/terrain.ts",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_terrain_ts",
-      "target": "world_terrain_boundaries",
-      "confidence_score": 1.0
+      "target": "world_terrain_boundaries"
     },
     {
       "relation": "imports_from",
@@ -10060,9 +10429,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "world_terrain_ts",
-      "confidence_score": 1.0
+      "target": "world_terrain_ts"
     },
     {
       "relation": "contains",
@@ -10081,9 +10450,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "world_terrain_terrain",
-      "confidence_score": 1.0
+      "target": "world_terrain_terrain"
     },
     {
       "relation": "imports",
@@ -10184,9 +10553,9 @@
       "source_file": "world/colliders.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_colliders_ts",
-      "target": "world_colliders_collider",
-      "confidence_score": 1.0
+      "target": "world_colliders_collider"
     },
     {
       "relation": "contains",
@@ -10194,9 +10563,9 @@
       "source_file": "world/colliders.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_colliders_ts",
-      "target": "world_colliders_colliders",
-      "confidence_score": 1.0
+      "target": "world_colliders_colliders"
     },
     {
       "relation": "contains",
@@ -10204,9 +10573,9 @@
       "source_file": "world/colliders.ts",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_colliders_ts",
-      "target": "world_colliders_registercollider",
-      "confidence_score": 1.0
+      "target": "world_colliders_registercollider"
     },
     {
       "relation": "contains",
@@ -10214,8 +10583,19 @@
       "source_file": "world/colliders.ts",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_colliders_ts",
-      "target": "world_colliders_checkcollision",
+      "target": "world_colliders_checkcollision"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "world_features_docealtar_ts",
+      "target": "world_colliders_ts",
       "confidence_score": 1.0
     },
     {
@@ -10225,9 +10605,9 @@
       "source_file": "world/features/pillar.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_pillar_ts",
-      "target": "world_colliders_ts",
-      "confidence_score": 1.0
+      "target": "world_colliders_ts"
     },
     {
       "relation": "imports_from",
@@ -10236,9 +10616,9 @@
       "source_file": "world/features/bonfire.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bonfire_ts",
-      "target": "world_colliders_ts",
-      "confidence_score": 1.0
+      "target": "world_colliders_ts"
     },
     {
       "relation": "contains",
@@ -10306,12 +10686,23 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "world_features_docealtar_ts",
+      "target": "world_colliders_registercollider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "world/features/pillar.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_pillar_ts",
-      "target": "world_colliders_registercollider",
-      "confidence_score": 1.0
+      "target": "world_colliders_registercollider"
     },
     {
       "relation": "imports",
@@ -10320,9 +10711,20 @@
       "source_file": "world/features/bonfire.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bonfire_ts",
-      "target": "world_colliders_registercollider",
-      "confidence_score": 1.0
+      "target": "world_colliders_registercollider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "features_docealtar_docealtar_place",
+      "target": "world_colliders_registercollider"
     },
     {
       "relation": "calls",
@@ -10477,9 +10879,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "imports_from",
@@ -10488,9 +10890,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "utils_rng_ts",
-      "confidence_score": 1.0
+      "target": "utils_rng_ts"
     },
     {
       "relation": "imports",
@@ -10499,9 +10901,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "utils_rng_makeprng",
-      "confidence_score": 1.0
+      "target": "utils_rng_makeprng"
     },
     {
       "relation": "imports",
@@ -10510,9 +10912,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "utils_rng_rand",
-      "confidence_score": 1.0
+      "target": "utils_rng_rand"
     },
     {
       "relation": "imports",
@@ -10521,9 +10923,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "utils_rng_randint",
-      "confidence_score": 1.0
+      "target": "utils_rng_randint"
     },
     {
       "relation": "contains",
@@ -10531,9 +10933,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_rubblemats",
-      "confidence_score": 1.0
+      "target": "world_decay_rubblemats"
     },
     {
       "relation": "contains",
@@ -10541,9 +10943,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_crackmat",
-      "confidence_score": 1.0
+      "target": "world_decay_crackmat"
     },
     {
       "relation": "contains",
@@ -10551,9 +10953,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_stainmat",
-      "confidence_score": 1.0
+      "target": "world_decay_stainmat"
     },
     {
       "relation": "contains",
@@ -10561,9 +10963,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_streakmat",
-      "confidence_score": 1.0
+      "target": "world_decay_streakmat"
     },
     {
       "relation": "contains",
@@ -10571,9 +10973,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_slabmat",
-      "confidence_score": 1.0
+      "target": "world_decay_slabmat"
     },
     {
       "relation": "contains",
@@ -10581,9 +10983,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_decay",
-      "confidence_score": 1.0
+      "target": "world_decay_decay"
     },
     {
       "relation": "contains",
@@ -10591,9 +10993,9 @@
       "source_file": "world/decay.ts",
       "source_location": "L172",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_decay_ts",
-      "target": "world_decay_adddecay",
-      "confidence_score": 1.0
+      "target": "world_decay_adddecay"
     },
     {
       "relation": "contains",
@@ -10972,9 +11374,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "imports_from",
@@ -10983,9 +11385,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_features_torch_ts",
-      "confidence_score": 1.0
+      "target": "world_features_torch_ts"
     },
     {
       "relation": "imports",
@@ -10994,9 +11396,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "features_torch_torch",
-      "confidence_score": 1.0
+      "target": "features_torch_torch"
     },
     {
       "relation": "contains",
@@ -11004,9 +11406,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_corridor_stonemat",
-      "confidence_score": 1.0
+      "target": "world_corridor_stonemat"
     },
     {
       "relation": "contains",
@@ -11014,9 +11416,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_corridor_ceilingmat",
-      "confidence_score": 1.0
+      "target": "world_corridor_ceilingmat"
     },
     {
       "relation": "contains",
@@ -11024,9 +11426,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_corridor_corridor",
-      "confidence_score": 1.0
+      "target": "world_corridor_corridor"
     },
     {
       "relation": "contains",
@@ -11034,9 +11436,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_corridor_addcorridor",
-      "confidence_score": 1.0
+      "target": "world_corridor_addcorridor"
     },
     {
       "relation": "contains",
@@ -11044,9 +11446,9 @@
       "source_file": "world/corridor.ts",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_corridor_ts",
-      "target": "world_corridor_updatetorches",
-      "confidence_score": 1.0
+      "target": "world_corridor_updatetorches"
     },
     {
       "relation": "contains",
@@ -11183,15 +11585,86 @@
       "target": "features_torch_torch"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "world_features_docealtar_ts",
+      "target": "features_docealtar_docealtar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "world_features_docealtar_ts",
+      "target": "features_docealtar_docealtarinstance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "features_docealtar_docealtar",
+      "target": "features_docealtar_docealtar_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "features_docealtar_docealtar",
+      "target": "features_docealtar_docealtar_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "features_docealtar_docealtar",
+      "target": "features_docealtar_docealtar_place",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "features_docealtar_docealtar",
+      "target": "features_docealtar_docealtar_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "world/features/doceAltar.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "features_docealtar_docealtar_constructor",
+      "target": "features_docealtar_docealtar_build",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "world/features/pillar.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_pillar_ts",
-      "target": "utils_types_ts",
-      "confidence_score": 1.0
+      "target": "utils_types_ts"
     },
     {
       "relation": "imports",
@@ -11200,9 +11673,9 @@
       "source_file": "world/features/pillar.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_pillar_ts",
-      "target": "utils_types_basefeature",
-      "confidence_score": 1.0
+      "target": "utils_types_basefeature"
     },
     {
       "relation": "imports_from",
@@ -11211,9 +11684,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "world_features_pillar_ts",
-      "confidence_score": 1.0
+      "target": "world_features_pillar_ts"
     },
     {
       "relation": "imports",
@@ -11222,9 +11695,9 @@
       "source_file": "world/features/pillar.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_pillar_ts",
-      "target": "utils_utils_getheight",
-      "confidence_score": 1.0
+      "target": "utils_utils_getheight"
     },
     {
       "relation": "contains",
@@ -11232,9 +11705,9 @@
       "source_file": "world/features/pillar.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_pillar_ts",
-      "target": "features_pillar_pillar",
-      "confidence_score": 1.0
+      "target": "features_pillar_pillar"
     },
     {
       "relation": "method",
@@ -11273,9 +11746,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "features_pillar_pillar",
-      "confidence_score": 1.0
+      "target": "features_pillar_pillar"
     },
     {
       "relation": "contains",
@@ -11347,9 +11820,9 @@
       "source_file": "world/features/locations.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_locations_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "contains",
@@ -11357,9 +11830,9 @@
       "source_file": "world/features/locations.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_locations_ts",
-      "target": "features_locations_pillar_z_positions",
-      "confidence_score": 1.0
+      "target": "features_locations_pillar_z_positions"
     },
     {
       "relation": "contains",
@@ -11367,9 +11840,9 @@
       "source_file": "world/features/locations.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_locations_ts",
-      "target": "features_locations_pillarlocations",
-      "confidence_score": 1.0
+      "target": "features_locations_pillarlocations"
     },
     {
       "relation": "imports_from",
@@ -11378,9 +11851,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "world_features_locations_ts",
-      "confidence_score": 1.0
+      "target": "world_features_locations_ts"
     },
     {
       "relation": "contains",
@@ -11399,9 +11872,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "features_locations_pillarlocations",
-      "confidence_score": 1.0
+      "target": "features_locations_pillarlocations"
     },
     {
       "relation": "contains",
@@ -11440,9 +11913,9 @@
       "source_file": "world/features/cdTable.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_cdtable_ts",
-      "target": "features_cdtable_woodmat",
-      "confidence_score": 1.0
+      "target": "features_cdtable_woodmat"
     },
     {
       "relation": "contains",
@@ -11450,9 +11923,9 @@
       "source_file": "world/features/cdTable.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_cdtable_ts",
-      "target": "features_cdtable_metalmat",
-      "confidence_score": 1.0
+      "target": "features_cdtable_metalmat"
     },
     {
       "relation": "contains",
@@ -11460,9 +11933,9 @@
       "source_file": "world/features/cdTable.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_cdtable_ts",
-      "target": "features_cdtable_cdsilvermat",
-      "confidence_score": 1.0
+      "target": "features_cdtable_cdsilvermat"
     },
     {
       "relation": "contains",
@@ -11470,9 +11943,9 @@
       "source_file": "world/features/cdTable.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_cdtable_ts",
-      "target": "features_cdtable_case_colors",
-      "confidence_score": 1.0
+      "target": "features_cdtable_case_colors"
     },
     {
       "relation": "contains",
@@ -11480,9 +11953,9 @@
       "source_file": "world/features/cdTable.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_cdtable_ts",
-      "target": "features_cdtable_casemats",
-      "confidence_score": 1.0
+      "target": "features_cdtable_casemats"
     },
     {
       "relation": "contains",
@@ -11490,9 +11963,9 @@
       "source_file": "world/features/cdTable.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_cdtable_ts",
-      "target": "features_cdtable_cdtable",
-      "confidence_score": 1.0
+      "target": "features_cdtable_cdtable"
     },
     {
       "relation": "contains",
@@ -11675,9 +12148,9 @@
       "source_file": "world/features/torch.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_torch_ts",
-      "target": "features_torch_torchflameconfig",
-      "confidence_score": 1.0
+      "target": "features_torch_torchflameconfig"
     },
     {
       "relation": "contains",
@@ -11685,9 +12158,9 @@
       "source_file": "world/features/torch.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_torch_ts",
-      "target": "features_torch_flame_configs",
-      "confidence_score": 1.0
+      "target": "features_torch_flame_configs"
     },
     {
       "relation": "contains",
@@ -11695,9 +12168,9 @@
       "source_file": "world/features/torch.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_torch_ts",
-      "target": "features_torch_torch",
-      "confidence_score": 1.0
+      "target": "features_torch_torch"
     },
     {
       "relation": "contains",
@@ -11828,9 +12301,9 @@
       "source_file": "world/features/painting.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_painting_ts",
-      "target": "utils_types_ts",
-      "confidence_score": 1.0
+      "target": "utils_types_ts"
     },
     {
       "relation": "imports",
@@ -11839,9 +12312,9 @@
       "source_file": "world/features/painting.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_painting_ts",
-      "target": "utils_types_basefeature",
-      "confidence_score": 1.0
+      "target": "utils_types_basefeature"
     },
     {
       "relation": "contains",
@@ -11849,9 +12322,9 @@
       "source_file": "world/features/painting.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_painting_ts",
-      "target": "features_painting_painting",
-      "confidence_score": 1.0
+      "target": "features_painting_painting"
     },
     {
       "relation": "method",
@@ -11931,9 +12404,9 @@
       "source_file": "world/features/bonfire.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bonfire_ts",
-      "target": "features_bonfire_flameconfig",
-      "confidence_score": 1.0
+      "target": "features_bonfire_flameconfig"
     },
     {
       "relation": "contains",
@@ -11941,9 +12414,9 @@
       "source_file": "world/features/bonfire.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bonfire_ts",
-      "target": "features_bonfire_flame_configs",
-      "confidence_score": 1.0
+      "target": "features_bonfire_flame_configs"
     },
     {
       "relation": "contains",
@@ -11951,9 +12424,9 @@
       "source_file": "world/features/bonfire.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bonfire_ts",
-      "target": "features_bonfire_bonfire",
-      "confidence_score": 1.0
+      "target": "features_bonfire_bonfire"
     },
     {
       "relation": "contains",
@@ -11961,9 +12434,9 @@
       "source_file": "world/features/bonfire.ts",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bonfire_ts",
-      "target": "features_bonfire_bonfireinstance",
-      "confidence_score": 1.0
+      "target": "features_bonfire_bonfireinstance"
     },
     {
       "relation": "contains",
@@ -12063,9 +12536,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "utils_rng_ts",
-      "confidence_score": 1.0
+      "target": "utils_rng_ts"
     },
     {
       "relation": "imports",
@@ -12074,9 +12547,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "utils_rng_makeprng",
-      "confidence_score": 1.0
+      "target": "utils_rng_makeprng"
     },
     {
       "relation": "imports",
@@ -12085,9 +12558,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "utils_rng_rand",
-      "confidence_score": 1.0
+      "target": "utils_rng_rand"
     },
     {
       "relation": "imports",
@@ -12096,9 +12569,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "utils_rng_randint",
-      "confidence_score": 1.0
+      "target": "utils_rng_randint"
     },
     {
       "relation": "contains",
@@ -12106,9 +12579,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "features_bookshelf_woodmat",
-      "confidence_score": 1.0
+      "target": "features_bookshelf_woodmat"
     },
     {
       "relation": "contains",
@@ -12116,9 +12589,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "features_bookshelf_shelfmat",
-      "confidence_score": 1.0
+      "target": "features_bookshelf_shelfmat"
     },
     {
       "relation": "contains",
@@ -12126,9 +12599,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "features_bookshelf_book_colors",
-      "confidence_score": 1.0
+      "target": "features_bookshelf_book_colors"
     },
     {
       "relation": "contains",
@@ -12136,9 +12609,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "features_bookshelf_bookmats",
-      "confidence_score": 1.0
+      "target": "features_bookshelf_bookmats"
     },
     {
       "relation": "contains",
@@ -12146,9 +12619,9 @@
       "source_file": "world/features/bookshelf.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_features_bookshelf_ts",
-      "target": "features_bookshelf_bookshelf",
-      "confidence_score": 1.0
+      "target": "features_bookshelf_bookshelf"
     },
     {
       "relation": "contains",
@@ -12344,9 +12817,9 @@
       "source_file": "world/__tests__/cameraBlockers.test.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_tests_camerablockers_test_ts",
-      "target": "tests_camerablockers_test_mesh",
-      "confidence_score": 1.0
+      "target": "tests_camerablockers_test_mesh"
     },
     {
       "relation": "contains",
@@ -12354,9 +12827,9 @@
       "source_file": "world/__tests__/cameraBlockers.test.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_tests_camerablockers_test_ts",
-      "target": "tests_camerablockers_test_a",
-      "confidence_score": 1.0
+      "target": "tests_camerablockers_test_a"
     },
     {
       "relation": "contains",
@@ -12364,9 +12837,9 @@
       "source_file": "world/__tests__/cameraBlockers.test.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_tests_camerablockers_test_ts",
-      "target": "tests_camerablockers_test_b",
-      "confidence_score": 1.0
+      "target": "tests_camerablockers_test_b"
     },
     {
       "relation": "contains",
@@ -12374,9 +12847,9 @@
       "source_file": "world/__tests__/cameraBlockers.test.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_tests_camerablockers_test_ts",
-      "target": "tests_camerablockers_test_c",
-      "confidence_score": 1.0
+      "target": "tests_camerablockers_test_c"
     },
     {
       "relation": "contains",
@@ -12424,9 +12897,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "utils_utils_raycaster",
-      "confidence_score": 1.0
+      "target": "utils_utils_raycaster"
     },
     {
       "relation": "contains",
@@ -12434,9 +12907,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "utils_utils_downdir",
-      "confidence_score": 1.0
+      "target": "utils_utils_downdir"
     },
     {
       "relation": "contains",
@@ -12444,9 +12917,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "utils_utils_rayorigin",
-      "confidence_score": 1.0
+      "target": "utils_utils_rayorigin"
     },
     {
       "relation": "contains",
@@ -12454,9 +12927,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "utils_utils_getheight",
-      "confidence_score": 1.0
+      "target": "utils_utils_getheight"
     },
     {
       "relation": "contains",
@@ -12464,9 +12937,9 @@
       "source_file": "utils/utils.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_utils_ts",
-      "target": "utils_utils_addscenery",
-      "confidence_score": 1.0
+      "target": "utils_utils_addscenery"
     },
     {
       "relation": "contains",
@@ -12557,9 +13030,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "utils_api_status_colors",
-      "confidence_score": 1.0
+      "target": "utils_api_status_colors"
     },
     {
       "relation": "contains",
@@ -12567,9 +13040,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "utils_api_lambdapost",
-      "confidence_score": 1.0
+      "target": "utils_api_lambdapost"
     },
     {
       "relation": "contains",
@@ -12577,9 +13050,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "utils_api_fetchanimelist",
-      "confidence_score": 1.0
+      "target": "utils_api_fetchanimelist"
     },
     {
       "relation": "contains",
@@ -12587,9 +13060,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "utils_api_fetchbooklist",
-      "confidence_score": 1.0
+      "target": "utils_api_fetchbooklist"
     },
     {
       "relation": "contains",
@@ -12597,9 +13070,9 @@
       "source_file": "utils/api.ts",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_api_ts",
-      "target": "utils_api_fetchmangalist",
-      "confidence_score": 1.0
+      "target": "utils_api_fetchmangalist"
     },
     {
       "relation": "contains",
@@ -12805,9 +13278,9 @@
       "source_file": "utils/types.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_types_ts",
-      "target": "utils_types_basefeature",
-      "confidence_score": 1.0
+      "target": "utils_types_basefeature"
     },
     {
       "relation": "method",
@@ -12857,9 +13330,9 @@
       "source_file": "utils/constants.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_constants_ts",
-      "target": "utils_constants_camera_yaw",
-      "confidence_score": 1.0
+      "target": "utils_constants_camera_yaw"
     },
     {
       "relation": "contains",
@@ -12867,9 +13340,9 @@
       "source_file": "utils/constants.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_constants_ts",
-      "target": "utils_constants_camera_pitch",
-      "confidence_score": 1.0
+      "target": "utils_constants_camera_pitch"
     },
     {
       "relation": "imports_from",
@@ -12878,9 +13351,9 @@
       "source_file": "controls/camera.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_camera_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "imports_from",
@@ -12889,9 +13362,9 @@
       "source_file": "characters/player.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_player_ts",
-      "target": "utils_constants_ts",
-      "confidence_score": 1.0
+      "target": "utils_constants_ts"
     },
     {
       "relation": "imports",
@@ -12900,9 +13373,9 @@
       "source_file": "controls/camera.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_camera_ts",
-      "target": "utils_constants_camera_yaw",
-      "confidence_score": 1.0
+      "target": "utils_constants_camera_yaw"
     },
     {
       "relation": "imports",
@@ -12943,9 +13416,9 @@
       "source_file": "controls/camera.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_camera_ts",
-      "target": "utils_constants_camera_pitch",
-      "confidence_score": 1.0
+      "target": "utils_constants_camera_pitch"
     },
     {
       "relation": "imports",
@@ -12985,9 +13458,9 @@
       "source_file": "utils/rng.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_rng_ts",
-      "target": "utils_rng_makeprng",
-      "confidence_score": 1.0
+      "target": "utils_rng_makeprng"
     },
     {
       "relation": "contains",
@@ -12995,9 +13468,9 @@
       "source_file": "utils/rng.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_rng_ts",
-      "target": "utils_rng_rand",
-      "confidence_score": 1.0
+      "target": "utils_rng_rand"
     },
     {
       "relation": "contains",
@@ -13005,9 +13478,9 @@
       "source_file": "utils/rng.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_rng_ts",
-      "target": "utils_rng_randint",
-      "confidence_score": 1.0
+      "target": "utils_rng_randint"
     },
     {
       "relation": "imports",
@@ -13132,9 +13605,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports_from",
@@ -13143,9 +13616,9 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_startscreen_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports_from",
@@ -13154,9 +13627,9 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_touchcontrols_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "imports_from",
@@ -13165,9 +13638,9 @@
       "source_file": "hud/controls.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_controls_ts",
-      "target": "utils_device_ts",
-      "confidence_score": 1.0
+      "target": "utils_device_ts"
     },
     {
       "relation": "contains",
@@ -13175,9 +13648,9 @@
       "source_file": "controls/camera.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_camera_ts",
-      "target": "controls_camera_setorbitblocked",
-      "confidence_score": 1.0
+      "target": "controls_camera_setorbitblocked"
     },
     {
       "relation": "contains",
@@ -13185,9 +13658,9 @@
       "source_file": "controls/camera.ts",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_camera_ts",
-      "target": "controls_camera_ondrag",
-      "confidence_score": 1.0
+      "target": "controls_camera_ondrag"
     },
     {
       "relation": "contains",
@@ -13245,9 +13718,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_keys",
-      "confidence_score": 1.0
+      "target": "controls_user_keys"
     },
     {
       "relation": "contains",
@@ -13255,9 +13728,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_getmovement",
-      "confidence_score": 1.0
+      "target": "controls_user_getmovement"
     },
     {
       "relation": "contains",
@@ -13265,9 +13738,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_getinteractpressed",
-      "confidence_score": 1.0
+      "target": "controls_user_getinteractpressed"
     },
     {
       "relation": "contains",
@@ -13275,9 +13748,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_setinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_setinputblocked"
     },
     {
       "relation": "contains",
@@ -13285,9 +13758,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_isinputblocked",
-      "confidence_score": 1.0
+      "target": "controls_user_isinputblocked"
     },
     {
       "relation": "contains",
@@ -13295,9 +13768,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_settouchmovement",
-      "confidence_score": 1.0
+      "target": "controls_user_settouchmovement"
     },
     {
       "relation": "contains",
@@ -13305,9 +13778,9 @@
       "source_file": "controls/user.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_user_ts",
-      "target": "controls_user_triggertouchinteract",
-      "confidence_score": 1.0
+      "target": "controls_user_triggertouchinteract"
     },
     {
       "relation": "imports_from",
@@ -13316,9 +13789,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "controls_user_ts",
-      "confidence_score": 1.0
+      "target": "controls_user_ts"
     },
     {
       "relation": "imports_from",
@@ -13327,9 +13800,9 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_touchcontrols_ts",
-      "target": "controls_user_ts",
-      "confidence_score": 1.0
+      "target": "controls_user_ts"
     },
     {
       "relation": "contains",
@@ -13513,9 +13986,9 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_touchcontrols_ts",
-      "target": "controls_user_settouchmovement",
-      "confidence_score": 1.0
+      "target": "controls_user_settouchmovement"
     },
     {
       "relation": "calls",
@@ -13577,9 +14050,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "controls_user_triggertouchinteract",
-      "confidence_score": 1.0
+      "target": "controls_user_triggertouchinteract"
     },
     {
       "relation": "contains",
@@ -13618,9 +14091,9 @@
       "source_file": "controls/__tests__/user.test.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_tests_user_test_ts",
-      "target": "tests_user_test_all_keys",
-      "confidence_score": 1.0
+      "target": "tests_user_test_all_keys"
     },
     {
       "relation": "contains",
@@ -13628,9 +14101,9 @@
       "source_file": "controls/__tests__/user.test.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_tests_user_test_ts",
-      "target": "tests_user_test_press",
-      "confidence_score": 1.0
+      "target": "tests_user_test_press"
     },
     {
       "relation": "contains",
@@ -13638,9 +14111,9 @@
       "source_file": "controls/__tests__/user.test.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controls_tests_user_test_ts",
-      "target": "tests_user_test_release",
-      "confidence_score": 1.0
+      "target": "tests_user_test_release"
     },
     {
       "relation": "contains",
@@ -13678,9 +14151,9 @@
       "source_file": "characters/player.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_player_ts",
-      "target": "characters_player_armgeo",
-      "confidence_score": 1.0
+      "target": "characters_player_armgeo"
     },
     {
       "relation": "contains",
@@ -13688,9 +14161,9 @@
       "source_file": "characters/player.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_player_ts",
-      "target": "characters_player_leggeo",
-      "confidence_score": 1.0
+      "target": "characters_player_leggeo"
     },
     {
       "relation": "contains",
@@ -13698,9 +14171,9 @@
       "source_file": "characters/player.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_player_ts",
-      "target": "characters_player_player",
-      "confidence_score": 1.0
+      "target": "characters_player_player"
     },
     {
       "relation": "contains",
@@ -13708,9 +14181,9 @@
       "source_file": "characters/player.ts",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_player_ts",
-      "target": "characters_player_sw",
-      "confidence_score": 1.0
+      "target": "characters_player_sw"
     },
     {
       "relation": "contains",
@@ -13718,9 +14191,9 @@
       "source_file": "characters/player.ts",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_player_ts",
-      "target": "characters_player_playerinstance",
-      "confidence_score": 1.0
+      "target": "characters_player_playerinstance"
     },
     {
       "relation": "contains",
@@ -13955,9 +14428,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -13965,9 +14438,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "hud_prompt_prompt",
-      "confidence_score": 1.0
+      "target": "hud_prompt_prompt"
     },
     {
       "relation": "contains",
@@ -13975,9 +14448,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "hud_prompt_blocktouchbtn",
-      "confidence_score": 1.0
+      "target": "hud_prompt_blocktouchbtn"
     },
     {
       "relation": "contains",
@@ -13985,9 +14458,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "hud_prompt_showprompt",
-      "confidence_score": 1.0
+      "target": "hud_prompt_showprompt"
     },
     {
       "relation": "contains",
@@ -13995,9 +14468,9 @@
       "source_file": "hud/prompt.ts",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_prompt_ts",
-      "target": "hud_prompt_hideprompt",
-      "confidence_score": 1.0
+      "target": "hud_prompt_hideprompt"
     },
     {
       "relation": "method",
@@ -14233,9 +14706,9 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_startscreen_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -14243,9 +14716,9 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_startscreen_ts",
-      "target": "hud_startscreen_startscreen",
-      "confidence_score": 1.0
+      "target": "hud_startscreen_startscreen"
     },
     {
       "relation": "contains",
@@ -14253,9 +14726,9 @@
       "source_file": "hud/startScreen.ts",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_startscreen_ts",
-      "target": "hud_startscreen_showstartscreen",
-      "confidence_score": 1.0
+      "target": "hud_startscreen_showstartscreen"
     },
     {
       "relation": "method",
@@ -14387,9 +14860,9 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_touchcontrols_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -14397,9 +14870,9 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_touchcontrols_ts",
-      "target": "hud_touchcontrols_touchcontrols",
-      "confidence_score": 1.0
+      "target": "hud_touchcontrols_touchcontrols"
     },
     {
       "relation": "contains",
@@ -14407,9 +14880,9 @@
       "source_file": "hud/touchControls.ts",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_touchcontrols_ts",
-      "target": "hud_touchcontrols_settouchjoystickvisible",
-      "confidence_score": 1.0
+      "target": "hud_touchcontrols_settouchjoystickvisible"
     },
     {
       "relation": "method",
@@ -14551,9 +15024,9 @@
       "source_file": "hud/controls.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_controls_ts",
-      "target": "utils_device_istouchdevice",
-      "confidence_score": 1.0
+      "target": "utils_device_istouchdevice"
     },
     {
       "relation": "contains",
@@ -14561,9 +15034,9 @@
       "source_file": "hud/controls.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_controls_ts",
-      "target": "hud_controls_controls",
-      "confidence_score": 1.0
+      "target": "hud_controls_controls"
     },
     {
       "relation": "contains",
@@ -14571,9 +15044,9 @@
       "source_file": "hud/controls.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_controls_ts",
-      "target": "hud_controls_hidecontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_hidecontrols"
     },
     {
       "relation": "contains",
@@ -14581,9 +15054,9 @@
       "source_file": "hud/controls.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hud_controls_ts",
-      "target": "hud_controls_showcontrols",
-      "confidence_score": 1.0
+      "target": "hud_controls_showcontrols"
     },
     {
       "relation": "method",
@@ -14735,9 +15208,9 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_md",
-      "target": "src_readme_website",
-      "confidence_score": 1.0
+      "target": "src_readme_website"
     },
     {
       "relation": "contains",
@@ -14745,9 +15218,9 @@
       "source_file": "README.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_website",
-      "target": "src_readme_recommended_ide_setup",
-      "confidence_score": 1.0
+      "target": "src_readme_recommended_ide_setup"
     },
     {
       "relation": "contains",
@@ -14755,9 +15228,9 @@
       "source_file": "README.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_website",
-      "target": "src_readme_customize_configuration",
-      "confidence_score": 1.0
+      "target": "src_readme_customize_configuration"
     },
     {
       "relation": "contains",
@@ -14765,9 +15238,9 @@
       "source_file": "README.md",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_website",
-      "target": "src_readme_project_setup",
-      "confidence_score": 1.0
+      "target": "src_readme_project_setup"
     },
     {
       "relation": "contains",
@@ -14775,9 +15248,9 @@
       "source_file": "README.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_project_setup",
-      "target": "src_readme_codeblock_1",
-      "confidence_score": 1.0
+      "target": "src_readme_codeblock_1"
     },
     {
       "relation": "contains",
@@ -14785,9 +15258,9 @@
       "source_file": "README.md",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_project_setup",
-      "target": "src_readme_compile_and_hot_reload_for_development",
-      "confidence_score": 1.0
+      "target": "src_readme_compile_and_hot_reload_for_development"
     },
     {
       "relation": "contains",
@@ -14795,9 +15268,9 @@
       "source_file": "README.md",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_project_setup",
-      "target": "src_readme_compile_and_minify_for_production",
-      "confidence_score": 1.0
+      "target": "src_readme_compile_and_minify_for_production"
     },
     {
       "relation": "contains",
@@ -14805,9 +15278,9 @@
       "source_file": "README.md",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_compile_and_hot_reload_for_development",
-      "target": "src_readme_codeblock_2",
-      "confidence_score": 1.0
+      "target": "src_readme_codeblock_2"
     },
     {
       "relation": "contains",
@@ -14815,9 +15288,9 @@
       "source_file": "README.md",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_readme_compile_and_minify_for_production",
-      "target": "src_readme_codeblock_3",
-      "confidence_score": 1.0
+      "target": "src_readme_codeblock_3"
     },
     {
       "relation": "contains",
@@ -17236,5 +17709,5 @@
       "source_file": "src/assets/resume/christianbjerre-fernandes.pdf"
     }
   ],
-  "built_at_commit": "e8eafc9bb27f23363cb4d50d5fbfb35c5f8ba934"
+  "built_at_commit": "139a29d5b73f11736d48ab86c761e34cb3ba4655"
 }
